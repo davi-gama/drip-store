@@ -1,0 +1,5 @@
+@import "../../App.css";
+
+h3 {
+  color: var(--secondary);
+}
