@@ -1,5 +1,66 @@
 @import "../../App.css";
 
-h3 {
-  color: var(--secondary);
+footer {
+  padding: 0 5rem;
+  height: 454px;
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+footer .footerWrapper {
+  padding: 4rem 0 0 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer h4 {
+  margin-bottom: 2rem;
+}
+
+footer p,
+address {
+  line-height: 26px;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer li {
+  line-height: 38px;
+}
+
+footer .descricao {
+  width: 20rem;
+}
+
+footer .descricao p {
+  margin: 2rem 0;
+}
+
+footer .social-icons {
+  display: flex;
+  gap: 2rem;
+}
+
+footer .info-categorias {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+footer .contato {
+  width: 15rem;
+}
+
+footer .contato address {
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+
+footer .copyright {
+  margin: 2rem 0;
+  text-align: center;
 }

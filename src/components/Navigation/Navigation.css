@@ -1,0 +1,28 @@
+@import "../../App.css";
+
+nav {
+  margin-top: 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li a {
+  color: var(--dark-grey-2);
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.5rem;
+}
