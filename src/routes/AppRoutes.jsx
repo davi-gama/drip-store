@@ -10,5 +10,9 @@ export function AppRoutes() {
       <Route path="/productlist" element={<ProductListingPage />} />
       <Route path="/product" element={<ProductViewPage />} />
     </Routes>
+
+    
+
+
   );
 }

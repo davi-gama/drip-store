@@ -1,0 +1,33 @@
+@import '../../App.css';
+
+.produto-Informacoes{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 800px 750px ;
+    grid-gap:1rem;
+}
+
+.produtoImagem{
+    max-width: 700px;
+    max-height: 570px;
+    margin-left: 5rem;
+    background-color: var(--secondary);
+}
+
+.produtoImagem img{
+    width: 700px;
+    height: 570px;
+    margin-left: -2rem;
+}
+
+.informacoes{
+    text-align: center;
+    font-size: 2rem;
+
+}
