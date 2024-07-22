@@ -1,0 +1,5 @@
+@import "./ProductListingPage.css";
+
+.produtos {
+  display: flex;
+}

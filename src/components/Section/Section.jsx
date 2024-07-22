@@ -1,5 +1,3 @@
-import "./Section.css";
-
 function linkRender(link) {
   if (link != undefined) {
     return link.map((item, index) => (

@@ -4,7 +4,7 @@ export function ProductCard({ image, name, price, priceDiscount }) {
   return (
     <>
       <div className="Card">
-        <div className="div-img">
+        <div className="CardImg">
           <img src={image} alt="Produto" />
         </div>
         <div className="infoProduto">
