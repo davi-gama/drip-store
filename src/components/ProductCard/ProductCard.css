@@ -1,34 +1,28 @@
 @import "../../App.css";
 
 .Card {
-    width: 292px;
-    height: 439px;
-    padding: 10px;
-    font-size: 24px;
+  width: 292px;
+  height: 439px;
+  padding: 10px;
+  font-size: 24px;
 }
 
 .Card img {
-    width: 100%;
-    height: 321px;
+  width: 100%;
+  height: 321px;
 }
 
 .titulo {
-    color: var(--dark-gray-2);   
-    margin-bottom: 10px;  
+  color: var(--dark-gray-2);
+  margin-bottom: 10px;
 }
 
-.preco { 
-    color: var(--dark-gray);
-
+.preco {
+  color: var(--dark-gray);
 }
 
 .precoOriginal {
-    color: var(--light-gray);
-    text-decoration: line-through;
-    padding-right: 10px;
+  color: var(--light-gray);
+  text-decoration: line-through;
+  padding-right: 10px;
 }
-
-
-
-
-
