@@ -2,12 +2,11 @@
 
 footer {
   padding: 0 5rem;
-  height: 454px;
   background-color: var(--dark-gray);
   color: var(--white);
 }
 
-footer .footerWrapper {
+footer .footer-wrapper {
   padding: 4rem 0 0 0;
   margin-bottom: 2rem;
   display: flex;
@@ -61,6 +60,6 @@ footer .contato address {
 }
 
 footer .copyright {
-  margin: 2rem 0;
+  padding: 2rem;
   text-align: center;
 }

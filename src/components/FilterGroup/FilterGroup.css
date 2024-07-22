@@ -1,0 +1,26 @@
+@import "../../App.css";
+
+.filter-group {
+  background-color: var(--white);
+  width: 250px;
+}
+
+.filter-group h3 {
+  font-size: 14px;
+  color: var(--dark-gray-2);
+  margin: 1rem 0;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray-2);
+}
+
+.filter-option input {
+  width: 22px;
+  height: 22px;
+  margin-right: 0.5rem;
+  accent-color: var(--primary);
+}

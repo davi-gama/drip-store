@@ -1,14 +1,11 @@
 @import "../../App.css";
 
-header svg path {
-  fill: var(--primary);
-}
-
 header {
   padding: 2rem 5rem;
+  background-color: var(--white);
 }
 
-.headerWrapper {
+header .header-wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -20,7 +17,7 @@ header .logo {
   align-items: center;
 }
 
-header #pesquisa {
+header .pesquisa {
   background-color: var(--light-gray-3);
   display: flex;
   width: 559px;
@@ -29,7 +26,7 @@ header #pesquisa {
   padding: 0 1rem;
 }
 
-header #pesquisa input {
+header .pesquisa input {
   height: 60px;
   width: 100%;
   outline: none;
@@ -37,7 +34,7 @@ header #pesquisa input {
   background: transparent;
 }
 
-header #pesquisa button {
+header .pesquisa button {
   margin: 0 1rem;
   width: 10px;
   background: transparent;

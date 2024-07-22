@@ -7,11 +7,11 @@ import "./Header.css";
 export function Header() {
   return (
     <header>
-      <div className="headerWrapper">
+      <div className="header-wrapper">
         <div className="logo">
-          <Logo />
+          <Logo color={"var(--primary)"} />
         </div>
-        <form id="pesquisa">
+        <form name="pesquisa" className="pesquisa">
           <input type="text" placeholder="Pesquisar produto..." />
           <button>
             <img src={search} alt="" />

@@ -1,0 +1,23 @@
+.swiper-button-prev {
+  color: transparent;
+  background-image: url("../../assets/arrow-left.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.slide-item {
+  width: 100%;
+}
+
+.swiper-button-next {
+  color: transparent;
+  background-image: url("../../assets/arrow-right.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary);
+}
