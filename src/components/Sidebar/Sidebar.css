@@ -4,7 +4,8 @@
   width: 280px;
   background-color: var(--white);
   padding: 1rem;
-  margin: 0 5rem;
+  margin: 0 1rem 0 5rem;
+  max-height: 680px;
 }
 
 .sidebar h2 {

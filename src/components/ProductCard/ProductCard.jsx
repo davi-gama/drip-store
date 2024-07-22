@@ -4,7 +4,9 @@ export function ProductCard({ image, name, price, priceDiscount }) {
   return (
     <>
       <div className="Card">
-        <img src={image} alt="Produto" />
+        <div className="CardImg">
+          <img src={image} alt="Produto" />
+        </div>
         <div className="infoProduto">
           <p className="titulo">{name}</p>
           {priceDiscount ? (

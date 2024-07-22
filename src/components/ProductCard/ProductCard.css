@@ -4,8 +4,16 @@
   max-width: 293px;
 }
 
-.Card img {
+.Card .CardImg {
+  display: flex;
+  height: 301px;
   background-color: var(--white);
+  align-items: center;
+  border-radius: 4px;
+}
+
+.Card img {
+  max-width: 293px;
   border-radius: 4px;
   margin-bottom: 1rem;
 }

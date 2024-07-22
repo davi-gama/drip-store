@@ -23,6 +23,26 @@ export function HomePage() {
   return (
     <>
       <Header />
+      <Section children={<Gallery images={images} navigation={false} />} />
+
+      <Section
+        titleAlign="left"
+        title="Coleções em destaque"
+        children={<SectionOffers />}
+      />
+
+      <Section
+        titleAlign="center"
+        title="Coleções em destaque"
+        children={<SectionFeatured />}
+      />
+      <Section
+        titleAlign="left"
+        title="Produtos em alta"
+        children={<SectionTrending />}
+      />
+      <Section children={<SectionSpecialOffer />} />
+
       <Footer />
     </>
   );
