@@ -1,0 +1,19 @@
+@import "../../App.css";
+
+.sidebar {
+  width: 280px;
+  background-color: var(--white);
+  padding: 1rem;
+  margin: 0 5rem;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  color: var(--dark-gray-2);
+}
+
+.sidebar hr {
+  border: 0;
+  margin: 1rem 0;
+  border-top: 1px solid var(--light-gray-2);
+}

@@ -1,21 +1,28 @@
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
-import { Card } from "../../components/ProductCard/ProductCard";
-import { List } from "../../components/ProductList/ProductList";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { Section } from "../../components/Section/Section";
+import { SectionOffers } from "../../components/SectionOffers/SectionOffers";
+import { SectionFeatured } from "../../components/SectionFeatured/SectionFeatured";
+import { SectionSpecialOffer } from "../../components/SectionSpecialOffer/SectionSpecialOffer";
+import { SectionTrending } from "../../components/SectionTrending/SectionTrending";
+
+import "./HomePage.css";
+
+const images = [
+  { src: "/home-slide-1.jpeg" },
+  { src: "/home-slide-2.jpeg" },
+  { src: "/home-slide-3.jpeg" },
+];
+
+const produtosLink = [
+  { text: "Ver todos", href: "http://localhost:5173/productList" },
+];
 
 export function HomePage() {
   return (
     <>
       <Header />
-      <Card
-        name={"K-Swiss V8 - Masculino"}
-        image={
-          "https://www.leveshoes.com.br/wp-content/uploads/2022/07/IMG-20220727-WA0029.jpg"
-        }
-        price={"$200"}
-        priceDiscount={"$100"}
-      />
-
       <Footer />
     </>
   );

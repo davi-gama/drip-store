@@ -8,9 +8,9 @@ export function Footer() {
   return (
     <>
       <footer>
-        <div className="footerWrapper">
+        <div className="footer-wrapper">
           <div className="descricao">
-            <Logo />
+            <Logo color={"var(--white)"} />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
               atque?

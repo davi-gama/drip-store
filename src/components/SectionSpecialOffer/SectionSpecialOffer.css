@@ -1,0 +1,52 @@
+@import "../../App.css";
+
+.oferta-especial {
+  max-width: 1220px;
+}
+
+.oferta-especial .foto {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.oferta-especial .foto img {
+  height: 500px;
+  width: 600px;
+}
+
+.oferta-especial .col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.oferta-especial .col h1 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.oferta-especial .col h3 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark-gray-2);
+}
+
+.oferta-especial .col p {
+  color: var(--dark-gray-2);
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  font-weight: 400;
+}
+
+.oferta-especial .col button {
+  width: 200px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+}

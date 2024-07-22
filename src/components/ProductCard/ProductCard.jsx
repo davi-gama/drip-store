@@ -1,7 +1,6 @@
-import { ProductViewPage } from "../../pages/ProductViewPage/ProductViewPage";
 import "./ProductCard.css";
 
-export const Card = ({ image, name, price, priceDiscount }) => {
+export function ProductCard({ image, name, price, priceDiscount }) {
   return (
     <>
       <div className="Card">
@@ -20,9 +19,4 @@ export const Card = ({ image, name, price, priceDiscount }) => {
       </div>
     </>
   );
-};
-
-/* <p className="preco precoProduto">
-{preco}{" "}
-<span className="preco precoDesconto">{produtoDesconto}</span>
-</p> */
+}

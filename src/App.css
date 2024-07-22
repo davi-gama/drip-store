@@ -25,3 +25,7 @@
   --light-gray-3: #f5f5f5;
   --white: #ffffff;
 }
+
+body {
+  background-color: var(--light-gray-3);
+}
