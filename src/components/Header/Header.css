@@ -68,6 +68,12 @@ header .redirect button {
   font-size: 14px;
   cursor: pointer;
   margin-right: 1rem;
+  transition: 0.2s;
+}
+
+header .redirect button:hover {
+  background-color: var(--dark-gray-2);
+  transition: 0.2s;
 }
 
 header .carrinho {

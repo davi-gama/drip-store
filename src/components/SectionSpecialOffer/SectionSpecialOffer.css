@@ -1,7 +1,8 @@
 @import "../../App.css";
 
 .oferta-especial {
-  max-width: 1220px;
+  padding: 5rem 2rem;
+  background-color: var(--white);
 }
 
 .oferta-especial .foto {
@@ -11,14 +12,14 @@
 }
 
 .oferta-especial .foto img {
-  height: 500px;
-  width: 600px;
+  height: 400px;
+  width: 500px;
 }
 
 .oferta-especial .col {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .oferta-especial .col h1 {
@@ -38,6 +39,7 @@
   font-size: 16px;
   letter-spacing: 1.2px;
   font-weight: 400;
+  padding-right: 5rem;
 }
 
 .oferta-especial .col button {
@@ -49,4 +51,11 @@
   font-size: 14px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.oferta-especial .col button:hover {
+  background-color: var(--dark-gray-2);
+  transition: 0.2s;
 }
