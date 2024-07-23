@@ -4,7 +4,7 @@
 
 .CardImg {
   display: flex;
-  width: 292px;
+  max-width: 292px;
   height: 321px;
   align-items: center;
   border-radius: 4px;

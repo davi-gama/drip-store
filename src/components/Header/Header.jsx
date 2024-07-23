@@ -11,7 +11,7 @@ export function Header() {
     <header>
       <div className="header-wrapper">
         <div className="logo">
-          <Logo color={"var(--primary)"} />
+          <Logo fill="var(--primary)" />
         </div>
         <form>
           <input type="text" id="pesquisa" placeholder="Pesquisar produto..." />

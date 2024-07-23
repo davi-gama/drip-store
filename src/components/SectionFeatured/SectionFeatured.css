@@ -11,6 +11,12 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
+  color: #8f8f8f;
+  cursor: pointer;
+}
+
+.icone:hover {
+  color: var(--primary);
 }
 
 .icone h3 {
