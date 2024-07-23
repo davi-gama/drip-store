@@ -1,13 +1,10 @@
-@import "../../App.css";
-
 .section-trending {
   margin-bottom: 10rem;
 }
 
-.section-trending .row-1,
-.row-2 {
+.section-trending .row {
   display: flex;
   flex-direction: row;
-  gap: 2.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }

@@ -1,22 +1,15 @@
-@import "../../App.css";
-
-.container2 {
-  display: grid;
-  grid-template-columns: 900px;
-  justify-content: center;
-  text-align: center;
-}
-
-.col-1 {
+.colecoes {
   display: flex;
-  justify-content: space-around;
+  gap: 5rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 .icone {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
   align-items: center;
+  gap: 1rem;
   padding: 1rem;
 }
 

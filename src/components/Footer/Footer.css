@@ -1,17 +1,17 @@
-@import "../../App.css";
-
 footer {
-  padding: 0 5rem;
+  padding: 0 4rem;
   background-color: var(--dark-gray);
   color: var(--white);
+  
 }
 
 footer .footer-wrapper {
   padding: 4rem 0 0 0;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto 2rem;
 }
 
 footer h4 {

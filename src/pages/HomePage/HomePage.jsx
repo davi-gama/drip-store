@@ -1,12 +1,10 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
+import { Layout } from "../../components/Layout/Layout";
 import { Gallery } from "../../components/Gallery/Gallery";
 import { Section } from "../../components/Section/Section";
 import { SectionOffers } from "../../components/SectionOffers/SectionOffers";
 import { SectionFeatured } from "../../components/SectionFeatured/SectionFeatured";
 import { SectionSpecialOffer } from "../../components/SectionSpecialOffer/SectionSpecialOffer";
 import { SectionTrending } from "../../components/SectionTrending/SectionTrending";
-
 import "./HomePage.css";
 
 const images = [
@@ -16,37 +14,38 @@ const images = [
 ];
 
 const produtosLink = [
-  { text: "Ver todos", href: "http://localhost:5173/productList" },
+  { text: "Ver todos →", href: "http://localhost:5173/productList" },
 ];
 
 export function HomePage() {
   return (
-    <>
-      <Header />
+    <Layout
+      children={
+        <div className="home-page-wrapper">
+          <Gallery images={images} navigation={false} />
 
-      <Gallery images={images} navigation={false} />
+          <Section
+            titleAlign="left"
+            title="Coleções em destaque"
+            children={<SectionOffers />}
+          />
 
-      <Section
-        titleAlign="left"
-        title="Coleções em destaque"
-        children={<SectionOffers />}
-      />
+          <Section
+            titleAlign="center"
+            title="Coleções em destaque"
+            children={<SectionFeatured />}
+          />
 
-      <Section
-        titleAlign="center"
-        title="Coleções em destaque"
-        children={<SectionFeatured />}
-      />
+          <Section
+            titleAlign="left"
+            link={produtosLink}
+            title="Produtos em alta"
+            children={<SectionTrending />}
+          />
 
-      <Section
-        titleAlign="left"
-        title="Produtos em alta"
-        children={<SectionTrending />}
-      />
-
-      <SectionSpecialOffer />
-
-      <Footer />
-    </>
+          <SectionSpecialOffer />
+        </div>
+      }
+    />
   );
 }

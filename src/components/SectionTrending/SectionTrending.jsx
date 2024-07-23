@@ -5,7 +5,7 @@ import sneaker from "/sneaker-card.png";
 export function SectionTrending() {
   return (
     <section className="section-trending">
-      <div className="row-1">
+      <div className="row">
         <ProductCard
           name={"K-Swiss V8 - Masculino"}
           image={sneaker}
@@ -34,7 +34,7 @@ export function SectionTrending() {
           priceDiscount={"$100"}
         />
       </div>
-      <div className="row-2">
+      <div className="row">
         <ProductCard
           name={"K-Swiss V8 - Masculino"}
           image={sneaker}

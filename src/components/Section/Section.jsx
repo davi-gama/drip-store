@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
+import "./Section.css";
+
 function linkRender(link) {
   if (link != undefined) {
     return link.map((item, index) => (
-      <a key={index} href={item.href}>
+      <Link key={index} to={item.href}>
         {item.text}
-      </a>
+      </Link>
     ));
   }
 }

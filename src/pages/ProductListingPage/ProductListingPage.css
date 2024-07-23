@@ -1,5 +1,11 @@
-@import "./ProductListingPage.css";
+@import "../../App.css";
+
+.product-listing-page-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
 
 .produtos {
   display: flex;
+  gap: 1rem;
 }

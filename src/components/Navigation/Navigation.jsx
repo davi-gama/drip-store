@@ -12,10 +12,10 @@ export function Navigation() {
           <Link to="/productlist">Produtos</Link>
         </li>
         <li>
-          <Link to="/categories">Categorias</Link>
+          <Link to="/">Categorias</Link>
         </li>
         <li>
-          <Link to="/orders">Meus Pedidos</Link>
+          <Link to="/">Meus Pedidos</Link>
         </li>
       </ul>
     </nav>
