@@ -24,5 +24,6 @@ export function Gallery(props) {
         ))}
       </Swiper>
     </div>
+    
   );
 }

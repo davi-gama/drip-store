@@ -2,6 +2,7 @@ import { ProductCard } from "../ProductCard/ProductCard";
 import "./SectionTrending.css";
 import sneaker from "/sneaker-card.png";
 
+
 export function SectionTrending() {
   return (
     <section className="section-trending">
