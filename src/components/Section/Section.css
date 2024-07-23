@@ -1,12 +1,9 @@
-@import "../../App.css";
-
 .section-div {
-  margin: 5rem 0;
-  padding: 0 5rem;
+  padding: 4rem;
 }
 
 .section-div-titulo {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -21,4 +18,5 @@
   position: absolute;
   right: 0;
   top: 0;
+  text-decoration: none;
 }

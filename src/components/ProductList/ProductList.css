@@ -1,12 +1,10 @@
-@import "../../App.css";
-
 .product {
   display: flex;
   gap: 1rem;
 }
 
-.section1 {
+.product-col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
