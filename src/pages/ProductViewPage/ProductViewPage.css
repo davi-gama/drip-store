@@ -1,16 +1,17 @@
 @import '../../App.css';
 
+
+/* Estrutura da página */
 .produto-Informacoes{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
 }
 
 .container{
     display: grid;
     justify-content: center;
     grid-template-columns: 720px 550px ;
-    grid-gap:3rem;
+    grid-gap:2rem;
+    
+    padding-top: 1.5rem;
 }
 
 .productImage{
@@ -23,10 +24,10 @@
 .productImage img{
     width: 700px;
     height: 570px;
-    margin-left: -2rem;
-    transform: rotate(20deg);
+    margin-left: 1.2rem;
 }
 
+/* Nome e tipo do produto */
 
 .info{
     display: flex;
@@ -46,13 +47,15 @@
     font-size: medium;
 }
 
-.preco{
+/* Preço do Produto */
+
+.price{
     display:flex;
     flex-direction: row;
     align-items: end;
 }
 
-.preco h5{
+.price h5{
     font-size: 1.4rem;
     text-decoration: line-through;
     color: var(--dark-gray-2);
@@ -60,28 +63,114 @@
     
 }
 
-.preco h6{
+.price h6{
     font-size: 1.5rem;
     color: var(--dark-gray-2);
 
 }
 
-.descricao h3{
+/* Descrição */
+.description h3{
     font-size: 1rem;
     color: var(--dark-gray-3);
 }
 
+/* Tamanho do pé */
 
-.tamanhos{
-    display: grid;
-    grid-template-columns: 40px 40px 40px 40px 40px;
-    font-size: 1.6rem;
-    grid-gap:1rem;
-}
 .tamanhos h3{
+    font-size: 1rem;
+    color: var(--dark-gray-3);
+}
+
+.pe{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 5px;
+}
+
+
+
+.number {
+    border: solid 2px var(--light-gray-2);
+    font-size: 1.3rem;
+    padding: 8px;
+    border-radius: 2px;
+}
+.number:hover{
+    background-color: var(--primary);
+    color: var(--white);
+   
+}
+
+/* Cores */
+
+.colors h3{
+    color: var(--dark-gray-3);
+
     font-size: 1rem;
 }
 
-.pe1, .pe2, .pe3, .pe4, .pe5{
-    border: solid 2px var(--light-gray);
+
+
+.types{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 5px;
 }
+
+
+
+#red, #aqua, #gray, #eclesiatic{
+    border: none;
+  border-radius: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+#red{
+    background-color: rgb(255, 0, 0);
+}
+
+#aqua{
+    background-color: rgb(0, 255, 255);
+}
+
+#gray{
+    background-color: rgb(70, 69, 69);
+}
+
+#eclesiatic{
+    background-color: rgb(55, 66, 131);
+}
+
+/* Botão Comprar */
+
+.comprar button{
+    border:none;
+    border-radius:5px ;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    height: 48px;
+    width: 220px;
+    background-color: var(--warning);
+    cursor: pointer;
+}
+
+
+
+.outros, .box{
+   display: flex;
+   padding-left: 2rem;
+
+}
+
+.box img{
+margin-right: 0.5rem;
+    height: 96px;
+    width: 117px;
+}
+
