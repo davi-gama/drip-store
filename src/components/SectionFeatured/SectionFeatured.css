@@ -9,8 +9,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.icone button {
+  border: none;
   gap: 1rem;
   padding: 1rem;
+  background-color: transparent;
+  color: var(--light-gray);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icone button:hover {
+  color: var(--primary);
+  transition: 0.2s;
 }
 
 .icone h3 {

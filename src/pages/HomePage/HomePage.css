@@ -4,3 +4,11 @@
   margin: 0 auto;
   max-width: 1440px;
 }
+
+.home-page-section {
+  padding: 4rem;
+}
+
+.home-page-products {
+  padding: 3rem;
+}

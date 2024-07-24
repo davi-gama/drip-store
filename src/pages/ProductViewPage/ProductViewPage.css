@@ -1,87 +1,85 @@
-@import '../../App.css';
+@import "../../App.css";
 
-.produto-Informacoes{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.produto-Informacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.container{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 720px 550px ;
-    grid-gap:3rem;
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 720px 550px;
+  grid-gap: 3rem;
 }
 
-.productImage{
-    max-width: 700px;
-    max-height: 571px;
-    margin-left: 5rem;
-    background-color: #dddef7;
+.productImage {
+  max-width: 700px;
+  max-height: 571px;
+  margin-left: 5rem;
+  background-color: #dddef7;
 }
 
-.productImage img{
-    width: 700px;
-    height: 570px;
-    margin-left: -2rem;
-    transform: rotate(20deg);
+.productImage img {
+  width: 700px;
+  height: 570px;
+  margin-left: -2rem;
+  transform: rotate(20deg);
 }
 
-
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: start;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
 }
 
-.info h3{
-    font-size: 2.4rem;
+.info h3 {
+  font-size: 2.4rem;
 }
 
-
-
-.info h5{
-    font-weight:500;
-    font-size: medium;
+.info h5 {
+  font-weight: 500;
+  font-size: medium;
 }
 
-.preco{
-    display:flex;
-    flex-direction: row;
-    align-items: end;
+.preco {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
 }
 
-.preco h5{
-    font-size: 1.4rem;
-    text-decoration: line-through;
-    color: var(--dark-gray-2);
-    opacity: 0.3;
-    
+.preco h5 {
+  font-size: 1.4rem;
+  text-decoration: line-through;
+  color: var(--dark-gray-2);
+  opacity: 0.3;
 }
 
-.preco h6{
-    font-size: 1.5rem;
-    color: var(--dark-gray-2);
-
+.preco h6 {
+  font-size: 1.5rem;
+  color: var(--dark-gray-2);
 }
 
-.descricao h3{
-    font-size: 1rem;
-    color: var(--dark-gray-3);
+.descricao h3 {
+  font-size: 1rem;
+  color: var(--dark-gray-3);
 }
 
-
-.tamanhos{
-    display: grid;
-    grid-template-columns: 40px 40px 40px 40px 40px;
-    font-size: 1.6rem;
-    grid-gap:1rem;
+.tamanhos {
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px 40px;
+  font-size: 1.6rem;
+  grid-gap: 1rem;
 }
-.tamanhos h3{
-    font-size: 1rem;
+.tamanhos h3 {
+  font-size: 1rem;
 }
 
-.pe1, .pe2, .pe3, .pe4, .pe5{
-    border: solid 2px var(--light-gray);
+.pe1,
+.pe2,
+.pe3,
+.pe4,
+.pe5 {
+  border: solid 2px var(--light-gray);
 }

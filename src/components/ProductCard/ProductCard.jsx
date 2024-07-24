@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-export function ProductCard({ image, name, price, priceDiscount }) {
+export function ProductCard({ image, link, name, price, priceDiscount }) {
   return (
     <>
       <div className="Card">
-        <div className="CardImg">
-          <img src={image} alt="Produto" />
-        </div>
+        <Link to={link}>
+          <div className="CardImg">
+            <img src={image} alt="Produto" />
+          </div>
+        </Link>
         <div className="infoProduto">
-          <p className="titulo">{name}</p>
+          <Link to={link}>
+            <p className="titulo">{name}</p>
+          </Link>
           {priceDiscount ? (
             <div>
               <span className="preco precoOriginal ">{price}</span>

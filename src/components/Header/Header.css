@@ -17,7 +17,7 @@ header .logo {
 }
 
 header form {
-  background-color: var(--light-gray-3);
+  background-color: var(--white-2);
   display: flex;
   width: 559px;
   padding: 2px;

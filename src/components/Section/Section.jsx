@@ -13,7 +13,7 @@ function linkRender(link) {
 
 export function Section(props) {
   return (
-    <div className="section-div">
+    <div className={props.className}>
       <div className="section-div-titulo">
         <h1 style={{ textAlign: props.titleAlign }}>{props.title}</h1>
         {linkRender(props.link)}
