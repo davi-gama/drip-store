@@ -1,12 +1,7 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
+import { Layout } from "../../components/Layout/Layout";
+import { Section } from "../../components/Section/Section";
+import "./ProductViewPage.css";
 
 export function ProductViewPage() {
-  return (
-    <>
-      <h1>Essa é a página do produto</h1>
-      <Header />
-      <Footer />
-    </>
-  );
+  return <Layout />;
 }

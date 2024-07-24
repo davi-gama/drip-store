@@ -1,0 +1,6 @@
+@import "../../App.css";
+
+.product-view-page-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}

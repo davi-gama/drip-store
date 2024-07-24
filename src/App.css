@@ -24,8 +24,9 @@
   --light-gray-2: #cccccc;
   --light-gray-3: #f5f5f5;
   --white: #ffffff;
+  --white-2: #f9f8fe;
 }
 
 body {
-  background-color: var(--light-gray-3);
+  background-color: var(--white-2);
 }
