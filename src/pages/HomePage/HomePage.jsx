@@ -1,52 +1,107 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
-import { Gallery } from "../../components/Gallery/Gallery";
+import { Layout } from "../../components/Layout/Layout";
 import { Section } from "../../components/Section/Section";
-import { SectionOffers } from "../../components/SectionOffers/SectionOffers";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { SectionCollection } from "../../components/SectionCollection/SectionCollection";
 import { SectionFeatured } from "../../components/SectionFeatured/SectionFeatured";
+import { ProductList } from "../../components/ProductList/ProductList";
 import { SectionSpecialOffer } from "../../components/SectionSpecialOffer/SectionSpecialOffer";
-import { SectionTrending } from "../../components/SectionTrending/SectionTrending";
-
 import "./HomePage.css";
 
-const images = [
-  { src: "/home-slide-1.jpeg" },
-  { src: "/home-slide-2.jpeg" },
-  { src: "/home-slide-3.jpeg" },
+const produtosLink = [
+  { text: "Ver todos →", href: "http://localhost:5173/productlist" },
 ];
 
-const produtosLink = [
-  { text: "Ver todos", href: "http://localhost:5173/productList" },
+const produtos = [
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
 ];
 
 export function HomePage() {
   return (
-    <>
-      <Header />
+    <Layout
+      children={
+        <div className="home-page-wrapper">
+          <Gallery showHomePageSlide={true} navigation={false} />
 
-      <Gallery images={images} navigation={false} />
+          <Section
+            className="home-page-section"
+            titleAlign="left"
+            title="Coleções em destaque"
+            children={<SectionCollection />}
+          />
 
-      <Section
-        titleAlign="left"
-        title="Coleções em destaque"
-        children={<SectionOffers />}
-      />
+          <Section
+            className="home-page-section"
+            titleAlign="center"
+            title="Coleções em destaque"
+            children={<SectionFeatured />}
+          />
 
-      <Section
-        titleAlign="center"
-        title="Coleções em destaque"
-        children={<SectionFeatured />}
-      />
+          <Section
+            className="home-page-products"
+            titleAlign="left"
+            link={produtosLink}
+            title="Produtos em alta"
+            children={<ProductList products={produtos} />}
+          />
 
-      <Section
-        titleAlign="left"
-        title="Produtos em alta"
-        children={<SectionTrending />}
-      />
-
-      <SectionSpecialOffer />
-
-      <Footer />
-    </>
+          <Section children={<SectionSpecialOffer />} />
+        </div>
+      }
+    />
   );
 }

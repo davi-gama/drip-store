@@ -10,7 +10,7 @@ export function Footer() {
       <footer>
         <div className="footer-wrapper">
           <div className="descricao">
-            <Logo color={"var(--white)"} />
+            <Logo fill={"var(--white)"} />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
               atque?

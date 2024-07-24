@@ -1,15 +1,130 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
+import { Layout } from "../../components/Layout/Layout";
+import { Section } from "../../components/Section/Section";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { OrderBy } from "../../components/OrderBy/OrderBy";
+import { ProductList } from "../../components/ProductList/ProductList";
+import "./ProductListingPage.css";
+
+const products = [
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+];
 
 export function ProductListingPage() {
   return (
-    <>
-      <Header />
-      <OrderBy />
-      <Sidebar />
-      <Footer />
-    </>
+    <Layout
+      children={
+        <div className="product-listing-page-wrapper">
+          <OrderBy />
+          <div className="produtos">
+            <Sidebar />
+            <Section children={<ProductList products={products} />} />
+          </div>
+        </div>
+      }
+    />
   );
 }

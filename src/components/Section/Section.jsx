@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
 import "./Section.css";
 
 function linkRender(link) {
   if (link != undefined) {
     return link.map((item, index) => (
-      <a key={index} href={item.href}>
+      <Link key={index} to={item.href}>
         {item.text}
-      </a>
+      </Link>
     ));
   }
 }
 
 export function Section(props) {
   return (
-    <div className="section-div">
+    <div className={props.className}>
       <div className="section-div-titulo">
         <h1 style={{ textAlign: props.titleAlign }}>{props.title}</h1>
         {linkRender(props.link)}

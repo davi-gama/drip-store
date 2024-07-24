@@ -1,0 +1,12 @@
+@import "../../App.css";
+
+.product-listing-page-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-right: 2rem;
+  margin-bottom: 5rem;
+}
+
+.produtos {
+  display: flex;
+}

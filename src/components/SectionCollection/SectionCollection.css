@@ -1,20 +1,16 @@
-@import "../../App.css";
-
 .destaques {
   align-items: center;
-}
-
-.destaques .container {
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   overflow: hidden;
+  justify-content: center;
 }
 
 .destaques .collection-1,
 .collection-2,
 .collection-3 {
-  background-size: cover;
   background-repeat: no-repeat;
   border-radius: 0.5rem;
   height: 251px;

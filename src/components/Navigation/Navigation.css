@@ -1,7 +1,7 @@
-@import "../../App.css";
-
 nav {
   margin-top: 2rem;
+  max-width: 1440px;
+  margin: 2rem auto 0;
 }
 
 nav ul {

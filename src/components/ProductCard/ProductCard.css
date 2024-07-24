@@ -1,19 +1,47 @@
-@import "../../App.css";
-
 .Card {
-  max-width: 293px;
+  margin: 0 auto 1.5rem;
+}
+
+.CardImg {
+  display: flex;
+  max-width: 292px;
+  height: 321px;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background-color: var(--white);
+  padding: 0.5rem;
+  border: 2px solid var(--white);
+  transition: 0.2s;
+}
+
+.CardImg:hover {
+  border: 2px solid var(--primary);
+  transition: 0.2s;
 }
 
 .Card img {
-  background-color: var(--white);
   border-radius: 4px;
   margin-bottom: 1rem;
+  margin: 0 auto;
+}
+
+.Card a {
+  text-decoration: none;
 }
 
 .titulo {
   color: var(--dark-gray-2);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: 20px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.titulo:hover {
+  color: var(--primary);
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .preco {

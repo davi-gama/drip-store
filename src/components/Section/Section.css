@@ -1,12 +1,5 @@
-@import "../../App.css";
-
-.section-div {
-  margin: 5rem 0;
-  padding: 0 5rem;
-}
-
 .section-div-titulo {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -16,9 +9,16 @@
 }
 
 .section-div-titulo a {
-  color: var(--primary);
+  color: var(--dark-gray);
   font-size: 18px;
   position: absolute;
   right: 0;
   top: 0;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.section-div-titulo a:hover {
+  color: var(--primary);
+  transition: 0.2s;
 }

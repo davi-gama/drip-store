@@ -1,23 +1,29 @@
-@import "../../App.css";
-
-.container2 {
-  display: grid;
-  grid-template-columns: 900px;
-  justify-content: center;
-  text-align: center;
-}
-
-.col-1 {
+.colecoes {
   display: flex;
-  justify-content: space-around;
+  gap: 5rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 .icone {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
   align-items: center;
+}
+
+.icone button {
+  border: none;
+  gap: 1rem;
   padding: 1rem;
+  background-color: transparent;
+  color: var(--light-gray);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icone button:hover {
+  color: var(--primary);
+  transition: 0.2s;
 }
 
 .icone h3 {
