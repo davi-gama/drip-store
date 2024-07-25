@@ -4,7 +4,7 @@ import "./SectionCollection.css";
 export function SectionCollection() {
   return (
     <>
-      <section className="destaques">
+      <section className="colecoes">
         <div className="collection-1">
           <p id="oferta">30% OFF</p>
           <Link to="/productlist">

@@ -11,6 +11,7 @@ import "./HomePage.css";
 const customSlides = [
   { slide: <HomePageSlide /> },
   { slide: <HomePageSlide /> },
+  { slide: <HomePageSlide /> },
 ];
 
 const sectionLink = [
@@ -80,25 +81,25 @@ export function HomePage() {
   return (
     <Layout
       children={
-        <div className="home-page-wrapper">
+        <div className="hp-wrapper">
           <Gallery customSlides={customSlides} navigation={false} />
 
           <Section
-            className="home-page-section"
+            className="hp-section"
             titleAlign="left"
             title="Coleções em destaque"
             children={<SectionCollection />}
           />
 
           <Section
-            className="home-page-section"
+            className="hp-section"
             titleAlign="center"
             title="Coleções em destaque"
             children={<SectionFeatured />}
           />
 
           <Section
-            className="home-page-section"
+            className="hp-section"
             titleAlign="left"
             link={sectionLink}
             title="Produtos em alta"

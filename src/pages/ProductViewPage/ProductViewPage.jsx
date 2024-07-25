@@ -50,7 +50,7 @@ export function ProductViewPage() {
   return (
     <Layout
       children={
-        <div className="product-view-page-wrapper">
+        <div className="vp-wrapper">
           <div className="page-path">
             <span>Home</span> / Produtos / Tênis / Nike / Tênis Nike Revolution
             6 Nature Masculino
@@ -71,7 +71,7 @@ export function ProductViewPage() {
             />
           </div>
           <Section
-            className="product-view-page-section"
+            className="vp-section"
             titleAlign="left"
             link={sectionLink}
             title="Produtos relacionados"

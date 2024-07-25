@@ -1,11 +1,11 @@
 @import "../../App.css";
 
-.product-listing-page-wrapper {
+.lp-wrapper {
   margin: 0 auto;
   max-width: 1440px;
 }
 
-.product-listing-page-section {
+.lp-section {
   padding: 0 2.5rem 6rem 0;
 }
 

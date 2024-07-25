@@ -1,10 +1,10 @@
 @import "../../App.css";
 
-.home-page-wrapper {
+.hp-wrapper {
   margin: 0 auto;
   max-width: 1440px;
 }
 
-.home-page-section {
+.hp-section {
   padding: 4rem 3.5rem;
 }

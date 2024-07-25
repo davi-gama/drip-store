@@ -117,12 +117,12 @@ export function ProductListingPage() {
   return (
     <Layout
       children={
-        <div className="product-listing-page-wrapper">
+        <div className="lp-wrapper">
           <OrderBy />
           <div className="produtos">
             <Sidebar />
             <Section
-              className="product-listing-page-section"
+              className="lp-section"
               children={<ProductList products={products} />}
             />
           </div>
