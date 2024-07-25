@@ -1,6 +1,6 @@
-# Projeto GeraçãoTech -  Drip Store
+# Projeto GeraçãoTech -  Drip Store 💻👟
 
-Feito por: 
+[!Feito Por:] 
 - Davi Gama.
 - Janderson 
 - Kalel Santos.
