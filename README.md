@@ -1,7 +1,8 @@
 # Projeto GeraçãoTech -  Drip Store 💻👟
+<sub> Projeto baseado no desenvolvimento de uma plataforma de vendas online(e-commerce) </sub>
 ---
-Feito Por:
+Integrantes:
  - Davi Gama.
- - Janderson 
+ - Janderson Freire.
  - Kalel Santos.
 
