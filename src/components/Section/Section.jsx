@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
 import "./Section.css";
 
-function linkRender(link) {
-  if (link != undefined) {
-    return link.map((item, index) => (
-      <Link key={index} to={item.href}>
-        {item.text}
-      </Link>
-    ));
-  }
-}
-
 export function Section(props) {
   return (
     <div className={props.className}>
       <div className="section-div-titulo">
-        <h1 style={{ textAlign: props.titleAlign }}>{props.title}</h1>
-        {linkRender(props.link)}
+        {props.title != undefined ? (
+          <h1 style={{ textAlign: props.titleAlign }}>{props.title}</h1>
+        ) : null}
+
+        {props.link != undefined
+          ? props.link.map((item, index) => (
+              <Link key={index} to={item.href}>
+                {item.text}
+              </Link>
+            ))
+          : null}
       </div>
       {props.children}
     </div>

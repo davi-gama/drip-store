@@ -1,59 +1,84 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
-import Produto from "../../../public/white-sneaker.png";
+import { Layout } from "../../components/Layout/Layout";
+import { Section } from "../../components/Section/Section";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { ProductList } from "../../components/ProductList/ProductList";
+import { BuyBox } from "../../components/BuyBox/BuyBox";
 import "./ProductViewPage.css";
 
-import star from "../../assets/star-icon.svg";
+const images = [
+  { src: "/air-force-slide.png" },
+  { src: "/air-force-slide.png" },
+  { src: "/air-force-slide.png" },
+];
+
+const sectionLink = [
+  { text: "Ver todos →", href: "http://localhost:5173/productlist" },
+];
+
+const products = [
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+];
 
 export function ProductViewPage() {
   return (
-    <>
-      <Header />
-      <section className="produto-Informacoes">
-        <h3>Caminho do Produto</h3>
-        <div className="container">
-          {/* Imagem Do Tênis */}
-          <div className="productImage">
-            <img src={Produto} alt="Nike" />
+    <Layout
+      children={
+        <div className="product-view-page-wrapper">
+          <div className="page-path">
+            <span>Home</span> / Produtos / Tênis / Nike / Tênis Nike Revolution
+            6 Nature Masculino
           </div>
-
-          {/* Detalhes/Informações do Produto */}
-          <div className="info">
-            <h3>Tênis Nike Revolution 6 Next Nature Masculino</h3>
-            <h5>Casual | Nike | REF:38416711</h5>
-            <img src={star} alt="" />
-
-            <div className="preco">
-              <h6>R$</h6>
-              <h3>219,00</h3>
-              <h5>219,00</h5>
-            </div>
-
-            <div className="descricao">
-              <h3>Descrião do produto</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequatur magni doloremque rem voluptates aspernatur. Ea error
-                unde excepturi perferendis, labore cumque, blanditiis, minus non
-                accusamus dolorem vel soluta.
-              </p>
-            </div>
-
-            <div className="tamanhos">
-              <h3>Tamanhos </h3>
-              <br />
-
-              <div className="pe1">39</div>
-              <div className="pe2">40</div>
-              <div className="pe3">41</div>
-              <div className="pe4">42</div>
-              <div className="pe5">43</div>
-            </div>
+          <div className="gallery-buybox">
+            <Gallery slides={images} navigation={true} />
+            <BuyBox
+              name="Tênis Nike Revolution 6 Next Nature Masculino"
+              reference="38416711"
+              star={4.7}
+              rating={90}
+              description="Lorem ipsum dolor sit amet 
+              consectetur adipisicing elit. Rem ad veniam 
+              doloribus reprehenderit amet rerum vero 
+              consectetur suscipit tempore iure."
+              price="219,00"
+              priceDiscount="219,00"
+            />
           </div>
+          <Section
+            className="product-view-page-section"
+            titleAlign="left"
+            link={sectionLink}
+            title="Produtos relacionados"
+            children={<ProductList products={products} />}
+          />
         </div>
-      </section>
-
-      <Footer />
-    </>
+      }
+    />
   );
 }

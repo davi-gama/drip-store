@@ -83,3 +83,33 @@
 .pe5 {
   border: solid 2px var(--light-gray);
 }
+
+.page-path {
+  color: var(--dark-gray-2);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-left: 3.5rem;
+}
+
+.page-path span {
+  font-weight: 700;
+}
+
+.gallery-buybox {
+  display: flex;
+  padding: 3rem 3.5rem;
+  gap: 2rem;
+}
+
+.gallery-buybox .swiper {
+  width: 700px;
+}
+
+.gallery-buybox .swiper-pagination-bullets {
+  display: none;
+}
+
+.product-view-page-section {
+  padding: 4rem 3.5rem 6rem 3.5rem;
+}

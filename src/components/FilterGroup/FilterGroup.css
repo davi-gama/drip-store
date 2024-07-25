@@ -1,7 +1,7 @@
 @import "../../App.css";
 
 .filter-group {
-  background-color: var(--white);
+  background-color: transparent;
   width: 250px;
 }
 
