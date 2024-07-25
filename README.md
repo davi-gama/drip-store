@@ -1,3 +1,6 @@
-# Projeto Drip Store
+# Projeto GeraçãoTech -  Drip Store
 
-Feito por: Davi, Janderson e Kalel
+Feito por: 
+Davi Gama.
+Janderson 
+Kalel Santos.
