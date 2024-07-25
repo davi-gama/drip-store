@@ -121,7 +121,10 @@ export function ProductListingPage() {
           <OrderBy />
           <div className="produtos">
             <Sidebar />
-            <Section children={<ProductList products={products} />} />
+            <Section
+              className="product-listing-page-section"
+              children={<ProductList products={products} />}
+            />
           </div>
         </div>
       }

@@ -5,13 +5,19 @@ import { SectionCollection } from "../../components/SectionCollection/SectionCol
 import { SectionFeatured } from "../../components/SectionFeatured/SectionFeatured";
 import { ProductList } from "../../components/ProductList/ProductList";
 import { SectionSpecialOffer } from "../../components/SectionSpecialOffer/SectionSpecialOffer";
+import { HomePageSlide } from "../../components/HomePageSlide/HomePageSlide";
 import "./HomePage.css";
 
-const produtosLink = [
+const customSlides = [
+  { slide: <HomePageSlide /> },
+  { slide: <HomePageSlide /> },
+];
+
+const sectionLink = [
   { text: "Ver todos →", href: "http://localhost:5173/productlist" },
 ];
 
-const produtos = [
+const products = [
   {
     name: "K-Swiss V8 - Masculino",
     image: "/sneaker-card.png",
@@ -75,7 +81,7 @@ export function HomePage() {
     <Layout
       children={
         <div className="home-page-wrapper">
-          <Gallery showHomePageSlide={true} navigation={false} />
+          <Gallery customSlides={customSlides} navigation={false} />
 
           <Section
             className="home-page-section"
@@ -92,11 +98,11 @@ export function HomePage() {
           />
 
           <Section
-            className="home-page-products"
+            className="home-page-section"
             titleAlign="left"
-            link={produtosLink}
+            link={sectionLink}
             title="Produtos em alta"
-            children={<ProductList products={produtos} />}
+            children={<ProductList products={products} />}
           />
 
           <Section children={<SectionSpecialOffer />} />
