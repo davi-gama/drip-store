@@ -6,9 +6,8 @@ import { BuyBox } from "../../components/BuyBox/BuyBox";
 import "./ProductViewPage.css";
 
 const images = [
-  { src: "/air-force-slide.png" },
-  { src: "/air-force-slide.png" },
-  { src: "/air-force-slide.png" },
+  { src: "/air-force-slide-1.png" },
+  { src: "/air-force-slide-2.png" },
 ];
 
 const sectionLink = [
