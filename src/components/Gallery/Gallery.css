@@ -21,3 +21,7 @@
 .swiper-pagination-bullet-active {
   background-color: var(--primary);
 }
+
+.slide-thumbs {
+  margin-top: 1rem;
+}

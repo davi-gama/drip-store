@@ -8,6 +8,9 @@ import "./ProductViewPage.css";
 const images = [
   { src: "/air-force-slide-1.png" },
   { src: "/air-force-slide-2.png" },
+  { src: "/air-force-slide-2.png" },
+  { src: "/air-force-slide-2.png" },
+  { src: "/air-force-slide-2.png" },
 ];
 
 const sectionLink = [
@@ -55,7 +58,7 @@ export function ProductViewPage() {
             6 Nature Masculino
           </div>
           <div className="gallery-buybox">
-            <Gallery slides={images} navigation={true} />
+            <Gallery slides={images} navigation={true} showThumbs />
             <BuyBox
               name="Tênis Nike Revolution 6 Next Nature Masculino"
               reference="38416711"

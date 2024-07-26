@@ -3,7 +3,6 @@ import starFilled from "../../assets/star-icon-filled.svg";
 import "./BuyBox.css";
 
 export function StarsRating(stars) {
-  console.log(stars);
   if (stars == 0) {
     return (
       <span className="stars-icon">
