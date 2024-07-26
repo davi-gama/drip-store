@@ -1,0 +1,27 @@
+.sneaker-color {
+  margin-bottom: 0.5rem;
+}
+
+.sneaker-color h1 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--light-gray);
+  margin-bottom: 0.5rem;
+}
+
+.color-button-div {
+  display: flex;
+}
+
+.color-button {
+  border: none;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.color-button.selected {
+  border: 3px solid var(--primary);
+}

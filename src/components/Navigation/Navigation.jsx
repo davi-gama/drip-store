@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Navigation.css";
 
 export function Navigation() {
   return (
@@ -8,10 +9,13 @@ export function Navigation() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/productlist">Product List</Link>
+          <Link to="/productlist">Produtos</Link>
         </li>
         <li>
-          <Link to="/product">Product</Link>
+          <Link to="/">Categorias</Link>
+        </li>
+        <li>
+          <Link to="/">Meus Pedidos</Link>
         </li>
       </ul>
     </nav>

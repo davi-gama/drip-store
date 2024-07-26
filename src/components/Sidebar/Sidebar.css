@@ -1,0 +1,19 @@
+.sidebar {
+  width: 280px;
+  background-color: var(--white);
+  padding: 2rem;
+  margin: 1.5rem 1rem 0 3.5rem;
+  max-height: 680px;
+  border-radius: 4px;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  color: var(--dark-gray-2);
+}
+
+.sidebar hr {
+  border: 0;
+  margin: 1rem 0;
+  border-top: 1px solid var(--light-gray-2);
+}
