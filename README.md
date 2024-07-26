@@ -1,5 +1,5 @@
 # Projeto Drip Store 👟 - Digital College
-## Projeto desenvolvido em React de uma aplicação web de e-commerce, feito durante o curso de Desenvolvimento Web Geração Tech na Digital College.
+Projeto desenvolvido em React de uma aplicação web de e-commerce, feito durante o curso de Desenvolvimento Web Geração Tech na Digital College.
 
 ---
 Feito por:
