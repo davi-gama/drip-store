@@ -1,6 +1,10 @@
+import { SneakerSize } from "../SneakerSize/SneakerSize";
+import { SneakerColor } from "../SneakerColor/SneakerColor";
 import star from "../../assets/star-icon.svg";
 import starFilled from "../../assets/star-icon-filled.svg";
 import "./BuyBox.css";
+
+const options = ["21", "22", "23"];
 
 export function StarsRating(stars) {
   if (stars == 0) {
@@ -91,7 +95,9 @@ export function BuyBox(props) {
         <h2>Descrição do produto</h2>
         <p>{props.description}</p>
       </div>
-      <button>COMPRAR</button>
+      <SneakerSize />
+      <SneakerColor />
+      <button className="btnBuyBox">COMPRAR</button>
     </div>
   );
 }

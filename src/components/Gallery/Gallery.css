@@ -25,3 +25,8 @@
 .slide-thumbs {
   margin-top: 1rem;
 }
+
+.swiper-slide-thumb-active {
+  border: 2px solid var(--primary);
+  height: 102px;
+}

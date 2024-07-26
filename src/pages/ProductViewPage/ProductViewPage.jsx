@@ -8,9 +8,9 @@ import "./ProductViewPage.css";
 const images = [
   { src: "/air-force-slide-1.png" },
   { src: "/air-force-slide-2.png" },
-  { src: "/air-force-slide-2.png" },
-  { src: "/air-force-slide-2.png" },
-  { src: "/air-force-slide-2.png" },
+  { src: "/air-force-slide-3.png" },
+  { src: "/air-force-slide-4.png" },
+  { src: "/air-force-slide-5.png" },
 ];
 
 const sectionLink = [

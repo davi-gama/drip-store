@@ -39,13 +39,11 @@ export function Gallery(props) {
       {props.showThumbs ? (
         <Swiper
           onSwiper={setActiveThumb}
-          loop={true}
           pagination={{ clickable: true }}
           navigation={false}
-          slidesPerView={4}
+          slidesPerView={5}
           spaceBetween={20}
           modules={[Navigation, Thumbs]}
-          grabCursor={true}
           className="slide-thumbs"
         >
           {props.slides
