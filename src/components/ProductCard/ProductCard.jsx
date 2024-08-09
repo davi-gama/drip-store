@@ -16,11 +16,11 @@ export function ProductCard({ image, link, name, price, priceDiscount }) {
           </Link>
           {priceDiscount ? (
             <div>
-              <span className="preco precoOriginal ">{price}</span>
-              <strong className="preco precoDesconto">{priceDiscount}</strong>
+              <span className="precoOriginal ">{price}</span>
+              <strong className="precoDesconto">{priceDiscount}</strong>
             </div>
           ) : (
-            <span className="precoProduto">{price}</span>
+            <span className="precoDesconto">{price}</span>
           )}
         </div>
       </div>

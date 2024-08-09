@@ -2,7 +2,7 @@ import "./SectionFeatured.css";
 
 export function SectionFeatured() {
   return (
-    <section className="colecoes">
+    <section className="destaques">
       <div className="icone">
         <button>
           <svg

@@ -55,3 +55,9 @@
   padding-right: 10px;
   font-size: 24px;
 }
+
+.precoDesconto {
+  font-size: 24px;
+  color: var(--dark-gray);
+  font-weight: 700;
+}

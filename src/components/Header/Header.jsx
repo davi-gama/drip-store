@@ -21,7 +21,9 @@ export function Header() {
         </form>
         <div className="redirect">
           <Link to="/">Cadastre-se</Link>
-          <button>Entrar</button>
+          <Link to="/login">
+            <button>Entrar</button>
+          </Link>
         </div>
         <div className="carrinho">
           <button type="submit">

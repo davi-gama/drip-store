@@ -5,13 +5,20 @@ import { SectionCollection } from "../../components/SectionCollection/SectionCol
 import { SectionFeatured } from "../../components/SectionFeatured/SectionFeatured";
 import { ProductList } from "../../components/ProductList/ProductList";
 import { SectionSpecialOffer } from "../../components/SectionSpecialOffer/SectionSpecialOffer";
+import { HomePageSlide } from "../../components/HomePageSlide/HomePageSlide";
 import "./HomePage.css";
 
-const produtosLink = [
+const customSlides = [
+  { slide: <HomePageSlide /> },
+  { slide: <HomePageSlide /> },
+  { slide: <HomePageSlide /> },
+];
+
+const sectionLink = [
   { text: "Ver todos →", href: "http://localhost:5173/productlist" },
 ];
 
-const produtos = [
+const products = [
   {
     name: "K-Swiss V8 - Masculino",
     image: "/sneaker-card.png",
@@ -74,29 +81,29 @@ export function HomePage() {
   return (
     <Layout
       children={
-        <div className="home-page-wrapper">
-          <Gallery showHomePageSlide={true} navigation={false} />
+        <div className="hp-wrapper">
+          <Gallery customSlides={customSlides} navigation={false} />
 
           <Section
-            className="home-page-section"
+            className="hp-section"
             titleAlign="left"
             title="Coleções em destaque"
             children={<SectionCollection />}
           />
 
           <Section
-            className="home-page-section"
+            className="hp-section"
             titleAlign="center"
             title="Coleções em destaque"
             children={<SectionFeatured />}
           />
 
           <Section
-            className="home-page-products"
+            className="hp-section"
             titleAlign="left"
-            link={produtosLink}
+            link={sectionLink}
             title="Produtos em alta"
-            children={<ProductList products={produtos} />}
+            children={<ProductList products={products} />}
           />
 
           <Section children={<SectionSpecialOffer />} />

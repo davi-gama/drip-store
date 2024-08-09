@@ -1,4 +1,4 @@
-.destaques {
+.colecoes {
   align-items: center;
   margin: 0 auto;
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.destaques .collection-1,
+.colecoes .collection-1,
 .collection-2,
 .collection-3 {
   background-repeat: no-repeat;
@@ -17,19 +17,19 @@
   width: 405px;
 }
 
-.destaques .collection-1 {
+.colecoes .collection-1 {
   background-image: url("/collection-1.png");
 }
 
-.destaques .collection-2 {
+.colecoes .collection-2 {
   background-image: url("/collection-2.png");
 }
 
-.destaques .collection-3 {
+.colecoes .collection-3 {
   background-image: url("/collection-3.png");
 }
 
-.destaques #oferta {
+.colecoes #oferta {
   height: 32px;
   width: 96px;
   margin-top: 1rem;
@@ -43,7 +43,7 @@
   padding: 0.4rem;
 }
 
-.destaques #btnComprar {
+.colecoes #btnComprar {
   position: relative;
   margin-top: 8rem;
   margin-left: 1.5rem;
@@ -58,7 +58,7 @@
   transition: 0.2s;
 }
 
-.destaques #btnComprar:hover {
+.colecoes #btnComprar:hover {
   color: var(--white);
   background-color: var(--primary);
   transition: 0.2s;

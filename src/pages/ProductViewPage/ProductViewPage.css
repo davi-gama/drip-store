@@ -1,176 +1,36 @@
-@import '../../App.css';
+@import "../../App.css";
 
-
-/* Estrutura da página */
-.produto-Informacoes{
+.vp-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
-.container{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 720px 550px ;
-    grid-gap:2rem;
-    
-    padding-top: 1.5rem;
+.page-path {
+  color: var(--dark-gray-2);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-left: 3.5rem;
 }
 
-.productImage{
-    max-width: 700px;
-    max-height: 571px;
-    margin-left: 5rem;
-    background-color: #dddef7;
+.page-path span {
+  font-weight: 700;
 }
 
-.productImage img{
-    width: 700px;
-    height: 570px;
-    margin-left: 1.2rem;
+.gallery-buybox {
+  display: flex;
+  padding: 3rem 3.5rem;
+  gap: 2rem;
 }
 
-/* Nome e tipo do produto */
-
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: start;
+.gallery-buybox .swiper {
+  width: 700px;
 }
 
-.info h3{
-    font-size: 2.4rem;
+.gallery-buybox .swiper-pagination-bullets {
+  display: none;
 }
 
-
-
-.info h5{
-    font-weight:500;
-    font-size: medium;
+.vp-section {
+  padding: 4rem 3.5rem 6rem 3.5rem;
 }
-
-/* Preço do Produto */
-
-.price{
-    display:flex;
-    flex-direction: row;
-    align-items: end;
-}
-
-.price h5{
-    font-size: 1.4rem;
-    text-decoration: line-through;
-    color: var(--dark-gray-2);
-    opacity: 0.3;
-    
-}
-
-.price h6{
-    font-size: 1.5rem;
-    color: var(--dark-gray-2);
-
-}
-
-/* Descrição */
-.description h3{
-    font-size: 1rem;
-    color: var(--dark-gray-3);
-}
-
-/* Tamanho do pé */
-
-.tamanhos h3{
-    font-size: 1rem;
-    color: var(--dark-gray-3);
-}
-
-.pe{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    padding-top: 5px;
-}
-
-
-
-.number {
-    border: solid 2px var(--light-gray-2);
-    font-size: 1.3rem;
-    padding: 8px;
-    border-radius: 2px;
-}
-.number:hover{
-    background-color: var(--primary);
-    color: var(--white);
-   
-}
-
-/* Cores */
-
-.colors h3{
-    color: var(--dark-gray-3);
-
-    font-size: 1rem;
-}
-
-
-
-.types{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 5px;
-}
-
-
-
-#red, #aqua, #gray, #eclesiatic{
-    border: none;
-  border-radius: 2rem;
-  height: 2.2rem;
-  width: 2.2rem;
-}
-
-#red{
-    background-color: rgb(255, 0, 0);
-}
-
-#aqua{
-    background-color: rgb(0, 255, 255);
-}
-
-#gray{
-    background-color: rgb(70, 69, 69);
-}
-
-#eclesiatic{
-    background-color: rgb(55, 66, 131);
-}
-
-/* Botão Comprar */
-
-.comprar button{
-    border:none;
-    border-radius:5px ;
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 700;
-    height: 48px;
-    width: 220px;
-    background-color: var(--warning);
-    cursor: pointer;
-}
-
-
-
-.outros, .box{
-   display: flex;
-   padding-left: 2rem;
-
-}
-
-.box img{
-margin-right: 0.5rem;
-    height: 96px;
-    width: 117px;
-}
-

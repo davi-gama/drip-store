@@ -1,106 +1,86 @@
-import { Header } from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
-import Produto from "../../assets/White-sneaker.svg";
+import { Layout } from "../../components/Layout/Layout";
+import { Section } from "../../components/Section/Section";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { ProductList } from "../../components/ProductList/ProductList";
+import { BuyBox } from "../../components/BuyBox/BuyBox";
 import "./ProductViewPage.css";
 
+const images = [
+  { src: "/air-force-slide-1.png" },
+  { src: "/air-force-slide-2.png" },
+  { src: "/air-force-slide-3.png" },
+  { src: "/air-force-slide-4.png" },
+  { src: "/air-force-slide-5.png" },
+];
 
+const sectionLink = [
+  { text: "Ver todos →", href: "http://localhost:5173/productlist" },
+];
 
-
-import star from "../../assets/star-icon.svg"
-
+const products = [
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+  {
+    name: "K-Swiss V8 - Masculino",
+    image: "/sneaker-card.png",
+    price: "$200",
+    link: "/product",
+    priceDiscount: "$100",
+  },
+];
 
 export function ProductViewPage() {
   return (
-    <>
-      <Header />
-      <section className="produto-Informacoes">
-        <h3>Caminho do Produto</h3>
-        <div className="container">
-
-          {/* Imagem Do Tênis */}
-          <div className="productImage">
-            <img src={Produto} alt="Nike" />
+    <Layout
+      children={
+        <div className="vp-wrapper">
+          <div className="page-path">
+            <span>Home</span> / Produtos / Tênis / Nike / Tênis Nike Revolution
+            6 Nature Masculino
           </div>
-
-
-          {/* Detalhes/Informações do Produto */}
-          <div className="info">
-            <h3>Tênis Nike Revolution 6 Next Nature Masculino</h3>
-            <h5>Casual | Nike | REF:38416711</h5>
-            <img src={star} alt="" />
-
-            <div className="price">
-              <h6>R$</h6>
-              <h3>219,00</h3>
-              <h5>219,00</h5>
-            </div>
-
-            <div className="description">
-              <h3>Descrião do produto</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur magni doloremque rem voluptates aspernatur. Ea error unde excepturi perferendis, labore cumque, blanditiis, minus non accusamus dolorem vel soluta.</p>
-            </div>
-
-            <div className="tamanhos">
-              <h3>Tamanho </h3>
-              <div className="pe">
-                <div className="number"><p>39</p></div>
-                <div className="number"><p>40</p></div>
-                <div className="number"><p>41</p></div>
-                <div className="number"><p>42</p></div>
-                <div className="number"><p>43</p></div>
-              </div>
-            </div>
-
-            <div className="colors">
-              <h3>Tamanho</h3>
-              <div className="types">
-                <button id="aqua"></button>
-                <button id="red"></button>
-                <button id="gray"></button>
-                <button id="eclesiatic"></button>
-              </div>
-            </div>
-
-            <div className="comprar">
-              <button>Comprar</button>
-            </div>
+          <div className="gallery-buybox">
+            <Gallery slides={images} navigation={true} showThumbs />
+            <BuyBox
+              name="Tênis Nike Revolution 6 Next Nature Masculino"
+              reference="38416711"
+              star={4.7}
+              rating={90}
+              description="Lorem ipsum dolor sit amet 
+              consectetur adipisicing elit. Rem ad veniam 
+              doloribus reprehenderit amet rerum vero 
+              consectetur suscipit tempore iure."
+              price="219,00"
+              priceDiscount="219,00"
+            />
           </div>
-
-          <div className="outros">
-            <div className="box">
-              <div className="produto">
-                <button>
-                  <img id="box1" src={Produto} alt="" />
-                </button>
-
-                <button>
-                  <img id="box2" src={Produto} alt="" />
-                </button>
-
-                <button>
-                  <img id="box3" src={Produto} alt="" />
-                </button>
-
-                <button>
-                  <img id="box4" src={Produto} alt="" />
-                </button>
-
-                <button>
-                  <img id="box5" src={Produto} alt="" />
-                </button>
-                
-              </div>
-            </div>
-          </div>
-
-
-
-
-
+          <Section
+            className="vp-section"
+            titleAlign="left"
+            link={sectionLink}
+            title="Produtos relacionados"
+            children={<ProductList products={products} />}
+          />
         </div>
-      </section>
-
-      <Footer />
-    </>
+      }
+    />
   );
 }
