@@ -4,7 +4,7 @@ import { Footer } from "../Footer/Footer";
 export function Layout(props) {
   return (
     <>
-      <Header />
+      <Header showResto={props.showResto} showNavBar={props.showNavBar} />
       {props.children}
       <Footer />
     </>
