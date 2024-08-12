@@ -1,5 +1,5 @@
 import { Logo } from "../Logo/Logo";
-import { Navigation } from "../Navigation/Navigation";
+import { NavBar } from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import minicart from "../../assets/mini-cart.svg";
@@ -16,7 +16,8 @@ export function Header() {
             <Logo fill="var(--primary)" />
           </Link>
         </div>
-        {useLocation().pathname === "/login" || useLocation().pathname === "/signup" ? null : (
+        {useLocation().pathname === "/login" ||
+        useLocation().pathname === "/signup" ? null : (
           <>
             <form>
               <input
@@ -42,7 +43,10 @@ export function Header() {
           </>
         )}
       </div>
-      {useLocation().pathname == "/login" || useLocation().pathname == "/signup" ? null : <Navigation />}
+      {useLocation().pathname == "/login" ||
+      useLocation().pathname == "/signup" ? null : (
+        <NavBar />
+      )}
     </header>
   );
 }
