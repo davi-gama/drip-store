@@ -1,11 +1,11 @@
 @import "../../App.css";
 
-.lp-wrapper {
+.pl-wrapper {
   margin: 0 auto;
   max-width: 1440px;
 }
 
-.lp-section {
+.pl-section {
   padding: 0 2.5rem 6rem 0;
 }
 
