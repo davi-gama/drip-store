@@ -1,10 +1,14 @@
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
+import { useEffect } from "react";
 
 export function Layout(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      <Header showResto={props.showResto} showNavBar={props.showNavBar} />
+      <Header />
       {props.children}
       <Footer />
     </>
