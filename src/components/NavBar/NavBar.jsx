@@ -16,12 +16,12 @@ export function NavBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/categories" activeclassname="active">
+          <NavLink to="/category" activeclassname="active">
             Categorias
           </NavLink>
         </li>
         <li>
-          <NavLink to="/orders" activeclassname="active">
+          <NavLink to="/order" activeclassname="active">
             Meus Pedidos
           </NavLink>
         </li>
