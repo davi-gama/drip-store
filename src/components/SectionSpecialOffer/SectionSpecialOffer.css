@@ -50,6 +50,6 @@
 }
 
 .oferta-especial .info button:hover {
-  background-color: var(--dark-gray-2);
+  background-color: var(--tertiary);
   transition: 0.2s;
 }

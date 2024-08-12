@@ -101,6 +101,6 @@
 }
 
 .btnBuyBox:hover {
-  background-color: var(--dark-gray-2);
+  background-color: var(--warning-hover);
   transition: 0.2s;
 }
