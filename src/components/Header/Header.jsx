@@ -1,19 +1,22 @@
 import { Logo } from "../Logo/Logo";
 import { Navigation } from "../Navigation/Navigation";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import minicart from "../../assets/mini-cart.svg";
 import search from "../../assets/search-icon.svg";
 
 import "./Header.css";
 
-export function Header(props) {
+export function Header() {
   return (
     <header>
       <div className="header-wrapper">
         <div className="logo">
-          <Logo fill="var(--primary)" />
+          <Link to="/">
+            <Logo fill="var(--primary)" />
+          </Link>
         </div>
-        {props.showResto == false ? null : (
+        {useLocation().pathname === "/login" || useLocation().pathname === "/signup" ? null : (
           <>
             <form>
               <input
@@ -26,7 +29,7 @@ export function Header(props) {
               </button>
             </form>
             <div className="redirect">
-              <Link to="/">Cadastre-se</Link>
+              <Link to="/signup">Cadastre-se</Link>
               <Link to="/login">
                 <button>Entrar</button>
               </Link>
@@ -39,7 +42,7 @@ export function Header(props) {
           </>
         )}
       </div>
-      {props.showNavBar == false ? null : <Navigation />}
+      {useLocation().pathname == "/login" || useLocation().pathname == "/signup" ? null : <Navigation />}
     </header>
   );
 }

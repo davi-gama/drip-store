@@ -1,6 +1,6 @@
 import { Layout } from "../../components/Layout/Layout";
-import "./LoginPage.css";
+import "./SignUpPage.css";
 
-export function LoginPage() {
+export function SignUpPage() {
   return <Layout />;
 }
