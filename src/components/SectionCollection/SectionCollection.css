@@ -60,6 +60,6 @@
 
 .colecoes #btnComprar:hover {
   color: var(--white);
-  background-color: var(--primary);
+  background-color: var(--secondary);
   transition: 0.2s;
 }
