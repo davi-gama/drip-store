@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 export function Navigation() {
@@ -6,16 +6,24 @@ export function Navigation() {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/" activeclassname="active">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to="/productlist">Produtos</Link>
+          <NavLink to="/productlist" activeclassname="active">
+            Produtos
+          </NavLink>
         </li>
         <li>
-          <Link to="/">Categorias</Link>
+          <NavLink to="/categories" activeclassname="active">
+            Categorias
+          </NavLink>
         </li>
         <li>
-          <Link to="/">Meus Pedidos</Link>
+          <NavLink to="/orders" activeclassname="active">
+            Meus Pedidos
+          </NavLink>
         </li>
       </ul>
     </nav>
