@@ -97,10 +97,10 @@
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .btnBuyBox:hover {
   background-color: var(--warning-hover);
-  transition: 0.2s;
+  transition: 0.3s;
 }

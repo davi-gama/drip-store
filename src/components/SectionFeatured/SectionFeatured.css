@@ -18,12 +18,12 @@
   background-color: transparent;
   color: var(--light-gray);
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .icone button:hover {
   color: var(--primary);
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .icone h3 {

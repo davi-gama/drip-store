@@ -18,7 +18,7 @@ nav li a {
   color: var(--dark-gray-2);
   text-decoration: none;
   font-weight: 500;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 nav li a:hover,
@@ -27,5 +27,5 @@ nav li a.active {
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.5rem;
-  transition: 0.2s;
+  transition: 0.3s;
 }

@@ -37,12 +37,12 @@
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .slider-info button:hover {
   background-color: var(--tertiary);
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .slider-image img {

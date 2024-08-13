@@ -25,6 +25,12 @@
   font-weight: 400;
   font-size: 17px;
   margin: 1.5rem 0;
+  transition: 0.3s;
+}
+
+#cadastro:hover {
+  color: var(--primary);
+  transition: 0.3s;
 }
 
 #login label {
@@ -73,7 +79,7 @@
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
   margin: 1rem 0 0.5rem;
 }
 
