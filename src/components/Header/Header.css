@@ -17,12 +17,11 @@ header .logo {
 }
 
 header #search {
-  background-color: var(--white-2);
+  background-color: var(--light-gray-3);
   display: flex;
   width: 559px;
-  padding: 2px;
   border-radius: 8px;
-  padding: 0 1rem;
+  padding: 0 1rem 0 1.5rem;
 }
 
 header #search #pesquisa {
@@ -39,6 +38,11 @@ header #search button {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+header #search input::placeholder{
+  color: var(--dark-gray-3);
+  opacity: 60%;
 }
 
 header .redirect {

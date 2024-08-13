@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import sneaker from "/sneakers-login.png";
-import "./SectionLogin.css";
 import facebook from "../../assets/facebook-colored.svg";
 import gmail from "../../assets/gmail.svg";
+import "./SectionLogin.css";
 
 export function SectionLogin() {
   return (
@@ -17,24 +17,36 @@ export function SectionLogin() {
             </Link>
           </h3>
 
-          <label>Login *</label>
-          <input type="text" placeholder="Insira seu login ou email" required />
+          <label htmlFor="inputLogin">Login *</label>
+          <input
+            type="text"
+            id="inputLogin"
+            placeholder="Insira seu login ou email"
+            required
+          />
 
-          <label>Senha *</label>
-          <input type="password" placeholder="insira sua senha" required />
+          <label htmlFor="inputPassword">Senha *</label>
+          <input
+            type="password"
+            id="inputPassword"
+            placeholder="Insira sua senha"
+            required
+          />
 
           <h5>Esqueci minha senha</h5>
 
-          <div className="acess">
-            <Link to="/">
-              <button>Acessar Conta</button>
-            </Link>
+          <div className="access">
+            <button>Acessar Conta</button>
           </div>
 
-          <div className="or">
+          <div className="login-social">
             <h3> Ou faça login com </h3>
-            <img src={gmail} alt="" />
-            <img src={facebook} alt="" />
+            <Link to="/">
+              <img src={gmail} alt="" />
+            </Link>
+            <Link to="/">
+              <img src={facebook} alt="" />
+            </Link>
           </div>
         </form>
       </div>
