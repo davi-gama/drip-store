@@ -1,90 +1,83 @@
 @import "../../App.css";
 
-
-.section-login{
-    display: flex;
-    flex-direction: row;
-    padding: 5rem;
-    gap:2rem;
+.section-login {
+  display: flex;
+  flex-direction: row;
+  padding: 5rem 3.5rem; 
+  gap: 2rem;
 }
 
 .login-form #login {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-#login{
-    font-size: 15px;
-    padding: 2rem;
-    height: 560px;
-    width: 583px;
-    background-color: var(--white);
-    border-radius:4px ;
+#login {
+  font-size: 15px;
+  padding: 2rem;
+  height: 560px;
+  width: 583px;
+  background-color: var(--white);
+  border-radius: 4px;
 }
 
-
-
-#login h3, #cadastro {
-    color: var(--dark-gray-2);
-    font-weight: 400;
-    font-size: 17px;
-
+#login h3,
+#cadastro {
+  color: var(--dark-gray-2);
+  font-weight: 400;
+  font-size: 17px;
 }
 
-
-#login label{
-    font-size: 15px;
+#login label {
+  font-size: 15px;
 }
 
-#login input{
-    height: 60px;
-    width: 523px;
-    border-radius: 8px;
-    border: none;
-    background-color: var(--light-gray-3);
+#login input {
+  height: 60px;
+  width: 523px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--light-gray-3);
 }
 
-#login :required{
-    font-size: medium;
-    padding: 2rem;
+#login :required {
+  font-size: medium;
+  padding: 2rem;
 }
 
-#login h5{
-    cursor: pointer;
-    text-decoration: underline;
-    color: var(--dark-gray-2);
-    font-size: 14px;
-   
+#login h5 {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--dark-gray-2);
+  font-size: 14px;
 }
 
-#login input, :focus{
-    outline: none;
+#login input,
+:focus {
+  outline: none;
 }
 
- .acess button {
-    width: 523px;
-    height: 48px;
-    background-color: var(--primary);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
+.acess button {
+  width: 523px;
+  height: 48px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .acess :hover{
-    background-color: var(--tertiary);
-  }
+.acess :hover {
+  background-color: var(--tertiary);
+}
 
-  .or{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    cursor: pointer;
-
-  }
-
- 
+.or {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  cursor: pointer;
+}
