@@ -1,0 +1,10 @@
+@import "../../App.css";
+
+.hp-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.hp-section {
+  padding: 4rem 3.5rem;
+}

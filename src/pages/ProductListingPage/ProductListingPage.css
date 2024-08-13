@@ -1,0 +1,14 @@
+@import "../../App.css";
+
+.pl-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.pl-section {
+  padding: 0 2.5rem 6rem 0;
+}
+
+.produtos {
+  display: flex;
+}

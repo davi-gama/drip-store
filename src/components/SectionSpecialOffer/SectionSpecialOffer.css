@@ -1,0 +1,55 @@
+.oferta-especial {
+  padding: 6rem 2rem;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.oferta-especial .jordan img {
+  width: 600px;
+}
+
+.oferta-especial .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.oferta-especial .info h1 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.oferta-especial .info h3 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark-gray-2);
+}
+
+.oferta-especial .info p {
+  color: var(--dark-gray-2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.oferta-especial .info button {
+  width: 200px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.oferta-especial .info button:hover {
+  background-color: var(--tertiary);
+  transition: 0.2s;
+}

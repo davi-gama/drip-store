@@ -1,0 +1,25 @@
+.sneaker-size h1 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--light-gray);
+  margin-bottom: 0.5rem;
+}
+
+.size-button {
+  width: 48px;
+  height: 48px;
+  background-color: var(--transparent);
+  color: var(--dark-gray-2);
+  border: 1px solid var(--light-gray-2);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: 0.2s;
+}
+
+.size-button.selected {
+  background-color: var(--primary);
+  color: var(--white);
+}

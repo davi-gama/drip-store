@@ -1,0 +1,39 @@
+.order-by-wrapper {
+  padding: 3rem 3.5rem 2rem;
+  position: relative;
+  color: var(--dark-gray-2);
+  font-weight: 400;
+}
+
+.order-by-wrapper span {
+  font-weight: 700;
+}
+
+.order-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.7rem;
+  width: 265px;
+  margin: 1.5rem 3.5rem;
+  border: 1px solid var(--dark-gray-2);
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.order-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--dark-gray-2);
+}
+
+.order-select {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: var(--white-2);
+  color: var(--dark-gray-2);
+  padding: 0.2rem;
+}
