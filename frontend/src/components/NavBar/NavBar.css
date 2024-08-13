@@ -1,0 +1,31 @@
+nav {
+  margin-top: 2rem;
+  max-width: 1440px;
+  margin: 2rem auto 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li a {
+  color: var(--dark-gray-2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav li a:hover,
+nav li a.active {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.5rem;
+  transition: 0.3s;
+}

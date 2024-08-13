@@ -1,0 +1,10 @@
+@import "../../App.css";
+
+.lp-bgcolor {
+  background-image: linear-gradient(#b5b6f2, #efefff);
+}
+
+.lp-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
