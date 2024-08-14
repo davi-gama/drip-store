@@ -10,7 +10,7 @@ export function SignUpPage() {
       <Layout 
       children={
         <div className="su-wrapper">
-          <Section children={<SectionSignUp/>} />
+          <Section title="Criar Conta" children={<SectionSignUp/>} />
       </div>
       }
       />
