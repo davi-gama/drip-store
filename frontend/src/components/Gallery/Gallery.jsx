@@ -29,7 +29,7 @@ export function Gallery(props) {
         {props.slides
           ? props.slides.map((item, index) => (
               <SwiperSlide key={index}>
-                <img src={item.src} alt="slider" className="slide-item" />
+                <img src={item.src} alt="Slider" className="slide-item" />
               </SwiperSlide>
             ))
           : null}
@@ -43,7 +43,7 @@ export function Gallery(props) {
         >
           {props.slides.map((item, index) => (
             <SwiperSlide key={index}>
-              <img src={item.src} alt="slider" className="slide-item" />
+              <img src={item.src} alt="Slider" className="slide-item" />
             </SwiperSlide>
           ))}
         </Swiper>

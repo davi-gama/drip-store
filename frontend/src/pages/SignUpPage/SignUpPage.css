@@ -1,0 +1,16 @@
+@import "../../App.css";
+
+.su-wrapper {
+  display: flex;
+  margin: 0 auto;
+  padding: 4rem 0 8rem;
+  justify-content: center;
+  max-width: 1440px;
+}
+
+.su-wrapper h1 {
+  color: var(--dark-gray);
+  font-size: 32px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}

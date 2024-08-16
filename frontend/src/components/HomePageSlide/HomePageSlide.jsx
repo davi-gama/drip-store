@@ -1,5 +1,5 @@
 import "./HomePageSlide.css";
-import sneaker from "/white-sneaker.png";
+import airforce from "/white-sneaker.png";
 
 export function HomePageSlide() {
   return (
@@ -13,7 +13,7 @@ export function HomePageSlide() {
         <button>Ver Oferta</button>
       </div>
       <div className="slider-image">
-        <img src={sneaker} alt="tênis nike air force" />
+        <img src={airforce} alt="Nike Air Force" />
       </div>
     </div>
   );
