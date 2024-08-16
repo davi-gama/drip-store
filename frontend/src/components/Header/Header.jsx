@@ -27,7 +27,7 @@ export function Header() {
                 placeholder="Pesquisar produto..."
               />
               <button>
-                <img src={search} alt="ícone de lupa" />
+                <img src={search} alt="Ícone de lupa" />
               </button>
             </form>
             
@@ -46,7 +46,7 @@ export function Header() {
             
             <div className="carrinho">
               <button type="submit">
-                <img src={minicart} alt="ícone de carrinho de compras" />
+                <img src={minicart} alt="Ícone de carrinho de compras" />
               </button>
             </div>
           </>

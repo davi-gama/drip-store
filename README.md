@@ -6,4 +6,6 @@ Feito por:
  - [Davi Gama](https://github.com/davi-gama)
  - [Janderson Freire](https://github.com/JandersonFLima)
  - [Kalel Santos](https://github.com/Kalel0163)
+ - [Francisco Ewerton](https://github.com/F-Ewerton)
+ - [Lucas Andrade](https://github.com/JLucas78)
 
