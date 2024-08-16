@@ -10,7 +10,6 @@
 .delivery-form {
   display: flex;
   flex-direction: column;
-  font-size: 15px;
   padding: 2rem;
   height: auto;
   width: 750px;
@@ -53,7 +52,9 @@
 }
 
 hr {
-  margin: 1.5rem 0 1.5rem;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--light-gray-2);
 }
 
 #notifications {
@@ -89,7 +90,7 @@ hr {
   border: none;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   margin: 1rem 0 0.5rem;
