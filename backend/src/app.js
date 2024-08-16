@@ -8,12 +8,13 @@ const startServer = async () => {
   try {
     // Cria o banco de dados se ele não existir
     await createDB();
-    // Cria as tabelas do banco de dados se elas não existirem
+
+    // Cria as tabelas do banco de dados
     await createTables();
 
     // Inicia o servidor
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server rodando na porta ${PORT}`);
     });
   } catch (error) {
     console.error("Erro ao iniciar o servidor:", error);

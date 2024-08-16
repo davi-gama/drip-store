@@ -13,6 +13,6 @@ const configDB = new Sequelize(
   }
 );
 
-console.log("\n1. configDB\n");
+console.log("\n1. configDB pronto\n");
 
 export default configDB;

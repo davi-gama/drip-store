@@ -15,7 +15,7 @@ async function createDB() {
     console.log("\n2. Database criada com sucesso.\n");
     await connection.end();
   } catch (error) {
-    console.error("Create: Erro ao conectar no DB: ", error);
+    console.error("\nErro ao conectar com o DB: ", error);
   }
 }
 

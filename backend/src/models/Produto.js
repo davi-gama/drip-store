@@ -1,26 +1,86 @@
 import { DataTypes } from "sequelize";
 import configDB from "../config/db.js";
+import Categoria from "./Categoria.js";
 
-const Product = configDB.define(
-  "Product",
+const Produto = configDB.define(
+  "Produto",
   {
-    name: {
-      type: DataTypes.STRING(50), // varchar(50)
-      allowNull: false, // NOT NULL
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false, // NOT NULL
+    nome: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
     },
-    description: {
+    descricao: {
       type: DataTypes.TEXT,
-      allowNull: true, // NULL
+    },
+    preco: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    preco_promocao: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
+    label_promocao: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    marca: {
+      type: DataTypes.STRING(100),
+    },
+    genero: {
+      type: DataTypes.ENUM("masculino", "feminino", "unissex"),
+    },
+    numero_vendas: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+    rating: {
+      type: DataTypes.DECIMAL(3, 2),
+      defaultValue: 0.0,
+    },
+    numero_avaliacoes: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+    referencia: {
+      type: DataTypes.STRING(100),
+      unique: true,
+    },
+    categoria_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Categoria,
+        key: "id",
+      },
+      onDelete: "SET NULL",
+    },
+    finalidade: {
+      type: DataTypes.ENUM("lazer", "casual", "corrida", "utilitario"),
+      allowNull: false,
+    },
+    data_criacao: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+    data_atualizacao: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      onUpdate: DataTypes.NOW,
     },
   },
   {
-    tableName: "products", // Nome da tabela
-    timestamps: true, // Cria campos createdAt e updatedAt automaticamente
+    tableName: "produto",
+    timestamps: false,
   }
 );
 
-export default Product;
+Produto.belongsTo(Categoria, {
+  foreignKey: "categoria_id",
+  onDelete: "SET NULL",
+});
+
+export default Produto;

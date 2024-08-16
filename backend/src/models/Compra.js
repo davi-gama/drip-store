@@ -23,7 +23,7 @@ const Compra = configDB.define(
       allowNull: false,
     },
     data_compra: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
     status: {
@@ -41,5 +41,7 @@ const Compra = configDB.define(
     timestamps: false,
   }
 );
+
+Compra.belongsTo(Usuario, { foreignKey: "usuario_id", onDelete: "SET NULL" });
 
 export default Compra;

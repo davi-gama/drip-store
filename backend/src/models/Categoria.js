@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import configDB from "../config/db";
+import configDB from "../config/db.js";
 
 const Categoria = configDB.define(
   "Categoria",

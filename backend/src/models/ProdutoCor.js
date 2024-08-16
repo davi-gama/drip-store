@@ -29,4 +29,9 @@ const ProdutoCor = configDB.define(
   }
 );
 
+ProdutoCor.belongsTo(Produto, {
+  foreignKey: "produto_id",
+  onDelete: "CASCADE",
+});
+
 export default ProdutoCor;

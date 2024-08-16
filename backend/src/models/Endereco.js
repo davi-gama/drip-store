@@ -48,4 +48,6 @@ const Endereco = configDB.define(
   }
 );
 
+Endereco.belongsTo(Usuario, { foreignKey: "usuario_id", onDelete: "CASCADE" });
+
 export default Endereco;

@@ -32,4 +32,9 @@ const ProdutoImagem = configDB.define(
   }
 );
 
+ProdutoImagem.belongsTo(Produto, {
+  foreignKey: "produto_id",
+  onDelete: "CASCADE",
+});
+
 export default ProdutoImagem;

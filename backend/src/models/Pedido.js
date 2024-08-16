@@ -1,4 +1,3 @@
-// models/Pedido.js
 import { DataTypes } from "sequelize";
 import configDB from "../config/db.js";
 import Compra from "./Compra.js";
@@ -42,5 +41,8 @@ const Pedido = configDB.define(
     timestamps: false,
   }
 );
+
+Pedido.belongsTo(Compra, { foreignKey: "compra_id", onDelete: "CASCADE" });
+Pedido.belongsTo(Produto, { foreignKey: "produto_id", onDelete: "SET NULL" });
 
 export default Pedido;
