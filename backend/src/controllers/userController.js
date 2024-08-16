@@ -1,8 +1,8 @@
-import db from "../db/connection.js";
+import configDB from "../config/db.js";
 
 export const getUsers = async (req, res) => {
   try {
-    const [rows] = await db.query("SELECT * FROM usuarios");
+    const [rows] = await configDB.query("SELECT * FROM usuarios");
     res.json(rows);
   } catch (error) {
     console.error("Error querying the database:", error);
@@ -14,7 +14,7 @@ export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const [rows] = await db.query(
+    const [rows] = await configDB.query(
       "SELECT * FROM usuarios WHERE email = ? AND senha = ?",
       [email, password]
     );
