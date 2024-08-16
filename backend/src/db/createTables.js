@@ -1,9 +1,9 @@
-import promisePool from '../db/connection.js';
+import promisePool from "../db/connection.js";
 
 const createTables = async () => {
-    try {
-        // Tabela usuario
-        await promisePool.query(`
+  try {
+    // Tabela usuario
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS usuario (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome_conpleto VARCHAR(100) NOT NULL,
@@ -17,8 +17,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela categoria
-        await promisePool.query(`
+    // Tabela categoria
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS categoria (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL UNIQUE,
@@ -26,8 +26,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela produto
-        await promisePool.query(`
+    // Tabela produto
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS produto (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL,
@@ -49,8 +49,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela produto_cor
-        await promisePool.query(`
+    // Tabela produto_cor
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS produto_cor (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 produto_id INT,
@@ -59,8 +59,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela produto_imagem
-        await promisePool.query(`
+    // Tabela produto_imagem
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS produto_imagem (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 produto_id INT,
@@ -70,8 +70,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela endereco
-        await promisePool.query(`
+    // Tabela endereco
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS endereco (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 usuario_id INT,
@@ -85,8 +85,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela compra
-        await promisePool.query(`
+    // Tabela compra
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS compra (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 usuario_id INT,
@@ -97,8 +97,8 @@ const createTables = async () => {
             );
         `);
 
-        // Tabela pedido
-        await promisePool.query(`
+    // Tabela pedido
+    await promisePool.query(`
             CREATE TABLE IF NOT EXISTS pedido (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 compra_id INT,
@@ -110,12 +110,12 @@ const createTables = async () => {
             );
         `);
 
-        console.log('Tabelas criadas com sucesso!');
-    } catch (error) {
-        console.error('Erro ao criar tabelas:', error);
-    } finally {
-        await promisePool.end();
-    }
+    console.log("Tabelas criadas com sucesso!");
+  } catch (error) {
+    console.error("Erro ao criar tabelas:", error);
+  } finally {
+    await promisePool.end();
+  }
 };
 
 export default createTables;
