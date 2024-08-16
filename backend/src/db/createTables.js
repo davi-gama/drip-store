@@ -6,13 +6,12 @@ const createTables = async () => {
         await promisePool.query(`
             CREATE TABLE IF NOT EXISTS usuario (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                nome VARCHAR(100) NOT NULL,
-                sobrenome VARCHAR(100) NOT NULL,
-                telefone VARCHAR(20),
-                ativo BOOLEAN DEFAULT TRUE,
+                nome_conpleto VARCHAR(100) NOT NULL,
+                telefone VARCHAR(20) NOT NULL,
                 tipo_acesso ENUM('admin', 'client') DEFAULT 'client' NOT NULL,
-                senha VARCHAR(255) NOT NULL,
-                cpf VARCHAR(11) UNIQUE NOT NULL,
+                senha VARCHAR(100) NOT NULL,
+                email VARCHAR(100) NOT NULL,
+                cpf VARCHAR(16) UNIQUE NOT NULL,
                 data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             );
@@ -34,11 +33,12 @@ const createTables = async () => {
                 nome VARCHAR(100) NOT NULL,
                 descricao TEXT,
                 preco DECIMAL(10, 2) NOT NULL,
+                preco_promocao DECIMAL(10, 2) NULL,
                 label_promocao BOOLEAN DEFAULT FALSE,
                 marca VARCHAR(100),
                 genero ENUM('masculino', 'feminino', 'unissex'),
                 numero_vendas INT DEFAULT 0,
-                rating DECIMAL(3, 2) DEFAULT 4.00,
+                rating DECIMAL(3, 2) DEFAULT 0.00,
                 numero_avaliacoes INT DEFAULT 0,
                 referencia VARCHAR(100) UNIQUE,
                 categoria_id INT,
@@ -75,11 +75,12 @@ const createTables = async () => {
             CREATE TABLE IF NOT EXISTS endereco (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 usuario_id INT,
-                rua VARCHAR(255),
-                numero_residencia VARCHAR(10),
-                bairro VARCHAR(100),
-                cidade VARCHAR(100),
-                cep VARCHAR(20),
+                rua VARCHAR(100) NOT NULL,
+                numero VARCHAR(10) NOT NULL,
+                bairro VARCHAR(100) NOT NULL,
+                cidade VARCHAR(100) NOT NULL,
+                cep VARCHAR(12) NOT NULL,
+                complemento VARCHAR(50),
                 FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
             );
         `);
