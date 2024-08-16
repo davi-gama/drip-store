@@ -7,7 +7,7 @@ import "./SectionLogin.css";
 export function SectionLogin() {
   return (
     <div className="section-login">
-      <div className="login-form">
+      <div className="login-wrapper">
         <form id="login">
           <h1>Acesse sua conta</h1>
           <h3>
@@ -25,10 +25,10 @@ export function SectionLogin() {
             required
           />
 
-          <label htmlFor="inputPassword">Senha *</label>
+          <label htmlFor="inputSenha">Senha *</label>
           <input
             type="password"
-            id="inputPassword"
+            id="inputSenha"
             placeholder="Insira sua senha"
             required
           />
@@ -40,7 +40,7 @@ export function SectionLogin() {
           </div>
 
           <div className="login-social">
-            <h3> Ou faça login com </h3>
+            <h4>Ou faça login com</h4>
             <Link to="/">
               <img src={gmail} alt="" />
             </Link>

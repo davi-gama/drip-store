@@ -6,68 +6,35 @@
   align-items: center;
 }
 
-.profile-form {
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  padding: 2rem;
-  height: auto;
-  width: 750px;
-  background-color: var(--white);
-  border-radius: 4px;
-}
-
-.profile-form h3 {
-  color: var(--dark-gray-2);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.profile-form label {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--dark-gray-2);
-    margin: 0.8rem 0;
-}
-
-.profile-form input {
-  height: 60px;
-  border-radius: 8px;
-  border: none;
-  background-color: var(--light-gray-3);
-  margin-bottom: 1rem;
-  padding: 0 1.5rem;
-}
-
+.profile-form,
 .delivery-form {
   display: flex;
   flex-direction: column;
   font-size: 15px;
-  margin-top: 0.8rem;
   padding: 2rem;
   height: auto;
   width: 750px;
   background-color: var(--white);
   border-radius: 4px;
+  margin-bottom: 0.8rem;
 }
 
+.profile-form h3,
 .delivery-form h3 {
   color: var(--dark-gray-2);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 }
 
+.profile-form label,
 .delivery-form label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--dark-gray-2);
-    margin:0.8rem 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark-gray-2);
+  margin: 0.8rem 0;
 }
 
-hr{
-    margin: 1.5rem 0 1.5rem; 
-}
-
+.profile-form input,
 .delivery-form input {
   height: 60px;
   border-radius: 8px;
@@ -75,6 +42,18 @@ hr{
   background-color: var(--light-gray-3);
   margin-bottom: 1rem;
   padding: 0 1.5rem;
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.profile-form input::placeholder,
+.delivery-form input::placeholder {
+  color: var(--dark-gray-3);
+  opacity: 60%;
+}
+
+hr {
+  margin: 1.5rem 0 1.5rem;
 }
 
 #notifications {
@@ -86,8 +65,10 @@ hr{
   display: flex;
   align-items: center;
   color: var(--dark-gray-2);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  font-weight: 500;
+  line-height: 22px;
   gap: 0.5rem;
   margin: 1rem 0;
 }
@@ -100,7 +81,7 @@ hr{
   margin-bottom: 1rem;
 }
 
-.submit button {
+.div-submit button {
   width: 100%;
   height: 48px;
   background-color: var(--primary);
@@ -114,7 +95,6 @@ hr{
   margin: 1rem 0 0.5rem;
 }
 
-.submit :hover {
+.div-submit button:hover {
   background-color: var(--tertiary);
 }
-

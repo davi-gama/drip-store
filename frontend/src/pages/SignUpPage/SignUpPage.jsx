@@ -1,18 +1,17 @@
 import { Layout } from "../../components/Layout/Layout";
 import { Section } from "../../components/Section/Section";
-import { SectionSignUp } from "../../components/SectionSignUp/SectionSignUp"
+import { SectionSignUp } from "../../components/SectionSignUp/SectionSignUp";
 import "./SignUpPage.css";
 
-
 export function SignUpPage() {
-  return(
+  return (
     <div className="su-bgcolor">
-      <Layout 
-      children={
-        <div className="su-wrapper">
-          <Section title="Criar Conta" children={<SectionSignUp/>} />
-      </div>
-      }
+      <Layout
+        children={
+          <div className="su-wrapper">
+            <Section title="Criar Conta" children={<SectionSignUp />} />
+          </div>
+        }
       />
     </div>
   );
