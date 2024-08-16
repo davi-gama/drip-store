@@ -1,11 +1,11 @@
-import jordan from "/home-slide-9.png";
+import misspiggy from "/home-slide-9.png";
 import "./SectionSpecialOffer.css";
 
 export function SectionSpecialOffer() {
   return (
     <section className="oferta-especial">
       <div className="jordan">
-        <img src={jordan} alt="par de jordans" />
+        <img src={misspiggy} alt="Nike SB 'Miss Piggy'" />
       </div>
       <div className="info">
         <h1>Oferta Especial </h1>

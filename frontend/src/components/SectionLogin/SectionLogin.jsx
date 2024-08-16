@@ -42,17 +42,17 @@ export function SectionLogin() {
           <div className="login-social">
             <h4>Ou faça login com</h4>
             <Link to="/">
-              <img src={gmail} alt="" />
+              <img src={gmail} alt="Ícone do Gmail" />
             </Link>
             <Link to="/">
-              <img src={facebook} alt="" />
+              <img src={facebook} alt="Ícone do Facebook" />
             </Link>
           </div>
         </form>
       </div>
 
       <div className="login-image">
-        <img src={sneaker} alt="par de sneakers" />
+        <img src={sneaker} alt="Nike W Air Max Dia" />
       </div>
     </div>
   );

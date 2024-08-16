@@ -16,9 +16,9 @@ export function Footer() {
               atque?
             </p>
             <div className="social-icons">
-              <img src={facebook} alt="" />
-              <img src={instagram} alt="" />
-              <img src={twitter} alt="" />
+              <img src={facebook} alt="Ícone do Facebook" />
+              <img src={instagram} alt="Ícone do Instagram" />
+              <img src={twitter} alt="Ícone do Twitter" />
             </div>
           </div>
           <div className="info-categorias">
