@@ -18,6 +18,7 @@ router.delete("/users/:id", deleteUser); // Deletar usuário
 router.get("/users", getUsers); // Listar todos os usuários
 
 // Rotas de produtos
-router.get("/products", getProducts);
+router.get("/products", getProducts); // Listar todos os produtos
+router.get("/products/:id", getProducts); // Obter um produto por ID
 
 export default router;
