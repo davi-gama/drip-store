@@ -4,6 +4,7 @@ import Categoria from "../models/Categoria.js";
 import Produto from "../models/Produto.js";
 import ProdutoCor from "../models/ProdutoCor.js";
 import ProdutoImagem from "../models/ProdutoImagem.js";
+import bcrypt from "bcrypt"; 
 
 export const up = async () => {
   try {
@@ -16,9 +17,9 @@ export const up = async () => {
           nome_completo: "João Silva",
           telefone: "1234567890",
           tipo_acesso: "client",
-          senha: "password123", // Em produção, use hashing para senhas
+          senha: await bcrypt.hash("password123", 10), // Hash da senha
           email: "joao.silva@example.com",
-          cpf: "12345678901",
+          cpf: "123.456.789-01", // CPF formatado
           data_criacao: new Date(),
           data_atualizacao: new Date(),
         },
@@ -26,9 +27,9 @@ export const up = async () => {
           nome_completo: "Maria Oliveira",
           telefone: "0987654321",
           tipo_acesso: "admin",
-          senha: "password456", // Em produção, use hashing para senhas
+          senha: await bcrypt.hash("password456", 10), // Hash da senha
           email: "maria.oliveira@example.com",
-          cpf: "10987654321",
+          cpf: "109.876.543-21", // CPF formatado
           data_criacao: new Date(),
           data_atualizacao: new Date(),
         },
@@ -37,7 +38,7 @@ export const up = async () => {
       // Insere endereços relacionados aos usuários
       await Endereco.bulkCreate([
         {
-          usuario_id: usuarios[0].id, // Relaciona ao ID do primeiro usuário
+          usuario_id: usuarios[0].id, 
           rua: "Rua A",
           numero: "123",
           bairro: "Centro",
@@ -46,7 +47,7 @@ export const up = async () => {
           complemento: "Apto 101",
         },
         {
-          usuario_id: usuarios[1].id, // Relaciona ao ID do segundo usuário
+          usuario_id: usuarios[1].id, 
           rua: "Rua B",
           numero: "456",
           bairro: "Bairro Exemplo",
@@ -71,7 +72,7 @@ export const up = async () => {
       });
     }
 
-    //Insersão das camisetas
+    // Inserção das camisetas
 
     // Verifica se já existe o produto 'Camiseta Mizuno Energy Masculina'
     let produto = await Produto.findOne({

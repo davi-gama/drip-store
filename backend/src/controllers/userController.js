@@ -1,10 +1,8 @@
-import configDB from '../config/db.js'; // Importa a configuração do banco de dados
-import bcrypt from 'bcrypt'; // Importa o algoritmo de criptografia Bcrypt
+import configDB from '../config/db.js';
+import bcrypt from 'bcrypt';
 
-const saltRounds = 10; 
+const saltRounds = 10;
 
-
-// Função para obter todos os usuários
 export const getUsers = async (req, res) => {
   try {
     const [rows] = await configDB.query(`
@@ -19,19 +17,13 @@ export const getUsers = async (req, res) => {
   }
 };
 
-
-
-// Função para login de usuário
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
-
   try {
     const [rows] = await configDB.query("SELECT * FROM usuario WHERE email = ?", [email]);
-    
     if (rows.length > 0) {
       const user = rows[0];
       const match = await bcrypt.compare(senha, user.senha);
-
       if (match) {
         res.status(200).json({ message: "Login bem-sucedido", user });
       } else {
@@ -46,28 +38,59 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// Função para criar um novo usuário
+
+
 export const createUser = async (req, res) => {
-  const { nome_completo, email, senha } = req.body;
+  const {
+    nome,
+    cpf,
+    email,
+    senha,
+    celular, 
+    rua,
+    numero,
+    bairro,
+    cidade,
+    cep,
+    complemento,
+    tipoAcesso, // Esperando string 'client' ou 'admin'
+  } = req.body;
 
   try {
+    const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
-    await configDB.query(
-      "INSERT INTO usuario (nome_completo, email, senha) VALUES (?, ?, ?)",
-      [nome_completo, email, hashedPassword]
+    // Inserir usuário
+    const userResult = await configDB.query(
+      "INSERT INTO usuario (nome_completo, cpf, email, senha, telefone, tipo_acesso) VALUES (?, ?, ?, ?, ?, ?)",
+      {
+        replacements: [nome, cpf, email, hashedPassword, celular, tipoAcesso],
+        type: configDB.QueryTypes.INSERT,
+      }
     );
+
+    const userId = userResult[0]; // Captura o ID do usuário inserido
+
+    // Inserir endereço associado ao usuário
+    await configDB.query(
+      "INSERT INTO endereco (usuario_id, rua, numero, bairro, cidade, cep, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      {
+        replacements: [userId, rua, numero, bairro, cidade, cep, complemento],
+        type: configDB.QueryTypes.INSERT,
+      }
+    );
+
     res.status(201).json({ message: "Usuário criado com sucesso" });
   } catch (error) {
-    console.error("Error inserting into the database:", error);
-    res.status(500).json({ message: "Database query failed" });
+    console.error("Erro ao inserir no banco de dados:", error);
+    res.status(500).json({ message: "Falha na consulta ao banco de dados" });
   }
 };
 
-// Função para obter um usuário por ID
+
+
 export const getUserById = async (req, res) => {
   const { id } = req.params;
-
   try {
     const [rows] = await configDB.query(`
       SELECT u.*, e.*
@@ -87,7 +110,6 @@ export const getUserById = async (req, res) => {
   }
 };
 
-// Função para atualizar um usuário
 export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { nome_completo, email, senha } = req.body;
@@ -113,7 +135,6 @@ export const updateUser = async (req, res) => {
   }
 };
 
-// Função para deletar um usuário
 export const deleteUser = async (req, res) => {
   const { id } = req.params;
 
