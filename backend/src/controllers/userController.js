@@ -1,8 +1,7 @@
-import configDB from '../config/db.js'; // Importa a configuração do banco de dados
-import bcrypt from 'bcrypt'; // Importa o algoritmo de criptografia Bcrypt
+import configDB from "../config/db.js"; // Importa a configuração do banco de dados
+import bcrypt from "bcrypt"; // Importa o algoritmo de criptografia Bcrypt
 
-const saltRounds = 10; 
-
+const saltRounds = 10;
 
 // Função para obter todos os usuários
 export const getUsers = async (req, res) => {
@@ -19,15 +18,16 @@ export const getUsers = async (req, res) => {
   }
 };
 
-
-
 // Função para login de usuário
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
 
   try {
-    const [rows] = await configDB.query("SELECT * FROM usuario WHERE email = ?", [email]);
-    
+    const [rows] = await configDB.query(
+      "SELECT * FROM usuario WHERE email = ?",
+      [email]
+    );
+
     if (rows.length > 0) {
       const user = rows[0];
       const match = await bcrypt.compare(senha, user.senha);
@@ -69,13 +69,16 @@ export const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const [rows] = await configDB.query(`
+    const [rows] = await configDB.query(
+      `
       SELECT u.*, e.*
       FROM usuario u
       LEFT JOIN usuario_endereco ue ON u.id = ue.usuario_id
       LEFT JOIN endereco e ON ue.endereco_id = e.id
-      WHERE u.id = ?`, [id]);
-      
+      WHERE u.id = ?`,
+      [id]
+    );
+
     if (rows.length > 0) {
       res.json(rows[0]);
     } else {

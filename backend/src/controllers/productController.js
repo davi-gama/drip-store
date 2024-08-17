@@ -29,11 +29,11 @@ export const getProducts = async (req, res) => {
     `);
 
     // Transformando as strings de URLs e cores em arrays
-    const produtos = rows.map(produto => {
+    const produtos = rows.map((produto) => {
       return {
         ...produto,
-        imagens: produto.imagens ? produto.imagens.split(',') : [],
-        cores: produto.cores ? produto.cores.split(',') : []
+        imagens: produto.imagens ? produto.imagens.split(",") : [],
+        cores: produto.cores ? produto.cores.split(",") : [],
       };
     });
 
@@ -44,13 +44,13 @@ export const getProducts = async (req, res) => {
   }
 };
 
-
 // Função para obter um produto por ID
 export const getProductById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const [rows] = await configDB.query(`
+    const [rows] = await configDB.query(
+      `
       SELECT 
         p.id as produto_id, 
         p.nome, 
@@ -74,14 +74,16 @@ export const getProductById = async (req, res) => {
       LEFT JOIN produtos_imagem pi ON p.id = pi.produto_id
       WHERE p.id = ?
       GROUP BY p.id;
-    `, [id]);   
+    `,
+      [id]
+    );
 
     // Transformando as strings de URLs e cores em arrays
-    const produto = rows.map(produto => {
+    const produto = rows.map((produto) => {
       return {
         ...produto,
-        imagens: produto.imagens ? produto.imagens.split(',') : [],
-        cores: produto.cores ? produto.cores.split(',') : []
+        imagens: produto.imagens ? produto.imagens.split(",") : [],
+        cores: produto.cores ? produto.cores.split(",") : [],
       };
     });
 
@@ -90,4 +92,4 @@ export const getProductById = async (req, res) => {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
   }
-}
+};
