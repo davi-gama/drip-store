@@ -74,6 +74,30 @@ hr {
   margin: 1rem 0;
 }
 
+.tipoAcesso {
+  width: 750px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  color: var(--dark-gray-2);
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  font-weight: 500;
+  line-height: 22px;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tipoAcesso input {
+  border-radius: 5rem;
+  height: 25px;
+  width: 18px;
+  accent-color: var(--primary);
+  margin-bottom: 1rem;
+  position: relative;
+  top: 10px;
+}
+
 .opt-in input {
   border-radius: 5rem;
   height: 25px;

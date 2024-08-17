@@ -18,8 +18,8 @@ const Usuario = configDB.define(
       allowNull: false,
     },
     tipo_acesso: {
-      type: DataTypes.ENUM("admin", "client"),
-      defaultValue: "client",
+      type: DataTypes.STRING(30),
+      defaultValue: 'client',
       allowNull: false,
     },
     senha: {
@@ -29,11 +29,18 @@ const Usuario = configDB.define(
     email: {
       type: DataTypes.STRING(100),
       allowNull: false,
+      unique: true, // Define restrição única para o e-mail
+      validate: {
+        isEmail: true, // Valida que o campo seja um e-mail válido
+      },
     },
     cpf: {
       type: DataTypes.STRING(16),
-      unique: true,
       allowNull: false,
+      unique: true, // Define restrição única para o CPF
+      validate: {
+        len: [11, 14], // Valida o tamanho do CPF (considerando formatação com pontos e traço)
+      },
     },
     data_criacao: {
       type: DataTypes.DATE,
