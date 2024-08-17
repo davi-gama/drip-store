@@ -11,10 +11,6 @@ import Pedido from "../models/Pedido.js";
 async function createTables() {
   try {
     await configDB.authenticate(); // Verifica a conexão com o banco de dados
-    console.log(
-      "\n3. Conexão com o banco de dados estabelecida com sucesso.\n"
-    );
-
     await Usuario.sync();
     await Categoria.sync();
     await Produto.sync();
@@ -24,7 +20,7 @@ async function createTables() {
     await Compra.sync();
     await Pedido.sync();
 
-    console.log("\n4. Tabelas sincronizadas/criadas com sucesso.\n");
+    console.log("\n3. Tabelas sincronizadas/criadas com sucesso.\n");
   } catch (error) {
     console.error("\nErro ao sincronizar as tabelas:", error);
   }

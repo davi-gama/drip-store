@@ -1,13 +1,19 @@
-import { Router } from 'express';  // Importa o Router do Express
-import userRoutes from './userRouter.js';  // Importa as rotas do usuário
+import { Router } from 'express';
+import { getUsers, loginUser, createUser, getUserById, updateUser, deleteUser } from '../controllers/userController.js';
 
 const router = Router();
 
+// Página inicial
 router.get("/", (req, res) => {
-    return res.json({ message: "Hello World" });  // Define a rota raiz que retorna um JSON com a mensagem "Hello World"
+    return res.json({ message: "Olá camarada, seja bem-vindo!" });
 });
 
-// Rotas de usuário
-router.use('/users', userRoutes);  // Usa as rotas de usuário sob o caminho base /users 
+// Rotas de usuários
+router.post("/users/login", loginUser);  // Login de usuário
+router.post("/users/cadastro", createUser); // Cadastro de usuário
+router.get("/users/:id", getUserById); // Obter usuário por ID
+router.put("/users/:id", updateUser); // Atualizar usuário
+router.delete("/users/:id", deleteUser); // Deletar usuário
+router.get("/users", getUsers); // Listar todos os usuários
 
-export default router;  // Exporta o router configurado
+export default router;

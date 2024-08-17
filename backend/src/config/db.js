@@ -13,6 +13,6 @@ const configDB = new Sequelize(
   }
 );
 
-console.log("\n1. configDB pronto\n");
+console.log("\n1. Dados de acesso configurados.\n");
 
 export default configDB;
