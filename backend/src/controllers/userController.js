@@ -1,9 +1,12 @@
 import configDB from '../config/db.js'; // Importa a configuração do banco de dados
+import bcrypt from 'bcrypt'; // Importa o algoritmo de criptografia Bcrypt
+
+const saltRounds = 10; 
 
 // Função para obter todos os usuários
 export const getUsers = async (req, res) => {
   try {
-    const [rows] = await configDB.query("SELECT * FROM usuario"); // Corrigido o nome da tabela
+    const [rows] = await configDB.query("SELECT * FROM usuario"); 
     res.json(rows);
   } catch (error) {
     console.error("Error querying the database:", error);
@@ -16,13 +19,19 @@ export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
 
   try {
-    const [rows] = await configDB.query(
-      "SELECT * FROM usuario WHERE email = ? AND senha = ?",
-      [email, senha]
-    );
+    const [rows] = await configDB.query("SELECT * FROM usuario WHERE email = ?", [email]);
+    
 
     if (rows.length > 0) {
-      res.status(200).json({ message: "Login bem-sucedido", user: rows[0] });
+      const user = rows[0];
+      // Verifica se a senha fornecida corresponde ao hash da senha no banco de dados
+      const match = await bcrypt.compare(senha, user.senha);
+
+      if (match) {
+        res.status(200).json({ message: "Login bem-sucedido", user });
+      } else {
+        res.status(400).json({ message: "Email ou senha inválidos" });
+      }
     } else {
       res.status(400).json({ message: "Email ou senha inválidos" });
     }
@@ -35,11 +44,14 @@ export const loginUser = async (req, res) => {
 // Função para criar um novo usuário
 export const createUser = async (req, res) => {
   const { nome_completo, email, senha } = req.body;
-  
+
   try {
+    // Criptografa a senha antes de salvar no banco de dados
+    const hashedPassword = await bcrypt.hash(senha, saltRounds);
+
     await configDB.query(
       "INSERT INTO usuario (nome_completo, email, senha) VALUES (?, ?, ?)",
-      [nome_completo, email, senha]
+      [nome_completo, email, hashedPassword]
     );
     res.status(201).json({ message: "Usuário criado com sucesso" });
   } catch (error) {
@@ -51,7 +63,7 @@ export const createUser = async (req, res) => {
 // Função para obter um usuário por ID
 export const getUserById = async (req, res) => {
   const { id } = req.params;
-  
+
   try {
     const [rows] = await configDB.query("SELECT * FROM usuario WHERE id = ?", [id]);
     if (rows.length > 0) {
@@ -69,12 +81,22 @@ export const getUserById = async (req, res) => {
 export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { nome_completo, email, senha } = req.body;
-  
+
   try {
-    await configDB.query(
-      "UPDATE usuario SET nome_completo = ?, email = ?, senha = ? WHERE id = ?",
-      [nome_completo, email, senha, id]
-    );
+    let query = "UPDATE usuario SET nome_completo = ?, email = ?";
+    const params = [nome_completo, email];
+
+    // Se a senha for fornecida, criptografa e adiciona à consulta
+    if (senha) {
+      const hashedPassword = await bcrypt.hash(senha, saltRounds);
+      query += ", senha = ?";
+      params.push(hashedPassword);
+    }
+
+    query += " WHERE id = ?";
+    params.push(id);
+
+    await configDB.query(query, params);
     res.status(200).json({ message: "Usuário atualizado com sucesso" });
   } catch (error) {
     console.error("Error updating the database:", error);
@@ -85,7 +107,7 @@ export const updateUser = async (req, res) => {
 // Função para deletar um usuário
 export const deleteUser = async (req, res) => {
   const { id } = req.params;
-  
+
   try {
     await configDB.query("DELETE FROM usuario WHERE id = ?", [id]);
     res.status(200).json({ message: "Usuário deletado com sucesso" });
