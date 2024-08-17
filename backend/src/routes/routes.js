@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { getUsers, loginUser, createUser, getUserById, updateUser, deleteUser } from '../controllers/userController.js';
+import { getProducts } from '../controllers/productController.js';
 
 const router = Router();
 
@@ -15,5 +16,8 @@ router.get("/users/:id", getUserById); // Obter usuário por ID
 router.put("/users/:id", updateUser); // Atualizar usuário
 router.delete("/users/:id", deleteUser); // Deletar usuário
 router.get("/users", getUsers); // Listar todos os usuários
+
+// Rotas de produtos
+router.get("/products", getProducts);
 
 export default router;

@@ -62,6 +62,10 @@ const Produto = configDB.define(
       type: DataTypes.ENUM("lazer", "casual", "corrida", "utilitario"),
       allowNull: false,
     },
+    estoque: {
+      type: DataTypes.INTEGER,
+      defaultValue: 50,
+    },
     data_criacao: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,

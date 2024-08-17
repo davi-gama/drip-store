@@ -3,16 +3,23 @@ import bcrypt from 'bcrypt'; // Importa o algoritmo de criptografia Bcrypt
 
 const saltRounds = 10; 
 
+
 // Função para obter todos os usuários
 export const getUsers = async (req, res) => {
   try {
-    const [rows] = await configDB.query("SELECT * FROM usuario"); 
+    const [rows] = await configDB.query(`
+      SELECT u.*, e.* 
+      FROM usuario u
+      LEFT JOIN endereco e ON u.id = e.usuario_id
+    `);
     res.json(rows);
   } catch (error) {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
   }
 };
+
+
 
 // Função para login de usuário
 export const loginUser = async (req, res) => {
@@ -21,10 +28,8 @@ export const loginUser = async (req, res) => {
   try {
     const [rows] = await configDB.query("SELECT * FROM usuario WHERE email = ?", [email]);
     
-
     if (rows.length > 0) {
       const user = rows[0];
-      // Verifica se a senha fornecida corresponde ao hash da senha no banco de dados
       const match = await bcrypt.compare(senha, user.senha);
 
       if (match) {
@@ -46,7 +51,6 @@ export const createUser = async (req, res) => {
   const { nome_completo, email, senha } = req.body;
 
   try {
-    // Criptografa a senha antes de salvar no banco de dados
     const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
     await configDB.query(
@@ -65,7 +69,13 @@ export const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const [rows] = await configDB.query("SELECT * FROM usuario WHERE id = ?", [id]);
+    const [rows] = await configDB.query(`
+      SELECT u.*, e.*
+      FROM usuario u
+      LEFT JOIN usuario_endereco ue ON u.id = ue.usuario_id
+      LEFT JOIN endereco e ON ue.endereco_id = e.id
+      WHERE u.id = ?`, [id]);
+      
     if (rows.length > 0) {
       res.json(rows[0]);
     } else {
@@ -86,7 +96,6 @@ export const updateUser = async (req, res) => {
     let query = "UPDATE usuario SET nome_completo = ?, email = ?";
     const params = [nome_completo, email];
 
-    // Se a senha for fornecida, criptografa e adiciona à consulta
     if (senha) {
       const hashedPassword = await bcrypt.hash(senha, saltRounds);
       query += ", senha = ?";
