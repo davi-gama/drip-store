@@ -5,21 +5,6 @@ import configDB from "../config/db.js";
 
 const saltRounds = 10;
 
-// export const getUsers = async (req, res) => {
-//   try {
-//     const users = await Usuario.findAll({
-//       include: {
-//         model: Endereco,
-//         attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
-//       },
-//     });
-//     res.json(users);
-//   } catch (error) {
-//     console.error("Error querying the database:", error);
-//     res.status(500).json({ message: "Database query failed" });
-//   }
-// };
-
 export const getUsers = async (req, res) => {
   try {
     const [rows] = await configDB.query(`
@@ -34,13 +19,17 @@ export const getUsers = async (req, res) => {
   }
 };
 
-
-
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
   try {
-    const user = await Usuario.findOne({ where: { email } });
-    if (user) {
+    const [rows] = await configDB.query(
+      "SELECT * FROM usuario WHERE email = ?",
+      {
+        replacements: [email],
+      }
+    );
+    if (rows.length > 0) {
+      const user = rows[0];
       const match = await bcrypt.compare(senha, user.senha);
       if (match) {
         res.status(200).json({ message: "Login bem-sucedido", user });
@@ -106,16 +95,17 @@ export const createUser = async (req, res) => {
 export const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await Usuario.findOne({
-      where: { id },
-      include: {
-        model: Endereco,
-        attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
-      },
-    });
+    const [rows] = await configDB.query(
+      `
+      SELECT u.*, e.*
+      FROM usuario u
+      LEFT JOIN endereco e ON u.id = e.usuario_id
+      WHERE u.id = ?`,
+      { replacements: [id] }
+    );
 
-    if (user) {
-      res.json(user);
+    if (rows.length > 0) {
+      res.json(rows[0]);
     } else {
       res.status(404).json({ message: "Usuário não encontrado" });
     }
@@ -130,13 +120,19 @@ export const updateUser = async (req, res) => {
   const { nome_completo, email, senha } = req.body;
 
   try {
-    const updates = { nome_completo, email };
+    let query = "UPDATE usuario SET nome_completo = ?, email = ?";
+    const params = [nome_completo, email];
 
     if (senha) {
-      updates.senha = await bcrypt.hash(senha, saltRounds);
+      const hashedPassword = await bcrypt.hash(senha, saltRounds);
+      query += ", senha = ?";
+      params.push(hashedPassword);
     }
 
-    await Usuario.update(updates, { where: { id } });
+    query += " WHERE id = ?";
+    params.push(id);
+
+    await configDB.query(query, params);
     res.status(200).json({ message: "Usuário atualizado com sucesso" });
   } catch (error) {
     console.error("Error updating the database:", error);
@@ -148,7 +144,10 @@ export const deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await Usuario.destroy({ where: { id } });
+    await configDB.query("DELETE FROM usuario WHERE id = ?"),
+      {
+        replacements: [id],
+      };
     res.status(200).json({ message: "Usuário deletado com sucesso" });
   } catch (error) {
     console.error("Error deleting from the database:", error);

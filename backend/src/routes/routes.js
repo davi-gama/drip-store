@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getUsers, loginUser, createUser, getUserById, updateUser, deleteUser } from '../controllers/userController.js';
-import { getProducts } from '../controllers/productController.js';
+import { getProducts, getProductById } from '../controllers/productController.js';
 
 const router = Router();
 
@@ -19,6 +19,6 @@ router.get("/users", getUsers); // Listar todos os usuários
 
 // Rotas de produtos
 router.get("/products", getProducts); // Listar todos os produtos
-router.get("/products/:id", getProducts); // Obter um produto por ID
+router.get("/products/:id", getProductById); // Obter um produto por ID
 
 export default router;

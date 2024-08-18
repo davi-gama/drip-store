@@ -69,13 +69,13 @@ export const getProductById = async (req, res) => {
         p.categoria_id,
         GROUP_CONCAT(DISTINCT pc.cor ORDER BY pc.cor ASC) as cores,
         GROUP_CONCAT(DISTINCT pi.url_imagem ORDER BY pi.url_imagem ASC) as imagens
-      FROM produtos p
-      LEFT JOIN produtos_cor pc ON p.id = pc.produto_id
-      LEFT JOIN produtos_imagem pi ON p.id = pi.produto_id
+      FROM produto p
+      LEFT JOIN produto_cor pc ON p.id = pc.produto_id
+      LEFT JOIN produto_imagem pi ON p.id = pi.produto_id
       WHERE p.id = ?
       GROUP BY p.id;
     `,
-      [id]
+      { replacements: [id] }
     );
 
     // Transformando as strings de URLs e cores em arrays
@@ -87,7 +87,12 @@ export const getProductById = async (req, res) => {
       };
     });
 
-    res.json(produtos[0]);
+    // Verifica se o produto foi encontrado
+    if (produto.length > 0) {
+      res.json(produto[0]);
+    } else {
+      res.status(404).json({ message: "Produto não encontrado" });
+    }
   } catch (error) {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
