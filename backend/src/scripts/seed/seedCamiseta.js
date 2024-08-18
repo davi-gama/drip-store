@@ -1,67 +1,10 @@
-import Usuario from "../models/Usuario.js";
-import Endereco from "../models/Endereco.js";
-import Categoria from "../models/Categoria.js";
-import Produto from "../models/Produto.js";
-import ProdutoCor from "../models/ProdutoCor.js";
-import ProdutoImagem from "../models/ProdutoImagem.js";
-import bcrypt from "bcrypt"; 
+import Categoria from "../../models/Categoria.js";
+import Produto from "../../models/Produto.js";
+import ProdutoCor from "../../models/ProdutoCor.js";
+import ProdutoImagem from "../../models/ProdutoImagem.js";
 
-export const up = async () => {
+const up = async () => {
   try {
-    // Verifica se já existem dados para evitar inserções duplicadas
-    const usuariosCount = await Usuario.count();
-    if (usuariosCount === 0) {
-      // Insere usuários de exemplo
-      const usuarios = await Usuario.bulkCreate([
-        {
-          nome_completo: "João Silva",
-          telefone: "1234567890",
-          tipo_acesso: "client",
-          senha: await bcrypt.hash("password123", 10), // Hash da senha
-          email: "joao.silva@example.com",
-          cpf: "123.456.789-01", // CPF formatado
-          data_criacao: new Date(),
-          data_atualizacao: new Date(),
-        },
-        {
-          nome_completo: "Maria Oliveira",
-          telefone: "0987654321",
-          tipo_acesso: "admin",
-          senha: await bcrypt.hash("password456", 10), // Hash da senha
-          email: "maria.oliveira@example.com",
-          cpf: "109.876.543-21", // CPF formatado
-          data_criacao: new Date(),
-          data_atualizacao: new Date(),
-        },
-      ]);
-
-      // Insere endereços relacionados aos usuários
-      await Endereco.bulkCreate([
-        {
-          usuario_id: usuarios[0].id, 
-          rua: "Rua A",
-          numero: "123",
-          bairro: "Centro",
-          cidade: "Cidade Exemplo",
-          cep: "12345-678",
-          complemento: "Apto 101",
-        },
-        {
-          usuario_id: usuarios[1].id, 
-          rua: "Rua B",
-          numero: "456",
-          bairro: "Bairro Exemplo",
-          cidade: "Outra Cidade",
-          cep: "87654-321",
-          complemento: "Casa 2",
-        },
-      ]);
-
-      console.log("Dados iniciais inseridos com sucesso.");
-    } else {
-      console.log("Dados iniciais já existem.");
-    }
-
     // Verifica se a categoria 'Camisetas' já existe
     let categoria = await Categoria.findOne({ where: { nome: "Camisetas" } });
     if (!categoria) {
@@ -71,8 +14,6 @@ export const up = async () => {
         descricao: "Camisetas esportivas e casuais.",
       });
     }
-
-    // Inserção das camisetas
 
     // Verifica se já existe o produto 'Camiseta Mizuno Energy Masculina'
     let produto = await Produto.findOne({
@@ -123,6 +64,8 @@ export const up = async () => {
             "https://mizunobr.vtexassets.com/arquivos/ids/229827-1600-1600?v=638138905191400000&width=1600&height=1600&aspect=true",
         },
       ]);
+
+      console.log("Produto, cores e imagens inseridos com sucesso.");
     } else {
       console.log("Produto 'Camiseta Mizuno Energy Masculina' já existe.");
     }
@@ -154,8 +97,8 @@ export const up = async () => {
       // Insere as cores do produto
       await ProdutoCor.bulkCreate([
         { produto_id: produto.id, cor: "Preto" },
-        { produto_id: produto.id, cor: "Azul escuro" },
-        { produto_id: produto.id, cor: "Azul claro" },
+        { produto_id: produto.id, cor: "Azul" },
+        { produto_id: produto.id, cor: "Cinza" },
       ]);
 
       // Insere as imagens do produto
@@ -163,17 +106,17 @@ export const up = async () => {
         {
           produto_id: produto.id,
           url_imagem:
-            "https://mizunobr.vtexassets.com/arquivos/ids/229426-1600-1600?v=638137085373700000&width=1600&height=1600&aspect=true",
+            "https://mizunobr.vtexassets.com/arquivos/ids/231059-1600-1600?v=638203672533500000&width=1600&height=1600&aspect=true",
         },
         {
           produto_id: produto.id,
           url_imagem:
-            "https://mizunobr.vtexassets.com/arquivos/ids/234399-1200-1200?v=638245911722630000&width=1200&height=1200&aspect=true",
+            "https://mizunobr.vtexassets.com/arquivos/ids/231056-1600-1600?v=638203672545830000&width=1600&height=1600&aspect=true",
         },
         {
           produto_id: produto.id,
           url_imagem:
-            "https://mizunobr.vtexassets.com/arquivos/ids/235450-1600-1600?v=638291080237830000&width=1600&height=1600&aspect=true",
+            "https://mizunobr.vtexassets.com/arquivos/ids/231063-1600-1600?v=638203672556400000&width=1600&height=1600&aspect=true",
         },
       ]);
 
@@ -181,7 +124,11 @@ export const up = async () => {
     } else {
       console.log("Produto 'Camiseta Mizuno Run Spark Masculina' já existe.");
     }
+
   } catch (error) {
     console.error("Erro ao inserir dados iniciais:", error);
   }
 };
+
+// Exporta a função `up` como padrão
+export default { up };

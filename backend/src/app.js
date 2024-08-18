@@ -1,7 +1,7 @@
 import app from "./server/server.js"; // Importa a instância do servidor configurada do Express
 import createDB from "./scripts/createDB.js"; // Importa a função para criar o banco de dados se ele não existir
 import createTables from "./scripts/createTables.js"; // Importa a função para criar as tabelas do banco de dados se elas não existirem
-import { up as seedDB } from "./scripts/seedDB.js"; // Importa a função para alimentar o banco de dados com dados iniciais
+import { seedController } from './scripts/seed/seedController.js'; // Importa a função para alimentar as tabelas do banco de dados com os dados iniciais
 
 const PORT = process.env.PORT || 3000; // Define a porta em que o servidor vai rodar, usando a variável de ambiente ou 3000 como fallback
 
@@ -14,7 +14,7 @@ const startServer = async () => {
     await createTables();
 
     // Alimenta as tabelas do banco de dados com os dados iniciais
-    await seedDB();
+    await seedController();
 
     // Inicia o servidor
     app.listen(PORT, () => {
