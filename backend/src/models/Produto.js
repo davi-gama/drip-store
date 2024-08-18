@@ -66,19 +66,10 @@ const Produto = configDB.define(
       type: DataTypes.INTEGER,
       defaultValue: 50,
     },
-    data_criacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-    data_atualizacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      onUpdate: DataTypes.NOW,
-    },
   },
   {
     tableName: "produto",
-    timestamps: false,
+    timestamps: true,
   }
 );
 

@@ -22,10 +22,6 @@ const Compra = configDB.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    data_compra: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
     status: {
       type: DataTypes.ENUM(
         "pendente",
@@ -38,7 +34,7 @@ const Compra = configDB.define(
   },
   {
     tableName: "compra",
-    timestamps: false,
+    timestamps: true,
   }
 );
 

@@ -19,7 +19,7 @@ const Usuario = configDB.define(
     },
     tipo_acesso: {
       type: DataTypes.STRING(30),
-      defaultValue: 'client',
+      defaultValue: "client",
       allowNull: false,
     },
     senha: {
@@ -39,22 +39,13 @@ const Usuario = configDB.define(
       allowNull: false,
       unique: true, // Define restrição única para o CPF
       validate: {
-        len: [11, 14], // Valida o tamanho do CPF (considerando formatação com pontos e traço)
+        len: [11, 14], // Valida o tamanho do CPF (considerando formatação com pontos e traços)
       },
-    },
-    data_criacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-    data_atualizacao: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      onUpdate: DataTypes.NOW,
     },
   },
   {
     tableName: "usuario",
-    timestamps: false,
+    timestamps: true,
   }
 );
 

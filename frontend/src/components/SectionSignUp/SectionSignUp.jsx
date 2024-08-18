@@ -9,14 +9,14 @@ export function SectionSignUp() {
     cpf: "",
     email: "",
     senha: "",
-    celular: "",
+    telefone: "",
     rua: "",
     numero: "",
     bairro: "",
     cidade: "",
     cep: "",
     complemento: "",
-    tipoAcesso: "client",  
+    tipoAcesso: "client",
   });
 
   const handleChange = (e) => {
@@ -30,66 +30,75 @@ export function SectionSignUp() {
   const validateForm = () => {
     let isValid = true;
     let errorMessages = [];
-  
+
     // Validação do e-mail
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(formData.email)) {
       errorMessages.push("E-mail inválido.");
       isValid = false;
     }
-  
+
     // Validação do CPF
     const validateCPF = (cpf) => {
-      cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+      cpf = cpf.replace(/[^\d]+/g, ""); // Remove caracteres não numéricos
       if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false; // Verifica se todos os dígitos são iguais
-  
+
       let sum = 0;
       let remainder;
-  
-      for (let i = 1; i <= 9; i++) sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+
+      for (let i = 1; i <= 9; i++)
+        sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
       remainder = (sum * 10) % 11;
       if (remainder === 10 || remainder === 11) remainder = 0;
       if (remainder !== parseInt(cpf.substring(9, 10))) return false;
-  
+
       sum = 0;
-      for (let i = 1; i <= 10; i++) sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      for (let i = 1; i <= 10; i++)
+        sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
       remainder = (sum * 10) % 11;
       if (remainder === 10 || remainder === 11) remainder = 0;
       if (remainder !== parseInt(cpf.substring(10, 11))) return false;
-  
+
       return true;
     };
-  
+
     if (!validateCPF(formData.cpf)) {
       errorMessages.push("CPF inválido.");
       isValid = false;
     }
-  
-    // Validação do celular
-    const celularPattern = /^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{4,5}-\d{4}$/;
-    if (!celularPattern.test(formData.celular)) {
-      errorMessages.push("Celular inválido. Deve seguir um dos formatos aceitos.");
+
+    // Validação do telefone
+    const telefonePattern = /^(?:\+55\s?)?(?:\(\d{2}\)\s?)?\d{4,5}-\d{4}$/;
+    if (!telefonePattern.test(formData.telefone)) {
+      errorMessages.push(
+        "Telefone inválido. Deve seguir um dos formatos aceitos."
+      );
       isValid = false;
     }
-  
+
     // Validação do CEP
     const cepPattern = /^\d{5}-?\d{3}$/;
     if (!cepPattern.test(formData.cep)) {
-      errorMessages.push("CEP inválido. Deve conter 8 dígitos, com ou sem hífen.");
+      errorMessages.push(
+        "CEP inválido. Deve conter 8 dígitos, com ou sem hífen."
+      );
       isValid = false;
     }
-  
+
     // Validação da senha
-    const senhaPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/;
+    const senhaPattern =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/;
     if (!senhaPattern.test(formData.senha)) {
-      errorMessages.push("Senha inválida. Deve ter entre 8 e 20 caracteres, incluindo uma letra maiúscula, um número e um caractere especial.");
+      errorMessages.push(
+        "Senha inválida. Deve ter entre 8 e 20 caracteres, incluindo uma letra maiúscula, um número e um caractere especial."
+      );
       isValid = false;
     }
-  
-    setError(errorMessages.join(' '));
+
+    setError(errorMessages.join(" "));
     return isValid;
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -98,7 +107,10 @@ export function SectionSignUp() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/users/cadastro", formData);
+      const response = await axios.post(
+        "http://localhost:3000/users/cadastro",
+        formData
+      );
 
       console.log("Resposta da API:", response.data);
       setFormData({
@@ -106,7 +118,7 @@ export function SectionSignUp() {
         cpf: "",
         email: "",
         senha: "",
-        celular: "",
+        telefone: "",
         rua: "",
         numero: "",
         bairro: "",
@@ -171,12 +183,12 @@ export function SectionSignUp() {
               required
             />
 
-            <label htmlFor="celular">Celular *</label>
+            <label htmlFor="telefone">Telefone *</label>
             <input
               type="text"
-              id="celular"
-              placeholder="Insira seu celular"
-              value={formData.celular}
+              id="telefone"
+              placeholder="Insira seu telefone"
+              value={formData.telefone}
               onChange={handleChange}
               required
             />
@@ -253,7 +265,9 @@ export function SectionSignUp() {
               checked={formData.receberOfertas}
               onChange={handleChange}
             />{" "}
-            Quero receber por email ofertas e novidades das lojas da Digital Store. A frequência de envios pode variar de acordo com a interação do cliente.
+            Quero receber por email ofertas e novidades das lojas da Digital
+            Store. A frequência de envios pode variar de acordo com a interação
+            do cliente.
           </div>
 
           <div className="tipoAcesso">

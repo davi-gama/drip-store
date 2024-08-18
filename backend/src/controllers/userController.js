@@ -1,16 +1,18 @@
-import configDB from '../config/db.js';
-import bcrypt from 'bcrypt';
+import Usuario from "../models/Usuario.js";
+import Endereco from "../models/Endereco.js";
+import bcrypt from "bcrypt";
 
 const saltRounds = 10;
 
 export const getUsers = async (req, res) => {
   try {
-    const [rows] = await configDB.query(`
-      SELECT u.*, e.* 
-      FROM usuario u
-      LEFT JOIN endereco e ON u.id = e.usuario_id
-    `);
-    res.json(rows);
+    const users = await Usuario.findAll({
+      include: {
+        model: Endereco,
+        attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
+      },
+    });
+    res.json(users);
   } catch (error) {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
@@ -20,9 +22,8 @@ export const getUsers = async (req, res) => {
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
   try {
-    const [rows] = await configDB.query("SELECT * FROM usuario WHERE email = ?", [email]);
-    if (rows.length > 0) {
-      const user = rows[0];
+    const user = await Usuario.findOne({ where: { email } });
+    if (user) {
       const match = await bcrypt.compare(senha, user.senha);
       if (match) {
         res.status(200).json({ message: "Login bem-sucedido", user });
@@ -38,47 +39,45 @@ export const loginUser = async (req, res) => {
   }
 };
 
-
-
 export const createUser = async (req, res) => {
   const {
     nome,
     cpf,
     email,
     senha,
-    celular, 
+    telefone,
     rua,
     numero,
     bairro,
     cidade,
     cep,
     complemento,
-    tipoAcesso, // Esperando string 'client' ou 'admin'
+    tipo_acesso,
   } = req.body;
 
   try {
-    const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
     // Inserir usuário
-    const userResult = await configDB.query(
-      "INSERT INTO usuario (nome_completo, cpf, email, senha, telefone, tipo_acesso) VALUES (?, ?, ?, ?, ?, ?)",
-      {
-        replacements: [nome, cpf, email, hashedPassword, celular, tipoAcesso],
-        type: configDB.QueryTypes.INSERT,
-      }
-    );
-
-    const userId = userResult[0]; // Captura o ID do usuário inserido
+    const user = await Usuario.create({
+      nome_completo: nome,
+      cpf,
+      email,
+      senha: hashedPassword,
+      telefone,
+      tipo_acesso,
+    });
 
     // Inserir endereço associado ao usuário
-    await configDB.query(
-      "INSERT INTO endereco (usuario_id, rua, numero, bairro, cidade, cep, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      {
-        replacements: [userId, rua, numero, bairro, cidade, cep, complemento],
-        type: configDB.QueryTypes.INSERT,
-      }
-    );
+    await Endereco.create({
+      usuario_id: user.id,
+      rua,
+      numero,
+      bairro,
+      cidade,
+      cep,
+      complemento,
+    });
 
     res.status(201).json({ message: "Usuário criado com sucesso" });
   } catch (error) {
@@ -87,23 +86,19 @@ export const createUser = async (req, res) => {
   }
 };
 
-
-
 export const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const [rows] = await configDB.query(
-      `
-      SELECT u.*, e.*
-      FROM usuario u
-      LEFT JOIN usuario_endereco ue ON u.id = ue.usuario_id
-      LEFT JOIN endereco e ON ue.endereco_id = e.id
-      WHERE u.id = ?`,
-      [id]
-    );
+    const user = await Usuario.findOne({
+      where: { id },
+      include: {
+        model: Endereco,
+        attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
+      },
+    });
 
-    if (rows.length > 0) {
-      res.json(rows[0]);
+    if (user) {
+      res.json(user);
     } else {
       res.status(404).json({ message: "Usuário não encontrado" });
     }
@@ -118,19 +113,13 @@ export const updateUser = async (req, res) => {
   const { nome_completo, email, senha } = req.body;
 
   try {
-    let query = "UPDATE usuario SET nome_completo = ?, email = ?";
-    const params = [nome_completo, email];
+    const updates = { nome_completo, email };
 
     if (senha) {
-      const hashedPassword = await bcrypt.hash(senha, saltRounds);
-      query += ", senha = ?";
-      params.push(hashedPassword);
+      updates.senha = await bcrypt.hash(senha, saltRounds);
     }
 
-    query += " WHERE id = ?";
-    params.push(id);
-
-    await configDB.query(query, params);
+    await Usuario.update(updates, { where: { id } });
     res.status(200).json({ message: "Usuário atualizado com sucesso" });
   } catch (error) {
     console.error("Error updating the database:", error);
@@ -142,7 +131,7 @@ export const deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await configDB.query("DELETE FROM usuario WHERE id = ?", [id]);
+    await Usuario.destroy({ where: { id } });
     res.status(200).json({ message: "Usuário deletado com sucesso" });
   } catch (error) {
     console.error("Error deleting from the database:", error);

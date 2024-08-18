@@ -38,7 +38,7 @@ const Pedido = configDB.define(
   },
   {
     tableName: "pedido",
-    timestamps: false,
+    timestamps: true,
   }
 );
 
