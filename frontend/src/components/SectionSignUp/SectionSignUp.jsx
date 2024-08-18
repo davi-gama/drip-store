@@ -1,6 +1,7 @@
 import "./SectionSignUp.css";
 import axios from "axios";
 import { useState } from "react";
+import MaskedInput from "react-text-mask";
 
 export function SectionSignUp() {
   const [error, setError] = useState("");
@@ -154,12 +155,28 @@ export function SectionSignUp() {
             />
 
             <label htmlFor="cpf">CPF *</label>
-            <input
-              type="text"
+            <MaskedInput
+              mask={[
+                /\d/,
+                /\d/,
+                /\d/,
+                ".",
+                /\d/,
+                /\d/,
+                /\d/,
+                ".",
+                /\d/,
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+              ]}
               id="cpf"
               placeholder="Insira seu CPF"
               value={formData.cpf}
               onChange={handleChange}
+              guide={false}
               required
             />
 
@@ -184,12 +201,29 @@ export function SectionSignUp() {
             />
 
             <label htmlFor="telefone">Telefone *</label>
-            <input
-              type="text"
+            <MaskedInput
+              mask={[
+                "(",
+                /\d/,
+                /\d/,
+                ")",
+                " ",
+                /\d/,
+                /\d/,
+                /\d/,
+                /\d/,
+                /\d/,
+                "-",
+                /\d/,
+                /\d/,
+                /\d/,
+                /\d/,
+              ]}
               id="telefone"
               placeholder="Insira seu telefone"
               value={formData.telefone}
               onChange={handleChange}
+              guide={false}
               required
             />
           </div>
@@ -210,8 +244,9 @@ export function SectionSignUp() {
 
             <label htmlFor="numero">Número *</label>
             <input
-              type="text"
+              type="number"
               id="numero"
+              min="0"
               placeholder="Insira o número da sua residência"
               value={formData.numero}
               onChange={handleChange}
@@ -239,12 +274,13 @@ export function SectionSignUp() {
             />
 
             <label htmlFor="cep">CEP *</label>
-            <input
-              type="text"
+            <MaskedInput
+              mask={[/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/]}
               id="cep"
               placeholder="Insira seu CEP"
               value={formData.cep}
               onChange={handleChange}
+              guide={false}
               required
             />
 
