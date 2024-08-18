@@ -3,11 +3,24 @@ import { NavBar } from "../NavBar/NavBar";
 import { Link, useLocation } from "react-router-dom";
 import minicart from "../../assets/mini-cart.svg";
 import search from "../../assets/search-icon.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 
 export function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);  // Estado para controlar se o usuário está logado
+  const [user, setUser] = useState(null); // Estado para armazenar o usuário
+
+  useEffect(() => {
+    // Obtém o usuário do localStorage quando o componente é montado
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // Remove o usuário do localStorage ao fazer logout
+    setUser(null);
+  };
 
   return (
     <header>
@@ -30,8 +43,8 @@ export function Header() {
                 <img src={search} alt="Ícone de lupa" />
               </button>
             </form>
-            
-            {!isLoggedIn ? (
+
+            {!user ? (
               <div className="redirect">
                 <Link to="/signup">Cadastre-se</Link>
                 <Link to="/login">
@@ -40,10 +53,13 @@ export function Header() {
               </div>
             ) : (
               <div className="redirect">
-                <Link to="/" onClick={() => setIsLoggedIn(false)}>Logout</Link>
+                <span>Bem-vindo, {user.nome_completo}</span>
+                <Link to="/" onClick={handleLogout}>
+                  Logout
+                </Link>
               </div>
             )}
-            
+
             <div className="carrinho">
               <button type="submit">
                 <img src={minicart} alt="Ícone de carrinho de compras" />

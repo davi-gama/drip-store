@@ -2,9 +2,9 @@ import "./SectionSignUp.css";
 import axios from "axios";
 import { useState } from "react";
 import MaskedInput from "react-text-mask";
+import { useNavigate } from "react-router-dom"; // Importa o useNavigate
 
 export function SectionSignUp() {
-  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     nome: "",
     cpf: "",
@@ -20,6 +20,8 @@ export function SectionSignUp() {
     tipoAcesso: "client",
   });
 
+  const navigate = useNavigate(); // Hook para redirecionamento
+
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -32,10 +34,13 @@ export function SectionSignUp() {
     let isValid = true;
     let errorMessages = [];
 
-    // Campo de validações
- 
+    // Adicionar validações de formulário aqui se necessário
 
-    setError(errorMessages.join(" "));
+    if (errorMessages.length > 0) {
+      alert(errorMessages.join(" "));
+      isValid = false;
+    }
+
     return isValid;
   };
 
@@ -65,12 +70,15 @@ export function SectionSignUp() {
         cidade: "",
         cep: "",
         complemento: "",
-        receberOfertas: false,
-        tipoAcesso: "false",
+        tipoAcesso: "client",
       });
-      setError("");
+
+      alert(
+        "Conta criada com sucesso! Você será redirecionado para a tela de login."
+      );
+      navigate("/login"); // Redireciona para a tela de login após sucesso
     } catch (err) {
-      setError("Ocorreu um erro ao enviar seus dados. Tente novamente.");
+      alert("Ocorreu um erro ao enviar seus dados. Tente novamente.");
       console.error("Erro ao enviar dados:", err);
     }
   };
@@ -262,8 +270,6 @@ export function SectionSignUp() {
           <div className="div-submit">
             <button type="submit">Criar Conta</button>
           </div>
-
-          {error && <p className="error-message">{error}</p>}
         </form>
       </div>
     </div>

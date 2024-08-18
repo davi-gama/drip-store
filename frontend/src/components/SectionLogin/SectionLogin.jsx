@@ -9,62 +9,51 @@ import { useState } from "react";
 export function SectionLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();  // useNavigate hook for redirection
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate(); // useNavigate hook for redirection
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     // Verifica se os campos estão preenchidos
     if (!email || !password) {
-      setError("Preencha todos os campos");
-      return;
-    }
-
-    // Validação de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    if (!emailRegex.test(email)) {
-      setError("Email inválido");
-      return;
-    }
-
-    // Validação de senha (mínimo 6 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais)
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if (!passwordRegex.test(password)) {
-      setError("Senha inválida. A senha deve ter pelo menos 6 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.");
+      alert("Preencha todos os campos");
       return;
     }
 
     // Chama a API para realizar o login
     try {
       const response = await axios.post(
-        "http://localhost:3000/users",  // URL da API que será chamada
-        { email, password },             // Dados que serão enviados no corpo da requisição
+        "http://localhost:3000/users/login", // URL da API que será chamada
+        { email, senha: password }, // Dados que serão enviados no corpo da requisição
         {
           headers: {
-            "Content-Type": "application/json",  // Define o tipo de conteúdo como JSON
+            "Content-Type": "application/json", // Define o tipo de conteúdo como JSON
           },
         }
       );
 
       // Verifica a resposta do servidor
-      if (response.status === 200) {  // Se a resposta for 200, significa que o login foi bem-sucedido
-        setUser(response.data.user); // Atualiza o estado com os dados do usuário
+      if (response.status === 200) {
+        // Se a resposta for 200, significa que o login foi bem-sucedido
+        const { user } = response.data;
+        localStorage.setItem("user", JSON.stringify(user));
         alert("Login efetuado com sucesso");
-        navigate("/"); // Redireciona para a página inicial
+        navigate("/");
       } else {
-        setError("Erro ao realizar login. Verifique suas credenciais.");
+        alert("Erro ao realizar login. Verifique suas credenciais.");
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       if (!error?.response) {
-        setError("Erro ao acessar a API. Tente novamente mais tarde.");
+        alert("Erro ao acessar a API. Tente novamente mais tarde.");
       } else if (error.response.status === 400) {
-        setError("Email ou senha inválidos.");
+        alert("Email ou senha inválidos.");
       } else {
-        setError(`Ocorreu um erro inesperado: ${error.response.data.message || "Tente novamente."}`);
+        alert(
+          `Ocorreu um erro inesperado: ${
+            error.response.data.message || "Tente novamente."
+          }`
+        );
       }
     }
   };
@@ -116,9 +105,6 @@ export function SectionLogin() {
               <img src={facebook} alt="Ícone do Facebook" />
             </Link>
           </div>
-
-          {error && <p className="error">{error}</p>}
-          
         </form>
       </div>
 

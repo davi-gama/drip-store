@@ -21,24 +21,40 @@ export const getUsers = async (req, res) => {
 
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
+
+  // Verifica se o email e senha foram fornecidos
+  if (!email || !senha) {
+    return res.status(400).json({ message: "Email e senha são obrigatórios." });
+  }
+
   try {
+    // Consulta o banco de dados para encontrar o usuário pelo email
     const [rows] = await configDB.query(
       "SELECT * FROM usuario WHERE email = ?",
       {
         replacements: [email],
       }
     );
-    if (rows.length > 0) {
-      const user = rows[0];
-      const match = await bcrypt.compare(senha, user.senha);
-      if (match) {
-        res.status(200).json({ message: "Login bem-sucedido", user });
-      } else {
-        res.status(400).json({ message: "Email ou senha inválidos" });
-      }
-    } else {
-      res.status(400).json({ message: "Email ou senha inválidos" });
+
+    // Se não houver usuário com o email fornecido, retorna erro
+    if (rows.length === 0) {
+      return res.status(400).json({ message: "Email ou senha inválidos" });
     }
+
+    // Obtém o usuário encontrado
+    const user = rows[0];
+    const { senha: hashedPassword } = user; // Obtém o hash da senha armazenado no banco
+
+    // Compara a senha fornecida com o hash armazenado
+    const match = await bcrypt.compare(senha, hashedPassword);
+
+    // Se a senha não corresponder, retorna erro
+    if (!match) {
+      return res.status(400).json({ message: "Email ou senha inválidos" });
+    }
+
+    // Se a senha corresponder, retorna sucesso
+    res.status(200).json({ message: "Login bem-sucedido", user });
   } catch (error) {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
