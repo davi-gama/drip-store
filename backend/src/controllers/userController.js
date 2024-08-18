@@ -1,23 +1,40 @@
 import Usuario from "../models/Usuario.js";
 import Endereco from "../models/Endereco.js";
 import bcrypt from "bcrypt";
+import configDB from "../config/db.js";
 
 const saltRounds = 10;
 
+// export const getUsers = async (req, res) => {
+//   try {
+//     const users = await Usuario.findAll({
+//       include: {
+//         model: Endereco,
+//         attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
+//       },
+//     });
+//     res.json(users);
+//   } catch (error) {
+//     console.error("Error querying the database:", error);
+//     res.status(500).json({ message: "Database query failed" });
+//   }
+// };
+
 export const getUsers = async (req, res) => {
   try {
-    const users = await Usuario.findAll({
-      include: {
-        model: Endereco,
-        attributes: ["rua", "numero", "bairro", "cidade", "cep", "complemento"],
-      },
-    });
-    res.json(users);
+    const [rows] = await configDB.query(`
+      SELECT u.*, e.* 
+      FROM usuario u
+      LEFT JOIN endereco e ON u.id = e.usuario_id
+    `);
+    res.json(rows);
   } catch (error) {
     console.error("Error querying the database:", error);
     res.status(500).json({ message: "Database query failed" });
   }
 };
+
+
 
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
