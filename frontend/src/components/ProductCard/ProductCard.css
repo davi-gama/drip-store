@@ -1,11 +1,12 @@
 .Card {
   margin: 0 auto 1.5rem;
+  flex-wrap: wrap;
 }
 
 .CardImg {
   display: flex;
   max-width: 292px;
-  height: 321px;
+  height: 310px;
   align-items: center;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -25,7 +26,13 @@
   border-radius: 4px;
   margin-bottom: 1rem;
   margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
 }
+
+.infoProduto {
+  width: 292px;}
 
 .Card a {
   text-decoration: none;
