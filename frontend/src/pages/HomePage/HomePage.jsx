@@ -20,22 +20,44 @@ const sectionLink = [
   { text: "Ver todos →", href: "http://localhost:5173/productlist" },
 ];
 
+function getRandomUniqueIds(start, end, count) {
+  let result = new Set();
+
+  while (result.size < count) {
+    result.add(Math.floor(Math.random() * (end - start + 1)) + start);
+  }
+
+  return Array.from(result);
+}
+
 export function HomePage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/products")
-      .then(response => {
-        const limitedProducts = response.data.slice(0, 8).map(product => ({
-          image: product.imagens.length > 0 ? product.imagens[0] : "", 
-          name: product.nome,
-          price: product.preco,
-          priceDiscount: product.preco_promocao,
-          link: `/product`,
-        }));
+    const startId = 1;
+    const endId = 18;
+    const numberOfProducts = 8;
+
+    const randomIds = getRandomUniqueIds(startId, endId, numberOfProducts);
+
+    axios
+      .all(
+        randomIds.map((id) => axios.get(`http://localhost:3000/products/${id}`))
+      )
+      .then((responses) => {
+        const limitedProducts = responses.map((response) => {
+          const product = response.data;
+          return {
+            image: product.imagens.length > 0 ? product.imagens[1] : "",
+            name: product.nome,
+            price: product.preco,
+            priceDiscount: product.preco_promocao,
+            link: `/product`,
+          };
+        });
         setProducts(limitedProducts);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Erro ao buscar produtos:", error);
       });
   }, []);

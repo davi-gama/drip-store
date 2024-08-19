@@ -1,12 +1,11 @@
 .Card {
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 0.5rem;
   flex-wrap: wrap;
+  max-width: 266px;
 }
 
 .CardImg {
   display: flex;
-  max-width: 292px;
-  height: 310px;
   align-items: center;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -30,10 +29,6 @@
   height: 100%;
 }
 
-.infoProduto {
-  width: 292px;
-}
-
 .Card a {
   text-decoration: none;
 }
@@ -41,7 +36,7 @@
 .titulo {
   color: var(--dark-gray-2);
   margin-bottom: 8px;
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -52,20 +47,15 @@
   transition: 0.3s;
 }
 
-.preco {
-  color: var(--dark-gray);
-  font-size: 24px;
-}
-
 .precoOriginal {
   color: var(--light-gray);
   text-decoration: line-through;
   padding-right: 10px;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .precoDesconto {
-  font-size: 24px;
+  font-size: 18px;
   color: var(--dark-gray);
   font-weight: 700;
 }
