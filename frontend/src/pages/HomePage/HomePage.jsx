@@ -48,7 +48,7 @@ export function HomePage() {
         const limitedProducts = responses.map((response) => {
           const product = response.data;
           return {
-            image: product.imagens.length > 0 ? product.imagens[1] : "",
+            image: product.imagens.length > 0 ? product.imagens[0] : "",
             name: product.nome,
             price: product.preco,
             priceDiscount: product.preco_promocao,
