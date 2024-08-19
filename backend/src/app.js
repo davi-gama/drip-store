@@ -4,7 +4,7 @@ import createTables from "./scripts/createTables.js"; // Importa a função para
 import { seedController } from "./scripts/seed/seedController.js"; // Importa a função para alimentar as tabelas do banco de dados com os dados iniciais
 import configDB from "./config/db.js";
 
-const port = configDB.config.port || 3000; // Define a porta em que o servidor vai rodar, usando a variável de ambiente ou 3000 como fallback
+const port = 3000 || configDB.config.port;
 
 const startServer = async () => {
   try {
