@@ -35,7 +35,7 @@ export function HomePage() {
 
   useEffect(() => {
     const startId = 1;
-    const endId = 18;
+    const endId = 25;
     const numberOfProducts = 8;
 
     const randomIds = getRandomUniqueIds(startId, endId, numberOfProducts);
@@ -48,7 +48,7 @@ export function HomePage() {
         const limitedProducts = responses.map((response) => {
           const product = response.data;
           return {
-            image: product.imagens.length > 0 ? product.imagens[1] : "",
+            image: product.imagens.length > 0 ? product.imagens[0] : "",
             name: product.nome,
             price: product.preco,
             priceDiscount: product.preco_promocao,
