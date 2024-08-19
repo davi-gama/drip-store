@@ -67,7 +67,7 @@ const up = async () => {
         preco_promocao: 59.99,
         label_promocao: true,
         marca: "Adidas",
-        genero: "masculino",
+        genero: "unissex",
         numero_vendas: 0,
         rating: 0.0,
         numero_avaliacoes: 0,
@@ -85,12 +85,12 @@ const up = async () => {
         {
           produto_id: produto.id,
           url_imagem:
-            "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f373f0b4ce5a4f798e90aefa01154c78_9366/Viseira_Corrida_AEROREADY_Multicores_HT4814_01_standard.jpg",
+            "https://static.fatimaesportes.com.br/public/fatimaesportes/imagens/produtos/viseira-adidas-aeroready-651d7a32a26b4.jpg",
         },
         {
           produto_id: produto.id,
           url_imagem:
-            "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7fe3e8b0425a409bb647aefa01155455_9366/Viseira_Corrida_AEROREADY_Multicores_HT4814_02_standard_hover.jpg",
+            "https://static.fatimaesportes.com.br/public/fatimaesportes/imagens/produtos/viseira-adidas-aeroready-651d7a33d4808.jpg",
         },
       ]);
 
@@ -107,7 +107,7 @@ const up = async () => {
       produto = await Produto.create({
         nome: "Boné Jordan Club Unissex",
         descricao:
-          " Este boné não estruturado de profundidade média possui tecido leve que absorve o suor para ajudar a manter a sua cabeça fresca. Uma alça facilmente ajustável proporciona o caimento ideal.",
+          "Este boné não estruturado de profundidade média possui tecido leve que absorve o suor para ajudar a manter a sua cabeça fresca. Uma alça facilmente ajustável proporciona o caimento ideal.",
         preco: 126.34,
         preco_promocao: 59.99,
         label_promocao: true,

@@ -33,7 +33,6 @@ export function SectionSignUp() {
     let isValid = true;
     let errorMessages = [];
 
-
     if (errorMessages.length > 0) {
       alert(errorMessages.join(" "));
       isValid = false;
@@ -44,6 +43,22 @@ export function SectionSignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      !formData.email ||
+      !formData.senha ||
+      !formData.telefone ||
+      !formData.cpf ||
+      !formData.nome ||
+      !formData.cidade ||
+      !formData.cep ||
+      !formData.bairro ||
+      !formData.rua ||
+      !formData.numero
+    ) {
+      alert("Preencha todos os campos");
+      return;
+    }
 
     if (!validateForm()) {
       return;
@@ -188,9 +203,8 @@ export function SectionSignUp() {
 
             <label htmlFor="numero">Número *</label>
             <input
-              type="number"
+              type="text"
               id="numero"
-              min="0"
               placeholder="Insira o número da sua residência"
               value={formData.numero}
               onChange={handleChange}
@@ -232,7 +246,7 @@ export function SectionSignUp() {
             <input
               type="text"
               id="complemento"
-              placeholder="Insira Complemento"
+              placeholder="Insira complemento"
               value={formData.complemento}
               onChange={handleChange}
             />

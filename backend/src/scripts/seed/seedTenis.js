@@ -47,11 +47,13 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem: "https://imgnike-a.akamaihd.net/1920x1920/027285INA8.jpg",
+          url_imagem:
+            "https://static.netshoes.com.br/produtos/tenis-nike-revolution-7-masculino/06/JD8-6364-006/JD8-6364-006_zoom1.jpg?ts=1723646117?ims=1088x",
         },
         {
           produto_id: produto.id,
-          url_imagem: "https://imgnike-a.akamaihd.net/1920x1920/027285INA3.jpg",
+          url_imagem:
+            "https://static.netshoes.com.br/produtos/tenis-nike-revolution-7-masculino/06/JD8-6364-006/JD8-6364-006_zoom5.jpg?ts=1723646117?ims=1088x",
         },
       ]);
 

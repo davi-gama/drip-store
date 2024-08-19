@@ -5,11 +5,13 @@ import minicart from "../../assets/mini-cart.svg";
 import search from "../../assets/search-icon.svg";
 import usericon from "../../assets/user.svg";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
 
 export function Header() {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = () => {
@@ -26,6 +28,7 @@ export function Header() {
     localStorage.removeItem("user");
     setUser(null);
     setMenuOpen(false);
+    navigate("/");
   };
 
   const toggleMenu = () => setMenuOpen(!menuOpen);

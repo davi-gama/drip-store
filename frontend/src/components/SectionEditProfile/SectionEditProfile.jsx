@@ -241,9 +241,8 @@ export function SectionEditProfile() {
 
             <label htmlFor="numero">Número *</label>
             <input
-              type="number"
+              type="text"
               id="numero"
-              min="0"
               placeholder="Insira o número da sua residência"
               value={formData.numero}
               onChange={handleChange}
@@ -285,7 +284,7 @@ export function SectionEditProfile() {
             <input
               type="text"
               id="complemento"
-              placeholder="Insira Complemento"
+              placeholder="Insira complemento"
               value={formData.complemento}
               onChange={handleChange}
             />

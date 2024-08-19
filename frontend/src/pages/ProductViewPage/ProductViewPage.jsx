@@ -35,7 +35,7 @@ export function HomePage() {
 
   useEffect(() => {
     const startId = 1;
-    const endId = 25;
+    const endId = 38;
     const numberOfProducts = 4;
 
     const randomIds = getRandomUniqueIds(startId, endId, numberOfProducts);

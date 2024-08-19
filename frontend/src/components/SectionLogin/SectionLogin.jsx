@@ -9,7 +9,7 @@ import { useState } from "react";
 export function SectionLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -69,11 +69,11 @@ export function SectionLogin() {
             </Link>
           </h3>
 
-          <label htmlFor="inputLogin">Login *</label>
+          <label htmlFor="inputEmail">Email *</label>
           <input
             type="text"
-            id="inputLogin"
-            placeholder="Insira seu login ou email"
+            id="inputEmail"
+            placeholder="Insira seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

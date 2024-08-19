@@ -36,7 +36,7 @@ const up = async () => {
         numero_avaliacoes: 0,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 
@@ -81,7 +81,7 @@ const up = async () => {
         numero_avaliacoes: 0,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 
@@ -126,7 +126,7 @@ const up = async () => {
         numero_avaliacoes: 0,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 
@@ -171,7 +171,7 @@ const up = async () => {
         numero_avaliacoes: 0,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 
@@ -211,7 +211,7 @@ const up = async () => {
         numero_avaliacoes: 104,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 
@@ -259,7 +259,7 @@ const up = async () => {
         numero_avaliacoes: 0,
         referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
-        finalidade: "experiencia sonora",
+        finalidade: "lazer",
         estoque: 50,
       });
 

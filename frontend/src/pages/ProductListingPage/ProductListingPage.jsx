@@ -21,7 +21,7 @@ export function ProductListingPage() {
 
   useEffect(() => {
     const startId = 1;
-    const endId = 23;
+    const endId = 38;
     const numberOfProducts = 15;
 
     const randomIds = getRandomUniqueIds(startId, endId, numberOfProducts);

@@ -105,13 +105,3 @@ hr {
 .div-edit button:hover {
   background-color: var(--tertiary);
 }
-
-/* Esconder as setas do input number */
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
