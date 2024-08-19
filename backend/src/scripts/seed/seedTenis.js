@@ -26,8 +26,8 @@ const up = async () => {
         nome: "Tênis Nike Revolution 7 Masculino",
         descricao:
           "Carregamos o Revolution 7 com o tipo de amortecimento e suporte macio que pode mudar o seu mundo de corrida. Elegante como sempre, confortável quando a borracha encontra a estrada e performático para o ritmo desejado, é uma evolução de um favorito dos fãs que oferece uma condução macia e suave.",
-        preco: 297.82,
-        preco_promocao: 59.99,
+        preco: 299.99,
+        preco_promocao: 249.99,
         label_promocao: true,
         marca: "Nike",
         genero: "masculino",
@@ -73,7 +73,7 @@ const up = async () => {
         descricao:
           "Diga olá à próxima geração de tecnologia Air. O Air Max Dn apresenta nosso sistema de unidade Dynamic Air de tubos de dupla pressão, criando uma sensação reativa a cada passo. Isso resulta em um design futurista que é confortável o suficiente para ser usado do dia à noite. Vá em frente – sinta o irreal.",
         preco: 1299.99,
-        preco_promocao: 59.99,
+        preco_promocao: 1099.99,
         label_promocao: true,
         marca: "Nike",
         genero: "masculino",
@@ -121,7 +121,7 @@ const up = async () => {
         descricao:
           " O Tênis Casual Unissex New Balance 9060 combina estilo clássico com um visual contemporâneo para a versatilidade do dia a dia. O modelo garante máximo conforto e amortecimento por meio da entressola produzida com as tecnologias ABZORB e SBS.",
         preco: 1199.99,
-        preco_promocao: 1000.99,
+        preco_promocao: 1099.99,
         label_promocao: true,
         marca: "New Balance",
         genero: "masculino",
@@ -170,7 +170,7 @@ const up = async () => {
         descricao:
           "Inspirado no basquete, o Tênis Masculino New Balance 550 homenageia o calçado original criado em 1989, ano que definiu uma geração de esportistas da modalidade. Com fechamento em cadarço para um ajuste seguro, o modelo agrega originalidade e autenticidade ao seu estilo.",
         preco: 799.99,
-        preco_promocao: 59.99,
+        preco_promocao: 699.99,
         label_promocao: true,
         marca: "Mizuno",
         genero: "masculino",
@@ -214,7 +214,7 @@ const up = async () => {
         descricao:
           "Aposte na versatilidade da Camiseta Mizuno Run Spark Masculina para complementar o seu sportwear. Essa peça é confeccionada em material macio ao toque da pele, respirável e com big logo em destaque para autenticidade. Vista seu tênis de corrida e essa camiseta masculina da Mizuno para dar o seu melhor a cada KM!",
         preco: 999.99,
-        preco_promocao: 59.99,
+        preco_promocao: 799.99,
         label_promocao: true,
         marca: "Mizuno",
         genero: "masculino",

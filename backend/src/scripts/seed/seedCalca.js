@@ -25,7 +25,7 @@ const up = async () => {
         descricao:
           "A Calça Nord Feminina Térmica é uma peça essencial para enfrentar o frio com estilo e conforto. Feita com materiais de alta qualidade, ela oferece excelente isolamento térmico, mantendo o calor corporal mesmo nas temperaturas mais baixas.",
         preco: 99.99,
-        preco_promocao: 70.0,
+        preco_promocao: 79.99,
         label_promocao: true,
         marca: "Nord",
         genero: "feminino",
