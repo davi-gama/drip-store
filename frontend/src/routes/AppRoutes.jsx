@@ -6,6 +6,7 @@ import { CategoryPage } from "../pages/CategoryPage/CategoryPage";
 import { OrderPage } from "../pages/OrderPage/OrderPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
+import { EditProfilePage } from "../pages/EditProfilePage/EditProfilePage";
 
 export function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export function AppRoutes() {
       <Route path="/order" element={<OrderPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/editprofile" element={<EditProfilePage />} />
     </Routes>
   );
 }

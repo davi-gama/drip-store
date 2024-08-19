@@ -22,13 +22,11 @@ export const getUsers = async (req, res) => {
 export const loginUser = async (req, res) => {
   const { email, senha } = req.body;
 
-  // Verifica se o email e senha foram fornecidos
   if (!email || !senha) {
     return res.status(400).json({ message: "Email e senha são obrigatórios." });
   }
 
   try {
-    // Consulta o banco de dados para encontrar o usuário pelo email
     const [rows] = await configDB.query(
       "SELECT * FROM usuario WHERE email = ?",
       {
@@ -36,24 +34,21 @@ export const loginUser = async (req, res) => {
       }
     );
 
-    // Se não houver usuário com o email fornecido, retorna erro
     if (rows.length === 0) {
       return res.status(400).json({ message: "Email ou senha inválidos" });
     }
 
     // Obtém o usuário encontrado
     const user = rows[0];
-    const { senha: hashedPassword } = user; // Obtém o hash da senha armazenado no banco
+    const { senha: hashedPassword } = user;
 
     // Compara a senha fornecida com o hash armazenado
     const match = await bcrypt.compare(senha, hashedPassword);
 
-    // Se a senha não corresponder, retorna erro
     if (!match) {
       return res.status(400).json({ message: "Email ou senha inválidos" });
     }
 
-    // Se a senha corresponder, retorna sucesso
     res.status(200).json({ message: "Login bem-sucedido", user });
   } catch (error) {
     console.error("Error querying the database:", error);
@@ -74,7 +69,6 @@ export const createUser = async (req, res) => {
     cidade,
     cep,
     complemento,
-    tipo_acesso,
   } = req.body;
 
   try {
@@ -87,7 +81,6 @@ export const createUser = async (req, res) => {
       email,
       senha: hashedPassword,
       telefone,
-      tipo_acesso,
     });
 
     // Inserir endereço associado ao usuário
@@ -133,26 +126,47 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { nome_completo, email, senha } = req.body;
+  const { nome_completo, email, senha, telefone, cpf, endereco } = req.body;
 
   try {
-    let query = "UPDATE usuario SET nome_completo = ?, email = ?";
-    const params = [nome_completo, email];
+    // Atualiza informações do usuário
+    const user = await Usuario.findByPk(id);
 
-    if (senha) {
-      const hashedPassword = await bcrypt.hash(senha, saltRounds);
-      query += ", senha = ?";
-      params.push(hashedPassword);
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
     }
 
-    query += " WHERE id = ?";
-    params.push(id);
+    if (nome_completo) user.nome_completo = nome_completo;
+    if (email) user.email = email;
+    if (telefone) user.telefone = telefone;
+    if (cpf) user.cpf = cpf;
+    if (senha) {
+      const hashedPassword = await bcrypt.hash(senha, saltRounds);
+      user.senha = hashedPassword;
+    }
 
-    await configDB.query(query, params);
+    await user.save();
+
+    // Atualiza informações de endereço
+    if (endereco) {
+      const [address, created] = await Endereco.findOrCreate({
+        where: { usuario_id: id },
+        defaults: endereco,
+      });
+
+      if (!created) {
+        await Endereco.update(endereco, {
+          where: { usuario_id: id },
+        });
+      }
+    }
+
+    console.log("Dados recebidos para atualização:", req.body);
+
     res.status(200).json({ message: "Usuário atualizado com sucesso" });
   } catch (error) {
-    console.error("Error updating the database:", error);
-    res.status(500).json({ message: "Database query failed" });
+    console.error("Erro ao atualizar no banco de dados:", error);
+    res.status(500).json({ message: "Falha na consulta ao banco de dados" });
   }
 };
 
@@ -160,10 +174,13 @@ export const deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await configDB.query("DELETE FROM usuario WHERE id = ?"),
-      {
-        replacements: [id],
-      };
+    const user = await Usuario.findByPk(id);
+
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+
+    await user.destroy();
     res.status(200).json({ message: "Usuário deletado com sucesso" });
   } catch (error) {
     console.error("Error deleting from the database:", error);

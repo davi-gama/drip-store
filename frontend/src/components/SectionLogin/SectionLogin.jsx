@@ -9,7 +9,7 @@ import { useState } from "react";
 export function SectionLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // useNavigate hook for redirection
+  const navigate = useNavigate(); // Hook para redirecionamento
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,18 +23,17 @@ export function SectionLogin() {
     // Chama a API para realizar o login
     try {
       const response = await axios.post(
-        "http://localhost:3000/users/login", // URL da API que será chamada
-        { email, senha: password }, // Dados que serão enviados no corpo da requisição
+        "http://localhost:3000/users/login",
+        { email, senha: password },
         {
           headers: {
-            "Content-Type": "application/json", // Define o tipo de conteúdo como JSON
+            "Content-Type": "application/json",
           },
         }
       );
 
       // Verifica a resposta do servidor
       if (response.status === 200) {
-        // Se a resposta for 200, significa que o login foi bem-sucedido
         const { user } = response.data;
         localStorage.setItem("user", JSON.stringify(user));
         alert("Login efetuado com sucesso");
