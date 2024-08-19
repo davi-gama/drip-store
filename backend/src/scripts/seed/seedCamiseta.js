@@ -27,7 +27,7 @@ const up = async () => {
         descricao:
           "Pronto para os exercícios ao ar livre ou na academia com Camiseta Mizuno Energy Masculina! Confeccionada em material leve que fornece excelente modelagem ao corpo, a peça apresenta design esportivo que garante ventilação interna. Adquira já essa camiseta Mizuno masculina!",
         preco: 99.99,
-        preco_promocao: 70.0, // 30% de desconto
+        preco_promocao: 69.99, // 30% de desconto
         label_promocao: true,
         marca: "Mizuno",
         genero: "masculino",
@@ -120,21 +120,21 @@ const up = async () => {
       console.log("Produto 'Camiseta Mizuno Run Spark Masculina' já existe.");
     }
 
-    // Verifica se já existe o produto 'Camiseta Kappa Shangai Masculina'
+    // Verifica se já existe o produto 'Camiseta Nike Sportwear Club - Masculina'
     produto = await Produto.findOne({
-      where: { nome: "Camiseta Kappa Shangai Masculina" },
+      where: { nome: "Camiseta Nike Sportwear Club - Masculina" },
     });
 
     if (!produto) {
-      // Insere o produto 'Camiseta Kappa Shangai Masculina'
+      // Insere o produto 'Camiseta Nike Sportwear Club - Masculina'
       produto = await Produto.create({
-        nome: "Camiseta Kappa Shangai Masculina",
+        nome: "Camiseta Nike Sportwear Club - Masculina",
         descricao:
-          "Treine com liberdade e conforto. A camiseta Kappa Shangai Masculina é ideal para quem busca por bem-estar nas atividades físicas diárias. Produzida em tecido leve, a peça acompanha os movimentos do corpo e permite que você se movimente com suavidade. Uma camiseta de treino versátil, para combinar com bermuda esportiva ou calça jogger e seu tênis de academia preferido. Aproveite!",
+          "Treine com liberdade e conforto. A Camiseta Nike Sportwear Club - Masculina é ideal para quem busca por bem-estar nas atividades físicas diárias. Produzida em tecido leve, a peça acompanha os movimentos do corpo e permite que você se movimente com suavidade. Uma camiseta de treino versátil, para combinar com bermuda esportiva ou calça jogger e seu tênis de academia preferido. Aproveite!",
         preco: 39.99,
-        preco_promocao: 25.99, // sem desconto informado
+        preco_promocao: 25.99,
         label_promocao: true,
-        marca: "Kappa",
+        marca: "Nike",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
@@ -147,27 +147,24 @@ const up = async () => {
 
       // Insere as cores do produto
       await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Vermelho" },
         { produto_id: produto.id, cor: "Preto" },
-        { produto_id: produto.id, cor: "Azul" },
+        { produto_id: produto.id, cor: "Azul claro" },
+        { produto_id: produto.id, cor: "Azul escuro" },
       ]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.shopvasco.com.br/produtos/camiseta-kappa-shangai-masculina/06/D24-1110-006/D24-1110-006_zoom1.jpg?ts=1718187410?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/94910702.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.shopvasco.com.br/produtos/camiseta-kappa-shangai-masculina/08/D24-1110-008/D24-1110-008_zoom1.jpg?ts=1718201860?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/9491072R.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.clube.netshoes.com.br/produtos/camiseta-kappa-shangai-masculina/16/D24-1110-016/D24-1110-016_zoom1.jpg?ts=1718187503?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/94910705.jpg",
         },
       ]);
 
@@ -176,17 +173,17 @@ const up = async () => {
       console.log("Produto 'Camiseta Kappa Shangai Masculina' já existe.");
     }
 
-    // Verifica se já existe o produto 'Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina'
+    // Verifica se já existe o produto 'Camiseta Nord Masculina Manga Hering'
     produto = await Produto.findOne({
       where: {
-        nome: "Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina",
+        nome: "Camiseta Nord Masculina Manga Hering",
       },
     });
 
     if (!produto) {
-      // Insere o produto 'Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina'
+      // Insere o produto 'Camiseta Nord Masculina Manga Hering'
       produto = await Produto.create({
-        nome: "Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina",
+        nome: "Camiseta Nord Masculina Manga Hering",
         descricao:
           "Camiseta esportiva elaborada em poliamida e elastano que garante toque gelado, além de proteção uv 50+ que não sai na lavagem. Possui modelagem regular e estampa refletiva no peito. Mais elasticidade e movimento para sua rotina de treinos. Detalhes da peça: - Em poliamida - Modelagem regular - Manga curta - Gola redonda - Proteção UV 50+ - Toque gelado.",
         preco: 84.99,
@@ -204,14 +201,20 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" }]);
+      await ProdutoCor.bulkCreate([
+        { produto_id: produto.id, cor: "Preto" },
+        { produto_id: produto.id, cor: "Branco" },
+      ]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://outletespacohering.vtexassets.com/arquivos/ids/3524982/SN81-N10SN-C1.jpg?v=638495155386470000",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/97745602.jpg",
+        },
+        {
+          produto_id: produto.id,
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/97745605.jpg",
         },
       ]);
 
@@ -222,19 +225,19 @@ const up = async () => {
       );
     }
 
-    // Verifica se já existe o produto 'Camiseta Topper Marker Masculina'
+    // Verifica se já existe o produto 'Camiseta do Palmeiras Masculina Home'
     produto = await Produto.findOne({
-      where: { nome: "Camiseta Topper Marker Masculina" },
+      where: { nome: "Camiseta do Palmeiras Masculina Home" },
     });
 
     if (!produto) {
-      // Insere o produto 'Camiseta Topper Marker Masculina'
+      // Insere o produto 'Camiseta do Palmeiras Masculina Home'
       produto = await Produto.create({
-        nome: "Camiseta Topper Marker Masculina",
+        nome: "Camiseta do Palmeiras Masculina Home",
         descricao:
           "Leveza e conforto para se desafiar nos treinos. A camiseta masculina Topper Marker chega para garantir bem-estar enquanto você se movimenta. Esta camiseta de treino masculina tem modelagem regulagem e é confeccionada em tecido respirável que proporciona secagem rápida, ideal para se manter seco durante as atividades. Prepare o short esportivo e o tênis academia masculino para buscar os melhores resultados! Peça a sua camiseta fitness Topper e aproveite!",
-        preco: 44.99,
-        preco_promocao: 29.99, // sem desconto
+        preco: 99.99,
+        preco_promocao: 79.99, // sem desconto
         label_promocao: true,
         marca: "Topper",
         genero: "masculino",
@@ -248,22 +251,13 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Azul" },
-        { produto_id: produto.id, cor: "Verde Limão" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Verde" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.clube.netshoes.com.br/produtos/camiseta-topper-marker-masculina/12/D30-6639-012/D30-6639-012_zoom1.jpg?ts=1709137184?ims=1088x",
-        },
-        {
-          produto_id: produto.id,
-          url_imagem:
-            "https://static.clube.netshoes.com.br/produtos/camiseta-topper-marker-masculina/33/D30-6639-833/D30-6639-833_zoom1.jpg?ts=1709116945?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/98863307.jpg",
         },
       ]);
 
@@ -324,21 +318,21 @@ const up = async () => {
       );
     }
 
-    // Verifica se já existe o produto 'Camiseta Olympikus Essential Masculina'
+    // Verifica se já existe o produto 'Camiseta Masculina Oxer Estampada'
     produto = await Produto.findOne({
-      where: { nome: "Camiseta Olympikus Essential Masculina" },
+      where: { nome: "Camiseta Masculina Oxer Estampada" },
     });
 
     if (!produto) {
-      // Insere o produto 'Camiseta Olympikus Essential Masculina'
+      // Insere o produto 'Camiseta Masculina Oxer Estampada'
       produto = await Produto.create({
-        nome: "Camiseta Olympikus Essential Masculina",
+        nome: "Camiseta Masculina Oxer Estampada",
         descricao:
-          "Conforto total para treinar com confiança. A camiseta masculina Olympikus Essential garante seu bem-estar na prática da sua atividade preferida. Esta camiseta academia conta com tecnologia Dry Action, que afasta o suor e a umidade, e tecnologia Solartech, para te manter protegido dos raios UVA e UVB. Leveza e liberdade de movimentos para você viver o melhor do esporte. Prepare o short de treino e o tênis academia masculino. Garanta a sua!",
+          "Conforto total para treinar com confiança. A Camiseta Masculina Oxer Estampada garante seu bem-estar na prática da sua atividade preferida. Esta camiseta academia conta com tecnologia Dry Action, que afasta o suor e a umidade, e tecnologia Solartech, para te manter protegido dos raios UVA e UVB. Leveza e liberdade de movimentos para você viver o melhor do esporte. Prepare o short de treino e o tênis academia masculino. Garanta a sua!",
         preco: 44.99,
         preco_promocao: 34.99, // sem desconto
         label_promocao: true,
-        marca: "Olympikus",
+        marca: "Oxer",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
@@ -351,27 +345,19 @@ const up = async () => {
 
       // Insere as cores do produto
       await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Preto" },
-        { produto_id: produto.id, cor: "Branco" },
-        { produto_id: produto.id, cor: "Verde Limão" },
+        { produto_id: produto.id, cor: "Roxo" },
+        { produto_id: produto.id, cor: "Amarelo" },
       ]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.netshoes.com.br/produtos/camiseta-olympikus-essential-masculina/06/2I2-9137-006/2I2-9137-006_zoom1.jpg?ts=1711043109?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/983440NF.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://static.netshoes.com.br/produtos/camiseta-olympikus-essential-masculina/14/2I2-9137-014/2I2-9137-014_zoom1.jpg?ts=1710842360?ims=1088x",
-        },
-        {
-          produto_id: produto.id,
-          url_imagem:
-            "https://static.netshoes.com.br/produtos/camiseta-olympikus-essential-masculina/30/2I2-9137-030/2I2-9137-030_zoom1.jpg?ts=1710942556?ims=1088x",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/983440NH.jpg",
         },
       ]);
 
