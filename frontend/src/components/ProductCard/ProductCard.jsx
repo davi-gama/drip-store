@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-export function ProductCard({ image, link, name, price, priceDiscount }) {
+export function ProductCard({ image, link, name, price, priceDiscount, category }) {
   return (
     <>
       <div className="Card">
@@ -11,13 +11,14 @@ export function ProductCard({ image, link, name, price, priceDiscount }) {
           </div>
         </Link>
         <div className="infoProduto">
+          <p className="categoria">{category}</p>
           <Link to={link}>
             <p className="titulo">{name}</p>
           </Link>
           {priceDiscount ? (
             <div>
-              <span className="precoOriginal ">{price}</span>
-              <strong className="precoDesconto">{priceDiscount}</strong>
+              <span className="precoOriginal ">R$ {price}</span>
+              <strong className="precoDesconto">R$ {priceDiscount}</strong>
             </div>
           ) : (
             <span className="precoDesconto">{price}</span>
