@@ -120,8 +120,6 @@ const up = async () => {
       console.log("Produto 'Camiseta Mizuno Run Spark Masculina' já existe.");
     }
 
-
-
     // Verifica se já existe o produto 'Camiseta Nike Sportwear Club - Masculina'
     produto = await Produto.findOne({
       where: { nome: "Camiseta Nike Sportwear Club - Masculina" },
@@ -134,7 +132,7 @@ const up = async () => {
         descricao:
           "Treine com liberdade e conforto. A Camiseta Nike Sportwear Club - Masculina é ideal para quem busca por bem-estar nas atividades físicas diárias. Produzida em tecido leve, a peça acompanha os movimentos do corpo e permite que você se movimente com suavidade. Uma camiseta de treino versátil, para combinar com bermuda esportiva ou calça jogger e seu tênis de academia preferido. Aproveite!",
         preco: 39.99,
-        preco_promocao: 25.99, 
+        preco_promocao: 25.99,
         label_promocao: true,
         marca: "Nike",
         genero: "masculino",
@@ -158,18 +156,15 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/94910702.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/94910702.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/9491072R.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/9491072R.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/94910705.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/94910705.jpg",
         },
       ]);
 
@@ -206,7 +201,8 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" },
+      await ProdutoCor.bulkCreate([
+        { produto_id: produto.id, cor: "Preto" },
         { produto_id: produto.id, cor: "Branco" },
       ]);
 
@@ -214,15 +210,12 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/97745602.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/97745602.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/97745605.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/97745605.jpg",
         },
-        
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
@@ -258,16 +251,13 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Verde" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Verde" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/98863307.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/98863307.jpg",
         },
       ]);
 
@@ -363,13 +353,11 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/983440NF.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/983440NF.jpg",
         },
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/983440NH.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/983440NH.jpg",
         },
       ]);
 

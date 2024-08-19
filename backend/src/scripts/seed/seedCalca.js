@@ -50,7 +50,9 @@ const up = async () => {
         url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/97745902.jpg",
       });
 
-      console.log("Produto 'Calça Nord Feminina Térmica', cor e imagem inseridos com sucesso.");
+      console.log(
+        "Produto 'Calça Nord Feminina Térmica', cor e imagem inseridos com sucesso."
+      );
     } else {
       console.log("Produto 'Calça Nord Feminina Térmica' já existe.");
     }
@@ -88,7 +90,8 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem: "https://imgcentauro-a.akamaihd.net/1366x1366/98489802.jpg",
+          url_imagem:
+            "https://imgcentauro-a.akamaihd.net/1366x1366/98489802.jpg",
         },
         {
           produto_id: produto.id,
@@ -96,7 +99,9 @@ const up = async () => {
         },
       ]);
 
-      console.log("Produto 'Calça Masculina Oxer Mark', cores e imagens inseridos com sucesso.");
+      console.log(
+        "Produto 'Calça Masculina Oxer Mark', cores e imagens inseridos com sucesso."
+      );
     } else {
       console.log("Produto 'Calça Masculina Oxer Mark' já existe.");
     }
@@ -142,12 +147,14 @@ const up = async () => {
         },
       ]);
 
-      console.log("Produto 'Calça Masculina ASICS Fleece Training', cores e imagens inseridos com sucesso.");
+      console.log(
+        "Produto 'Calça Masculina ASICS Fleece Training', cores e imagens inseridos com sucesso."
+      );
     } else {
-      console.log("Produto 'Calça Masculina ASICS Fleece Training' não existe.");
+      console.log(
+        "Produto 'Calça Masculina ASICS Fleece Training' não existe."
+      );
     }
-
-
 
     // Inserção do produto 'Calça Legging Feminina Oxer Campeão Slim'
     produto = await Produto.findOne({
@@ -195,13 +202,14 @@ const up = async () => {
         },
       ]);
 
-      console.log("Produto 'Calça Legging Feminina Oxer Campeão Slim', cores e imagens inseridos com sucesso.");
+      console.log(
+        "Produto 'Calça Legging Feminina Oxer Campeão Slim', cores e imagens inseridos com sucesso."
+      );
     } else {
-      console.log("Produto 'Calça Legging Feminina Oxer Campeão Slim' não existe.");
+      console.log(
+        "Produto 'Calça Legging Feminina Oxer Campeão Slim' não existe."
+      );
     }
-
-
-
 
     // Inserção do produto 'Calça Jogger Masculina CBF Future Pro'
     produto = await Produto.findOne({
@@ -227,9 +235,7 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Azul" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Azul" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
@@ -239,11 +245,14 @@ const up = async () => {
         },
       ]);
 
-      console.log("Produto 'Calça Jogger Masculina CBF Future Pro', cores e imagens inseridos com sucesso.");
+      console.log(
+        "Produto 'Calça Jogger Masculina CBF Future Pro', cores e imagens inseridos com sucesso."
+      );
     } else {
-      console.log("Produto 'Calça Jogger Masculina CBF Future Pro' não existe.");
+      console.log(
+        "Produto 'Calça Jogger Masculina CBF Future Pro' não existe."
+      );
     }
-
   } catch (error) {
     console.error("Erro ao inserir dados iniciais:", error);
   }
