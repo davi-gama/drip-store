@@ -1,6 +1,6 @@
 @import "../../App.css";
 
-.section-signup {
+.section-editprofile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,7 +82,13 @@ hr {
   margin-bottom: 1rem;
 }
 
-.div-submit button {
+.div-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.div-edit button {
   width: 100%;
   height: 48px;
   background-color: var(--primary);
@@ -96,7 +102,7 @@ hr {
   margin: 1rem 0 0.5rem;
 }
 
-.div-submit button:hover {
+.div-edit button:hover {
   background-color: var(--tertiary);
 }
 

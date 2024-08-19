@@ -17,7 +17,6 @@ const up = async () => {
 
     // Inserção dos Tenis
     // Adicione a lógica de inserção de produtos, cores e imagens aqui
-
   } catch (error) {
     console.error("Erro ao inserir dados iniciais:", error);
   }

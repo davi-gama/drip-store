@@ -1,10 +1,10 @@
-import "./SectionSignUp.css";
+import "./SectionEditProfile.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MaskedInput from "react-text-mask";
 import { useNavigate } from "react-router-dom";
 
-export function SectionSignUp() {
+export function SectionEditProfile() {
   const [formData, setFormData] = useState({
     nome: "",
     cpf: "",
@@ -18,8 +18,41 @@ export function SectionSignUp() {
     cep: "",
     complemento: "",
   });
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); // Hook para redirecionamento
+  useEffect(() => {
+    // Fetch user data
+    const fetchUserData = async () => {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        if (storedUser) {
+          setUserId(storedUser.id);
+          const response = await axios.get(
+            `http://localhost:3000/users/${storedUser.id}`
+          );
+          const user = response.data;
+          setFormData({
+            nome: user.nome_completo,
+            cpf: user.cpf,
+            email: user.email,
+            senha: "",
+            telefone: user.telefone,
+            rua: user.rua,
+            numero: user.numero,
+            bairro: user.bairro,
+            cidade: user.cidade,
+            cep: user.cep,
+            complemento: user.complemento || "",
+          });
+        }
+      } catch (err) {
+        console.error("Erro ao buscar dados do usuário:", err);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -33,6 +66,7 @@ export function SectionSignUp() {
     let isValid = true;
     let errorMessages = [];
 
+    // Add validations if necessary
 
     if (errorMessages.length > 0) {
       alert(errorMessages.join(" "));
@@ -42,7 +76,7 @@ export function SectionSignUp() {
     return isValid;
   };
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -50,40 +84,60 @@ export function SectionSignUp() {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/users/cadastro",
-        formData
-      );
-
-      console.log("Resposta da API:", response.data);
-      setFormData({
-        nome: "",
-        cpf: "",
-        email: "",
-        senha: "",
-        telefone: "",
-        rua: "",
-        numero: "",
-        bairro: "",
-        cidade: "",
-        cep: "",
-        complemento: "",
+      // Atualize o perfil do usuário na API
+      await axios.put(`http://localhost:3000/users/${userId}`, {
+        nome_completo: formData.nome,
+        email: formData.email,
+        senha: formData.senha,
+        telefone: formData.telefone,
+        cpf: formData.cpf,
+        endereco: {
+          rua: formData.rua,
+          numero: formData.numero,
+          bairro: formData.bairro,
+          cidade: formData.cidade,
+          cep: formData.cep,
+          complemento: formData.complemento,
+        },
       });
 
-      alert(
-        "Conta criada com sucesso! Você será redirecionado para a tela de login."
-      );
-      navigate("/login");
+      // Atualiza o perfil do usuário no localStorage
+      const updatedUser = {
+        ...JSON.parse(localStorage.getItem("user")),
+        nome_completo: formData.nome,
+      };
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+
+      alert("Perfil atualizado com sucesso!");
+      navigate("/");
     } catch (err) {
-      alert("Ocorreu um erro ao enviar seus dados. Tente novamente.");
-      console.error("Erro ao enviar dados:", err);
+      alert("Ocorreu um erro ao atualizar seu perfil. Tente novamente.");
+      console.error("Erro ao atualizar perfil:", err);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (
+      window.confirm(
+        "Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita."
+      )
+    ) {
+      try {
+        await axios.delete(`http://localhost:3000/users/${userId}`);
+        localStorage.removeItem("user");
+        alert("Conta excluída com sucesso!");
+        navigate("/");
+      } catch (err) {
+        alert("Ocorreu um erro ao excluir sua conta. Tente novamente.");
+        console.error("Erro ao excluir conta:", err);
+      }
     }
   };
 
   return (
-    <div className="section-signup">
-      <div className="signup-form">
-        <form id="signup" onSubmit={handleSubmit}>
+    <div className="section-editprofile">
+      <div className="editprofile-form">
+        <form id="editprofile" onSubmit={handleUpdate}>
           <div className="profile-form">
             <h3>Informações Pessoais</h3>
             <hr />
@@ -138,10 +192,9 @@ export function SectionSignUp() {
             <input
               type="password"
               id="senha"
-              placeholder="Insira sua senha"
+              placeholder="Insira sua nova senha (deixe em branco para manter a atual)"
               value={formData.senha}
               onChange={handleChange}
-              required
             />
 
             <label htmlFor="telefone">Telefone *</label>
@@ -238,19 +291,11 @@ export function SectionSignUp() {
             />
           </div>
 
-          <div className="opt-in">
-            <input
-              type="checkbox"
-              id="receberOfertas"
-              checked={formData.receberOfertas}
-              onChange={handleChange}
-            />{" "}
-            Quero receber por email ofertas e novidades das lojas da Digital
-            Store. A frequência de envios pode variar de acordo com a interação
-            do cliente.
-          </div>
-          <div className="div-submit">
-            <button type="submit">Criar Conta</button>
+          <div className="div-edit">
+            <button type="submit">Atualizar Perfil</button>
+            <button type="button" onClick={handleDelete} className="btn-delete">
+              Excluir Conta
+            </button>
           </div>
         </form>
       </div>

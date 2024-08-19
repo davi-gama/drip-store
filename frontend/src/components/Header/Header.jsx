@@ -3,24 +3,37 @@ import { NavBar } from "../NavBar/NavBar";
 import { Link, useLocation } from "react-router-dom";
 import minicart from "../../assets/mini-cart.svg";
 import search from "../../assets/search-icon.svg";
+import usericon from "../../assets/user.svg";
 import { useState, useEffect } from "react";
 import "./Header.css";
 
 export function Header() {
-  const [user, setUser] = useState(null); // Estado para armazenar o usuário
+  const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Obtém o usuário do localStorage quando o componente é montado
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    const fetchUser = () => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    };
+
+    fetchUser();
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user"); // Remove o usuário do localStorage ao fazer logout
+    localStorage.removeItem("user");
     setUser(null);
+    setMenuOpen(false);
   };
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  function getFirstName(fullName) {
+    if (!fullName) return "";
+    return fullName.split(" ")[0];
+  }
 
   return (
     <header>
@@ -51,15 +64,7 @@ export function Header() {
                   <button>Entrar</button>
                 </Link>
               </div>
-            ) : (
-              <div className="redirect">
-                <span>Bem-vindo, {user.nome_completo}</span>
-                <Link to="/" onClick={handleLogout}>
-                  Logout
-                </Link>
-              </div>
-            )}
-
+            ) : null}
             <div className="carrinho">
               <button type="submit">
                 <img src={minicart} alt="Ícone de carrinho de compras" />
@@ -67,6 +72,25 @@ export function Header() {
             </div>
           </>
         )}
+        {user ? (
+          <div className="user-menu">
+            <img className="user-icon" src={usericon} alt="ícone de usuário" />
+            Olá, <span>&nbsp;</span>
+            <span onClick={toggleMenu} className="user-name">
+              {getFirstName(user.nome_completo)}
+            </span>
+            {menuOpen && (
+              <div className="dropdown-menu">
+                <button className="edit-button">
+                  <Link to="/editprofile">Editar Perfil</Link>
+                </button>
+                <button className="logout-button" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
       {useLocation().pathname === "/login" ||
       useLocation().pathname === "/signup" ? null : (

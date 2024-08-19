@@ -87,7 +87,6 @@ export const getProductById = async (req, res) => {
       };
     });
 
-    // Verifica se o produto foi encontrado
     if (produto.length > 0) {
       res.json(produto[0]);
     } else {
@@ -98,5 +97,3 @@ export const getProductById = async (req, res) => {
     res.status(500).json({ message: "Database query failed" });
   }
 };
-
-
