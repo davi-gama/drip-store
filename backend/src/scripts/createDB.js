@@ -12,7 +12,7 @@ async function createDB() {
     await connection.query(
       `CREATE DATABASE IF NOT EXISTS ${configDB.config.database};`
     );
-    console.log("\n2. Banco de dados conectado/criado com sucesso.\n");
+    console.log("\nBanco de dados conectado/criado com sucesso.\n");
     await connection.end();
   } catch (error) {
     console.error("\nErro ao conectar com o DB: ", error);

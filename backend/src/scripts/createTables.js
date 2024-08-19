@@ -20,7 +20,7 @@ async function createTables() {
     await Compra.sync();
     await Pedido.sync();
 
-    console.log("\n3. Tabelas sincronizadas/criadas com sucesso.\n");
+    console.log("\nTabelas sincronizadas/criadas com sucesso.");
   } catch (error) {
     console.error("\nErro ao sincronizar as tabelas:", error);
   }

@@ -2,8 +2,9 @@ import app from "./server/server.js"; // Importa a instância do servidor config
 import createDB from "./scripts/createDB.js"; // Importa a função para criar o banco de dados se ele não existir
 import createTables from "./scripts/createTables.js"; // Importa a função para criar as tabelas do banco de dados se elas não existirem
 import { seedController } from "./scripts/seed/seedController.js"; // Importa a função para alimentar as tabelas do banco de dados com os dados iniciais
+import configDB from "./config/db.js";
 
-const PORT = process.env.PORT || 3000; // Define a porta em que o servidor vai rodar, usando a variável de ambiente ou 3000 como fallback
+const port = 3000 || configDB.config.port;
 
 const startServer = async () => {
   try {
@@ -17,8 +18,8 @@ const startServer = async () => {
     await seedController();
 
     // Inicia o servidor
-    app.listen(PORT, () => {
-      console.log(`\nServidor iniciado na porta ${PORT}. | Seja bem-vindo!\n`);
+    app.listen(port, () => {
+      console.log(`\nServidor iniciado na porta ${port}.`);
     });
   } catch (error) {
     console.error("\nErro ao iniciar o servidor:", error);
