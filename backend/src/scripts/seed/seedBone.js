@@ -16,8 +16,6 @@ const up = async () => {
     }
 
     // Inserção dos bonés
-    // Adicione a lógica de inserção de produtos, cores e imagens aqui
-
     let produto = await Produto.findOne({
       where: { nome: "Boné Running x 4D HEART.RDY" },
     });
@@ -28,7 +26,7 @@ const up = async () => {
         descricao:
           "Aumente o ritmo e diminua a temperatura durante a corrida. Feito com tecnologia adidas HEAT.RDY, ele remove a umidade e oferece ventilação para manter sua pele seca e refrescada, quilômetro após quilômetro. A aba ligeiramente curva protege seus olhos dos raios de sol, e os orifícios de ventilação cortados a laser estimulam o máximo fluxo de ar. Não importa se está buscando um recorde pessoal ou apenas curtindo uma corrida espontânea, este boné acompanha você.",
         preco: 149.99,
-        preco_promocao: 127.50, // 30% de desconto
+        preco_promocao: 127.5,
         label_promocao: true,
         marca: "adidas",
         genero: "masculino",
@@ -41,9 +39,7 @@ const up = async () => {
         estoque: 50,
       });
 
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Preto" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" }]);
 
       await ProdutoImagem.bulkCreate([
         {
@@ -51,7 +47,6 @@ const up = async () => {
           url_imagem:
             "https://www.tradeinn.com/f/14056/140564146/adidas-bone-running-x-4d-heat-rdy.webp",
         },
-      
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
@@ -69,23 +64,21 @@ const up = async () => {
         descricao:
           "Se for correr de dia, proteja o rosto do sol. Com aba curva, esta viseira de corrida adidas mantém a luz longe dos olhos. A mesh respirável e o tecido AEROREADY antitranspirante mantêm o rosto seco durante o treino. O Fecho aderente permite encontrar o ajuste perfeito.",
         preco: 129.99,
-        preco_promocao: 59.99, // sem desconto
+        preco_promocao: 59.99,
         label_promocao: true,
         marca: "Adidas",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
         numero_avaliacoes: 0,
-        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(), // Gera uma referência aleatória
+        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
         finalidade: "utilitario",
         estoque: 50,
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Preto" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
@@ -106,7 +99,6 @@ const up = async () => {
       console.log("Produto 'Viseira Corrida AEROREADY' já existe.");
     }
 
-
     produto = await Produto.findOne({
       where: { nome: "Boné Jordan Club Unissex" },
     });
@@ -117,33 +109,28 @@ const up = async () => {
         descricao:
           " Este boné não estruturado de profundidade média possui tecido leve que absorve o suor para ajudar a manter a sua cabeça fresca. Uma alça facilmente ajustável proporciona o caimento ideal.",
         preco: 126.34,
-        preco_promocao: 59.99, // sem desconto
+        preco_promocao: 59.99,
         label_promocao: true,
         marca: "Nike",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
         numero_avaliacoes: 0,
-        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(), // Gera uma referência aleatória
+        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
         finalidade: "utilitario",
         estoque: 50,
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Preto" },
-        
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgnike-a.akamaihd.net/768x768/027308IDA2.jpg",
+          url_imagem: "https://imgnike-a.akamaihd.net/768x768/027308IDA2.jpg",
         },
-       
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
@@ -168,26 +155,21 @@ const up = async () => {
         numero_vendas: 0,
         rating: 0.0,
         numero_avaliacoes: 0,
-        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(), // Gera uma referência aleatória
+        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
         finalidade: "utilitario",
         estoque: 50,
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Camo" },
-  
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Camo" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgnike-a.akamaihd.net/768x768/026457NXA2.jpg",
+          url_imagem: "https://imgnike-a.akamaihd.net/768x768/026457NXA2.jpg",
         },
-        
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
@@ -205,43 +187,37 @@ const up = async () => {
         descricao:
           "O design estruturado de alta profundidade do Boné Nike Rise apresenta tecido com absorção do suor avançada que ajuda a manter você fresco o dia todo. Finalizamos com um AeroBill flexível e sensação super respirável, para que você possa se concentrar em atingir cada repetição e alcançar o próximo objetivo.",
         preco: 180.49,
-        preco_promocao: 119.99, // sem desconto
+        preco_promocao: 119.99,
         label_promocao: true,
         marca: "Nike",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
         numero_avaliacoes: 0,
-        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(), // Gera uma referência aleatória
+        referencia: Math.random().toString(36).substring(2, 10).toUpperCase(),
         categoria_id: categoria.id,
         finalidade: "utilitario",
         estoque: 50,
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([
-        { produto_id: produto.id, cor: "Branco" },
-      ]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Branco" }]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgnike-a.akamaihd.net/1920x1920/02650851A3.jpg",
+          url_imagem: "https://imgnike-a.akamaihd.net/1920x1920/02650851A3.jpg",
         },
-      
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
     } else {
       console.log("Produto 'Boné Nike Dri-FIT ADV Rise Unissex' já existe.");
     }
+  } catch (error) {
+    console.error("Erro ao inserir dados iniciais:", error);
+  }
+};
 
-    } catch (error) {
-      console.error("Erro ao inserir dados iniciais:", error);
-    }
-  };
-
-  // Exporta a função `up` como padrão
-  export default { up };
+export default { up };

@@ -25,7 +25,7 @@ const up = async () => {
         descricao:
           "A Calça Nord Feminina Térmica é uma peça essencial para enfrentar o frio com estilo e conforto. Feita com materiais de alta qualidade, ela oferece excelente isolamento térmico, mantendo o calor corporal mesmo nas temperaturas mais baixas.",
         preco: 99.99,
-        preco_promocao: 70.0, // 30% de desconto
+        preco_promocao: 70.0,
         label_promocao: true,
         marca: "Nord",
         genero: "feminino",
@@ -67,7 +67,7 @@ const up = async () => {
         descricao:
           "A Calça Masculina Oxer Mark é ideal para atividades físicas ou uso casual, proporcionando conforto e estilo.",
         preco: 119.99,
-        preco_promocao: 89.99, // 25% de desconto
+        preco_promocao: 89.99,
         label_promocao: true,
         marca: "Oxer",
         genero: "masculino",
@@ -116,7 +116,7 @@ const up = async () => {
         descricao:
           "A Calça Masculina ASICS Fleece Training é ideal para atividades físicas ou uso casual, proporcionando conforto e estilo.",
         preco: 99.99,
-        preco_promocao: 69.99, // 25% de desconto
+        preco_promocao: 69.99,
         label_promocao: true,
         marca: "ASICS",
         genero: "masculino",
@@ -166,7 +166,7 @@ const up = async () => {
         descricao:
           "Calça Legging Feminina Oxer Campeão Slim oferece conforto e estilo para uma corrida ou corrida de ciclismo.",
         preco: 74.99,
-        preco_promocao: 54.99, // 25% de desconto
+        preco_promocao: 54.99,
         label_promocao: true,
         marca: "Oxer",
         genero: "feminino",
@@ -221,7 +221,7 @@ const up = async () => {
         descricao:
           "Calça Jogger Masculina CBF Future Pro oferece conforto e estilo para uma corrida ou corrida de ciclismo.",
         preco: 114.99,
-        preco_promocao: 94.99, // 25% de desconto
+        preco_promocao: 94.99,
         label_promocao: true,
         marca: "Oxer",
         genero: "feminino",
@@ -258,5 +258,4 @@ const up = async () => {
   }
 };
 
-// Exporta a função `up` como padrão
 export default { up };
