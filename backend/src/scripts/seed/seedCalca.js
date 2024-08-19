@@ -152,7 +152,7 @@ const up = async () => {
       );
     } else {
       console.log(
-        "Produto 'Calça Masculina ASICS Fleece Training' não existe."
+        "Produto 'Calça Masculina ASICS Fleece Training' já existe."
       );
     }
 
@@ -207,7 +207,7 @@ const up = async () => {
       );
     } else {
       console.log(
-        "Produto 'Calça Legging Feminina Oxer Campeão Slim' não existe."
+        "Produto 'Calça Legging Feminina Oxer Campeão Slim' já existe."
       );
     }
 
@@ -250,7 +250,7 @@ const up = async () => {
       );
     } else {
       console.log(
-        "Produto 'Calça Jogger Masculina CBF Future Pro' não existe."
+        "Produto 'Calça Jogger Masculina CBF Future Pro' já existe."
       );
     }
   } catch (error) {
