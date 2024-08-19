@@ -84,6 +84,7 @@ export function SectionEditProfile() {
     }
 
     try {
+      // Atualize o perfil do usuário na API
       await axios.put(`http://localhost:3000/users/${userId}`, {
         nome_completo: formData.nome,
         email: formData.email,
@@ -99,6 +100,13 @@ export function SectionEditProfile() {
           complemento: formData.complemento,
         },
       });
+
+      // Atualiza o perfil do usuário no localStorage
+      const updatedUser = {
+        ...JSON.parse(localStorage.getItem("user")),
+        nome_completo: formData.nome,
+      };
+      localStorage.setItem("user", JSON.stringify(updatedUser));
 
       alert("Perfil atualizado com sucesso!");
       navigate("/");
