@@ -27,7 +27,7 @@ const up = async () => {
         descricao:
           "Pronto para os exercícios ao ar livre ou na academia com Camiseta Mizuno Energy Masculina! Confeccionada em material leve que fornece excelente modelagem ao corpo, a peça apresenta design esportivo que garante ventilação interna. Adquira já essa camiseta Mizuno masculina!",
         preco: 99.99,
-        preco_promocao: 70.0, // 30% de desconto
+        preco_promocao: 69.99, // 30% de desconto
         label_promocao: true,
         marca: "Mizuno",
         genero: "masculino",

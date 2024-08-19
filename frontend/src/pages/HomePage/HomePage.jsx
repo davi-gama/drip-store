@@ -27,11 +27,11 @@ export function HomePage() {
     axios.get("http://localhost:3000/products")
       .then(response => {
         const limitedProducts = response.data.slice(0, 8).map(product => ({
-          image: product.imagens.length > 0 ? product.imagens[0] : "", 
+          image: product.imagens.length > 0 ? product.imagens[1] : "", 
           name: product.nome,
           price: product.preco,
           priceDiscount: product.preco_promocao,
-          link: `/product/${product.id}`,
+          link: `/product`,
         }));
         setProducts(limitedProducts);
       })
