@@ -176,17 +176,17 @@ const up = async () => {
       console.log("Produto 'Camiseta Kappa Shangai Masculina' já existe.");
     }
 
-    // Verifica se já existe o produto 'Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina'
+    // Verifica se já existe o produto 'Camiseta Nord Masculina Manga Hering'
     produto = await Produto.findOne({
       where: {
-        nome: "Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina",
+        nome: "Camiseta Nord Masculina Manga Hering",
       },
     });
 
     if (!produto) {
-      // Insere o produto 'Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina'
+      // Insere o produto 'Camiseta Nord Masculina Manga Hering'
       produto = await Produto.create({
-        nome: "Camiseta Esportiva Hering Sports Com Proteção UV 50+ Masculina",
+        nome: "Camiseta Nord Masculina Manga Hering",
         descricao:
           "Camiseta esportiva elaborada em poliamida e elastano que garante toque gelado, além de proteção uv 50+ que não sai na lavagem. Possui modelagem regular e estampa refletiva no peito. Mais elasticidade e movimento para sua rotina de treinos. Detalhes da peça: - Em poliamida - Modelagem regular - Manga curta - Gola redonda - Proteção UV 50+ - Toque gelado.",
         preco: 84.99,
@@ -204,15 +204,23 @@ const up = async () => {
       });
 
       // Insere as cores do produto
-      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" }]);
+      await ProdutoCor.bulkCreate([{ produto_id: produto.id, cor: "Preto" },
+        { produto_id: produto.id, cor: "Branco" },
+      ]);
 
       // Insere as imagens do produto
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
           url_imagem:
-            "https://outletespacohering.vtexassets.com/arquivos/ids/3524982/SN81-N10SN-C1.jpg?v=638495155386470000",
+            "https://imgcentauro-a.akamaihd.net/768x768/97745602.jpg",
         },
+        {
+          produto_id: produto.id,
+          url_imagem:
+            "https://imgcentauro-a.akamaihd.net/768x768/97745605.jpg",
+        },
+        
       ]);
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
