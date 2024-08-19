@@ -10,23 +10,22 @@ export const seedController = async () => {
   try {
     console.log("Iniciando o processo de seeding...");
 
-    await seedCamiseta.up();   // Executa o seed da categoria 'Camisetas'
+    await seedCamiseta.up(); // Executa o seed da categoria 'Camisetas'
     console.log("Seed de camisetas concluído.");
 
-    await seedTenis.up();      // Executa o seed da categoria 'Tênis'
+    await seedTenis.up(); // Executa o seed da categoria 'Tênis'
     console.log("Seed de tênis concluído.");
 
-    await seedCalca.up();      // Executa o seed da categoria 'Calças'
+    await seedCalca.up(); // Executa o seed da categoria 'Calças'
     console.log("Seed de calças concluído.");
 
-    await seedHeadphone.up();  // Executa o seed da categoria 'Headphones'
+    await seedHeadphone.up(); // Executa o seed da categoria 'Headphones'
     console.log("Seed de headphones concluído.");
 
-    await seedBone.up();       // Executa o seed da categoria 'Bonés'
+    await seedBone.up(); // Executa o seed da categoria 'Bonés'
     console.log("Seed de bonés concluído.");
 
     console.log("Seeding de todas as categorias concluído com sucesso!");
-
   } catch (error) {
     console.error("Erro ao executar o seeding:", error);
   }
