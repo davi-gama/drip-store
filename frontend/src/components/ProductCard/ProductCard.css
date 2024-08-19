@@ -31,6 +31,12 @@
   text-decoration: none;
 }
 
+.categoria{
+  color: var(--light-gray);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
 .titulo {
   color: var(--dark-gray-2);
   margin-bottom: 8px;
@@ -57,3 +63,4 @@
   color: var(--dark-gray);
   font-weight: 700;
 }
+
