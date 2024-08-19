@@ -151,9 +151,7 @@ const up = async () => {
         "Produto 'Calça Masculina ASICS Fleece Training', cores e imagens inseridos com sucesso."
       );
     } else {
-      console.log(
-        "Produto 'Calça Masculina ASICS Fleece Training' já existe."
-      );
+      console.log("Produto 'Calça Masculina ASICS Fleece Training' já existe.");
     }
 
     // Inserção do produto 'Calça Legging Feminina Oxer Campeão Slim'
@@ -249,9 +247,7 @@ const up = async () => {
         "Produto 'Calça Jogger Masculina CBF Future Pro', cores e imagens inseridos com sucesso."
       );
     } else {
-      console.log(
-        "Produto 'Calça Jogger Masculina CBF Future Pro' já existe."
-      );
+      console.log("Produto 'Calça Jogger Masculina CBF Future Pro' já existe.");
     }
   } catch (error) {
     console.error("Erro ao inserir dados iniciais:", error);

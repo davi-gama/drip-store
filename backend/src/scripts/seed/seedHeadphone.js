@@ -18,14 +18,14 @@ const up = async () => {
     // Inserção dos Headphone
     // Adicione a lógica de inserção de produtos, cores e imagens aqui
     let produto = await Produto.findOne({
-      where: { nome: "Fone De Ouvido JBL, Tune 520bt" },
+      where: { nome: "Fone De Ouvido JBL Tune 520BT" },
     });
     if (!produto) {
       // Insere o produto 'Fone De Ouvido JBL, Tune 520bt'
       produto = await Produto.create({
-        nome: "Fone De Ouvido JBL, Tune 520bt",
+        nome: "Fone De Ouvido JBL Tune 520BT",
         descricao:
-          "som jbl pure bass,possuem o renomado som jbl pure bass, que pode ser encontrado nas mais famosas casas de show ao redor do mundo. Transmita sem fio som de alta qualidade de seu smartphone sem cabos bagunçados com a ajuda da mais recente tecnologia bluetooth.",
+          "som JBL pure bass, possuem o renomado som JBL pure bass, que pode ser encontrado nas mais famosas casas de show ao redor do mundo. Transmita sem fio som de alta qualidade de seu smartphone sem cabos bagunçados com a ajuda da mais recente tecnologia bluetooth.",
         preco: 299.99,
         preco_promocao: 249.99,
         label_promocao: true,
@@ -59,16 +59,16 @@ const up = async () => {
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
     } else {
-      console.log("Produto 'Fone De Ouvido JBL, Tune 520bt' já existe.");
+      console.log("Produto 'Fone De Ouvido JBL Tune 520BT' já existe.");
     }
 
     produto = await Produto.findOne({
-      where: { nome: "Headphone Qcy Melobuds H2" },
+      where: { nome: "Headphone QCY Melobuds H2" },
     });
     if (!produto) {
       // Insere o produto 'Headphone Qcy Melobuds H2'
       produto = await Produto.create({
-        nome: "Headphone Qcy Melobuds H2",
+        nome: "Headphone QCY Melobuds H2",
         descricao:
           "Som surround 3d: o driver dinâmico magnético forte de ndfe de 40 mm oferece um grande palco de som, apenas mergulhe em sua música favorita o tempo todo. O qcy h2 é ótimo para ouvir música, jogar e assistir filmes, possui drivers poderosos de 40 mm que produzem um som excelente. com bons graves e seu modo de baixa latência, garante que o som não fique atrás da imagem. Ele também possui efeitos sonoros espaciais 3d.",
         preco: 199.99,
@@ -104,7 +104,7 @@ const up = async () => {
 
       console.log("Produto, cores e imagens inseridos com sucesso.");
     } else {
-      console.log("Produto 'Headphone Qcy Melobuds H2' já existe.");
+      console.log("Produto 'Headphone QCY Melobuds H2' já existe.");
     }
 
     produto = await Produto.findOne({
@@ -137,8 +137,7 @@ const up = async () => {
       await ProdutoImagem.bulkCreate([
         {
           produto_id: produto.id,
-          url_imagem:
-            "https://imgcentauro-a.akamaihd.net/768x768/M0ILOW02.jpg",
+          url_imagem: "https://imgcentauro-a.akamaihd.net/768x768/M0ILOW02.jpg",
         },
         {
           produto_id: produto.id,
