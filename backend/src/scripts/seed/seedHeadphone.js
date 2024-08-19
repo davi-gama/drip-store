@@ -108,18 +108,18 @@ const up = async () => {
     }
 
     produto = await Produto.findOne({
-      where: { nome: "Fone De Ouvido Headset Qcy H4 Anc" },
+      where: { nome: "Headset Business Multilaser P2 PH294" },
     });
     if (!produto) {
-      // Insere o produto 'Fone De Ouvido Headset Qcy H4 Anc'
+      // Insere o produto 'Headset Business Multilaser P2 PH294'
       produto = await Produto.create({
-        nome: "Fone De Ouvido Headset Qcy H4 Anc",
+        nome: "Headset Business Multilaser P2 PH294",
         descricao:
-          " Headset Qcy H4 Anc Adaptativo Bluetooth 5.2 Multiponto 70h. Anc Com 4 Níveis: Escolha Os Modos Disponíveis De Acordo Com O Lugar Em Que Você Estiver, Ajustando O Balanço Do Cancelamento De Ruídos De Acordo Com O Som Ambiente Em Até 43 Db.",
-        preco: 338.0,
-        preco_promocao: 59.99,
+          " Headset Business Multilaser P2 PH294. Anc Com 4 Níveis: Escolha Os Modos Disponíveis De Acordo Com O Lugar Em Que Você Estiver, Ajustando O Balanço Do Cancelamento De Ruídos De Acordo Com O Som Ambiente Em Até 43 Db.",
+        preco: 129.99,
+        preco_promocao: 99.99,
         label_promocao: true,
-        marca: "QCY",
+        marca: "Multilaser",
         genero: "masculino",
         numero_vendas: 0,
         rating: 0.0,
@@ -138,12 +138,12 @@ const up = async () => {
         {
           produto_id: produto.id,
           url_imagem:
-            "https://images.kabum.com.br/produtos/fotos/sync_mirakl/541221/Headphone-Qcy-Melobuds-H2-Bluetooth-Multiponto-Preto_1716302077_gg.jpg",
+            "https://imgcentauro-a.akamaihd.net/768x768/M0ILOW02.jpg",
         },
         {
           produto_id: produto.id,
           url_imagem:
-            "https://images.kabum.com.br/produtos/fotos/sync_mirakl/541221/Headphone-Qcy-Melobuds-H2-Bluetooth-Multiponto-Preto_1716302096_gg.jpg",
+            "https://imgcentauro-a.akamaihd.net/768x768/M0ILOW02A3.jpg",
         },
       ]);
 
