@@ -3,7 +3,7 @@ Projeto de uma aplicação web de e-commerce, realizado durante o curso Geraçã
 
 --- 
 Tecnologias utilizadas: 
-- Front-end: React, Axios, Swiper (carousel), Text Mask (máscara de inputs);
+- Front-end: React.js, Axios, Swiper (carousel), Text Mask (máscara de inputs);
 - Back-end: Node.js, Sequelize, Express, Bcrypt, Dotenv, CORS.
 
 ---
