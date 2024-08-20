@@ -11,8 +11,8 @@ Feito por:
 
 --- 
 Tecnologias utilizadas: 
-- **Front-end**: JavaScript, React.js, Axios, Swiper (carousel), Text Mask (máscara de inputs), HTML, CSS
-- **Back-end**: Node.js, Sequelize, Express, Bcrypt, Dotenv, CORS
+- **Front-end:** JavaScript, React.js, Axios, Swiper (carousel), Text Mask (máscara de inputs), HTML, CSS
+- **Back-end:** Node.js, Sequelize, Express, Bcrypt, Dotenv, CORS
 
 ---
 Links úteis:
