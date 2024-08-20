@@ -10,7 +10,7 @@ const up = async () => {
     if (!categoria) {
       // Insere a categoria 'Camisetas'
       categoria = await Categoria.create({
-        nome: "Camisetas",
+        nome: "Camiseta",
         descricao: "Camisetas esportivas e casuais.",
       });
     }

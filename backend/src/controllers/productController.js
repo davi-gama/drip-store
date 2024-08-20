@@ -24,7 +24,7 @@ export const getProducts = async (req, res) => {
         GROUP_CONCAT(DISTINCT pi.url_imagem ORDER BY pi.url_imagem ASC) as imagens
       FROM produto p
       LEFT JOIN produto_cor pc ON p.id = pc.produto_id
-      LEFT JOIN produto_imagem pi ON p.id = pi.produto_id
+      LEFT JOIN produto_imagem pi ON p.id = pi.produto_idz
       GROUP BY p.id;
     `);
 
@@ -52,28 +52,30 @@ export const getProductById = async (req, res) => {
     const [rows] = await configDB.query(
       `
       SELECT 
-        p.id as produto_id, 
-        p.nome, 
-        p.descricao, 
-        p.preco, 
-        p.preco_promocao, 
-        p.label_promocao, 
-        p.marca, 
-        p.genero, 
-        p.numero_vendas, 
-        p.rating, 
-        p.numero_avaliacoes, 
-        p.referencia, 
-        p.finalidade, 
-        p.estoque, 
-        p.categoria_id,
-        GROUP_CONCAT(DISTINCT pc.cor ORDER BY pc.cor ASC) as cores,
-        GROUP_CONCAT(DISTINCT pi.url_imagem ORDER BY pi.url_imagem ASC) as imagens
+      p.id AS produto_id, 
+      p.nome, 
+      p.descricao, 
+      p.preco, 
+      p.preco_promocao, 
+      p.label_promocao, 
+      p.marca, 
+      p.genero, 
+      p.numero_vendas, 
+      p.rating, 
+      p.numero_avaliacoes, 
+      p.referencia, 
+      p.finalidade, 
+      p.estoque, 
+      p.categoria_id,
+      c.nome AS nome_categoria,
+      GROUP_CONCAT(DISTINCT pc.cor ORDER BY pc.cor ASC) AS cores,
+      GROUP_CONCAT(DISTINCT pi.url_imagem ORDER BY pi.url_imagem ASC) AS imagens
       FROM produto p
       LEFT JOIN produto_cor pc ON p.id = pc.produto_id
       LEFT JOIN produto_imagem pi ON p.id = pi.produto_id
+      LEFT JOIN categoria c ON p.categoria_id = c.id
       WHERE p.id = ?
-      GROUP BY p.id;
+      GROUP BY p.id, c.nome;
     `,
       { replacements: [id] }
     );
