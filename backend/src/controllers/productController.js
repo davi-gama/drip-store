@@ -24,7 +24,7 @@ export const getProducts = async (req, res) => {
         GROUP_CONCAT(DISTINCT pi.url_imagem ORDER BY pi.url_imagem ASC) as imagens
       FROM produto p
       LEFT JOIN produto_cor pc ON p.id = pc.produto_id
-      LEFT JOIN produto_imagem pi ON p.id = pi.produto_idz
+      LEFT JOIN produto_imagem pi ON p.id = pi.produto_id
       GROUP BY p.id;
     `);
 
