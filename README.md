@@ -1,5 +1,5 @@
 # Projeto Drip Store 👟 - Digital College
-Projeto de uma aplicação web de e-commerce, realizado durante o curso Geração Tech de Desenvolvimento Web Full Stack na Digital College, em parceria com o Governo do Estado do Ceará e o Instituto Euvaldo Lodi (IEL).
+Projeto de uma aplicação web de e-commerce como parte do curso Geração Tech de Desenvolvimento Web Full Stack oferecido pelo Instituto Euvaldo Lodi (IEL) e o Governo do Estado do Ceará, em parceria com a Digital College.
 
 --- 
 Tecnologias utilizadas: 
