@@ -10,8 +10,8 @@ const up = async () => {
     if (!categoria) {
       // Insere a categoria 'Tenis'
       categoria = await Categoria.create({
-        nome: "Tênis",
-        descricao: "Tênis esportivos e casuais.",
+        nome: "Tenis",
+        descricao: "Tenis esportivos e casuais.",
       });
     }
 

@@ -52,7 +52,6 @@ export function HomePage() {
             name: product.nome,
             price: product.preco,
             priceDiscount: product.preco_promocao,
-            category: product.nome_categoria,
             link: `/product`,
           };
         });

@@ -12,7 +12,6 @@ export function ProductList({ products }) {
           link={product.link}
           price={product.price}
           priceDiscount={product.priceDiscount}
-          category={product.category}
         />
       ))}
     </div>
